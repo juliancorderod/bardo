@@ -461,7 +461,7 @@ public class NewPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         inSongArea = true;
-        Debug.Log("in");
+        //        Debug.Log("in");
     }
 
     private void OnTriggerExit(Collider other)
