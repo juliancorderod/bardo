@@ -48,7 +48,7 @@ public class player : MonoBehaviour
         //if (cam.transform.localEulerAngles.x < 280 && cam.transform.localEulerAngles.x > 80)
         //    rotCam = 0;
         //else
-        rotCam = mouseY + (forceDown * Time.deltaTime);
+        rotCam = mouseY;// + (forceDown * Time.deltaTime);
 
 
         upDownLook += rotCam;
@@ -74,8 +74,8 @@ public class player : MonoBehaviour
             forceDown += Time.deltaTime;
         }
 
-        if (upDownLook > angleTrigTimer)
-            timToSwitch += Time.deltaTime;
+        //if (upDownLook > angleTrigTimer)
+        //timToSwitch += Time.deltaTime;
 
         if (timToSwitch > secToSwitch)
         {
