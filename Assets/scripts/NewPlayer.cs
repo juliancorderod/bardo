@@ -12,7 +12,7 @@ public class NewPlayer : MonoBehaviour
     Vector3 acceleration, speed;
 
     public float camHeightUp, camHeightDown, camHeightFloor, descendSpeed;
-    float groundHeight, yPos, skyLerp = 1, descendLerp;
+    float groundHeight, yPos, skyLerp = 1, descendLerp, normalCamHeightFloor;
 
     Vector3 camRotJuice;
     public float camRotReturnSpeed, maxCamRotSpeed, camRotLerp, maxRotTotal;
@@ -51,6 +51,7 @@ public class NewPlayer : MonoBehaviour
     //Vector3 oldMousePos, newMousePos;
 
     public bool inSongArea;
+    public GameObject cloudSky;
 
     // Use this for initialization
     void Start()
@@ -64,7 +65,7 @@ public class NewPlayer : MonoBehaviour
         onIOS = true;
 #endif
 
-
+        normalCamHeightFloor = camHeightFloor;
     }
 
     void Update()
@@ -241,12 +242,31 @@ public class NewPlayer : MonoBehaviour
         Physics.Raycast(groundCheckRay, out hit, 1000f, groundLayer);
 
         if (hit.collider != null)
+        {
             groundHeight = hit.point.y;
+
+            if (hit.collider.name == "nubeGround")
+            {
+                camHeightFloor = 100;
+                cloudSky.SetActive(true);
+            }
+            else
+            {
+                camHeightFloor = normalCamHeightFloor;
+                cloudSky.SetActive(false);
+            }
+        }
         else
         {
             groundHeight = 0;
             Debug.Log("no ground!");
+
         }
+
+
+
+
+
 
         //descension: QUE EL BAJAR Y SUBIR SE SIENTA MUCHO MEJORRRRR
         if (descending)
@@ -451,7 +471,7 @@ public class NewPlayer : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, transform.position.y, 475);
 
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -520, 175),
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -520, 275),
                                          transform.position.y,
                                          Mathf.Clamp(transform.position.z, -60, 420));
     }
@@ -462,12 +482,14 @@ public class NewPlayer : MonoBehaviour
     {
         inSongArea = true;
         //        Debug.Log("in");
+        if (other.name == "couldSky")
+            Camera.main.clearFlags = CameraClearFlags.Color;
     }
 
     private void OnTriggerExit(Collider other)
     {
         inSongArea = false;
-
+        Camera.main.clearFlags = CameraClearFlags.Skybox;
     }
 
 }
