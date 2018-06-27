@@ -9,6 +9,7 @@ public class NewPlayer : MonoBehaviour
     float mouseX, mouseY;
 
     public float moveSpeed, slowDownSpeed, maxSpeed;
+    float slowDownSpeedOriginal;
     Vector3 acceleration, speed;
 
     public float camHeightUp, camHeightDown, camHeightFloor, descendSpeed;
@@ -50,8 +51,14 @@ public class NewPlayer : MonoBehaviour
 
     //Vector3 oldMousePos, newMousePos;
 
-    public bool inSongArea;
+    bool inSongArea, inSong;
     public GameObject cloudSky;
+
+    Color originalFogCol;
+    float originalFogDens;
+
+    public songManager songMan;
+    string songAreaName;
 
     // Use this for initialization
     void Start()
@@ -66,6 +73,10 @@ public class NewPlayer : MonoBehaviour
 #endif
 
         normalCamHeightFloor = camHeightFloor;
+        slowDownSpeedOriginal = slowDownSpeed;
+
+        originalFogCol = RenderSettings.fogColor;
+        originalFogDens = RenderSettings.fogDensity;
     }
 
     void Update()
@@ -136,11 +147,21 @@ public class NewPlayer : MonoBehaviour
 
             if (onFloor)
             {
-                ascending = true;
-                onFloor = false;
+                if (!inSong)
+                {
+                    ascending = true;
+                    onFloor = false;
+                }
+                else
+                {
+                    //poner un 'are you sure'
+                    songMan.stopSong();
+                    inSong = false;
+                }
             }
             clicked = false;
         }
+
 
 
     }
@@ -200,18 +221,57 @@ public class NewPlayer : MonoBehaviour
         //Debug.Log(Input.GetAxis("Mouse X") + "," + Input.GetAxis("Mouse Y"));
 
 
-
-        //MUSIC DESCENCION STUFF
-        overWorldSong.volume = descendLerp;
-        ambientAudio.volume = 1 - descendLerp;
-
-
-
-
         if (inSongArea)
-            Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);
+        {
+            if (!inSong)
+            {
+                Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);
+
+                if (Text.color.a > 0.9f)
+                {
+                    //ADJUST FOR IOS
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        songMan.startSong(songAreaName);
+                        inSong = true;
+                    }
+                }
+            }
+            else
+            {
+                Text.color -= new Color(0, 0, 0, Time.deltaTime * 1f);
+
+                //if (Input.GetKeyDown(KeyCode.Space))
+                //{
+                //    //poner un 'are you sure'
+                //    songMan.stopSong();
+                //    inSong = false;
+                //}
+            }
+
+        }
         else
+        {
             Text.color -= new Color(0, 0, 0, Time.deltaTime * 1f);
+        }
+
+
+        if (!inSong)
+        {
+            overWorldSong.volume = descendLerp;
+            ambientAudio.volume = 1 - descendLerp;
+        }
+        else
+        {
+            if (ambientAudio.volume > 0)
+                ambientAudio.volume -= Time.deltaTime;
+            overWorldSong.volume = 0;
+        }
+
+
+
+
+
     }
 
 
@@ -247,7 +307,7 @@ public class NewPlayer : MonoBehaviour
 
             if (hit.collider.name == "nubeGround")
             {
-                camHeightFloor = 100;
+                camHeightFloor = 80;
                 cloudSky.SetActive(true);
             }
             else
@@ -277,7 +337,13 @@ public class NewPlayer : MonoBehaviour
 
             ascending = false;
 
+            slowDownSpeed = 2f;
+
         }
+        else
+            slowDownSpeed = slowDownSpeedOriginal;
+
+
         if (ascending)
         {
 
@@ -471,7 +537,7 @@ public class NewPlayer : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, transform.position.y, 475);
 
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -520, 275),
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -520, 150),
                                          transform.position.y,
                                          Mathf.Clamp(transform.position.z, -60, 420));
     }
@@ -481,15 +547,25 @@ public class NewPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         inSongArea = true;
-        //        Debug.Log("in");
-        if (other.name == "couldSky")
+        songAreaName = other.name;
+        Text.text = "escuchar " + other.name;
+
+        if (other.tag == "cloudSky")
+        {
             Camera.main.clearFlags = CameraClearFlags.Color;
+            RenderSettings.fogColor = Color.white;
+            RenderSettings.fogDensity = 0.01f;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         inSongArea = false;
+        songAreaName = "";
+
         Camera.main.clearFlags = CameraClearFlags.Skybox;
+        RenderSettings.fogColor = originalFogCol;
+        RenderSettings.fogDensity = originalFogDens;
     }
 
 }

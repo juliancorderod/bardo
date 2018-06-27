@@ -17,7 +17,7 @@ public class CloudSky : MonoBehaviour
     void Update()
     {
 
-        transform.position = new Vector3(player.position.x, 135, player.position.z);
+        transform.position = new Vector3(player.position.x, 235, player.position.z);
 
     }
 }
