@@ -8,6 +8,7 @@ public class cloudBuilder : MonoBehaviour
     public GameObject cloud;
     public float maxClouds, distanceFromCenter;
 
+
     // Use this for initialization
     void Start()
     {

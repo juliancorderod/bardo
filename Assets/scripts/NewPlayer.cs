@@ -60,6 +60,9 @@ public class NewPlayer : MonoBehaviour
     public songManager songMan;
     string songAreaName;
 
+    public Vector3 destinationPoint;
+    public Transform muerteSubitaTrigger, futuroTrigger;
+
     // Use this for initialization
     void Start()
     {
@@ -77,6 +80,8 @@ public class NewPlayer : MonoBehaviour
 
         originalFogCol = RenderSettings.fogColor;
         originalFogDens = RenderSettings.fogDensity;
+
+
     }
 
     void Update()
@@ -337,11 +342,11 @@ public class NewPlayer : MonoBehaviour
 
             ascending = false;
 
-            slowDownSpeed = 2f;
+            //slowDownSpeed = 2f;//lerp this
 
         }
-        else
-            slowDownSpeed = slowDownSpeedOriginal;
+        //else
+        //slowDownSpeed = slowDownSpeedOriginal;
 
 
         if (ascending)
@@ -357,10 +362,28 @@ public class NewPlayer : MonoBehaviour
 
         descendLerp = Mathf.Clamp01(descendLerp);
 
-        skyLerp = Mathf.Sin(Time.time * 0.2f) * 0.5f + 0.5f;
-        yPos = Mathf.Lerp(camHeightFloor, Mathf.Lerp(camHeightDown, camHeightUp, skyLerp), descendLerp) + groundHeight;
+        if (descendLerp > 0.99f && !descending)
+            descendLerp = 1;
 
-        transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+        skyLerp = Mathf.Sin(Time.time * 0.2f) * 0.5f + 0.5f;
+        yPos = Mathf.Lerp(destinationPoint.y, Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight, descendLerp);
+
+        slowDownSpeed = Mathf.Lerp(1f, slowDownSpeedOriginal, descendLerp);
+
+
+
+        if (!ascending)
+        {
+            transform.position = Vector3.Lerp(destinationPoint, new Vector3(transform.position.x, yPos, transform.position.z), descendLerp);
+            //yPos = Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight;
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+            //yPos = Mathf.Lerp(destinationPoint.y, Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight, descendLerp);
+        }
+
+
         camHolder.localEulerAngles = new Vector3(Mathf.LerpAngle(0, 90, descendLerp), 0, 0);
 
 
@@ -467,6 +490,9 @@ public class NewPlayer : MonoBehaviour
                 if (!ambientAudio.isPlaying)
                     ambientAudio.Play();
 
+                destinationPoint = muerteSubitaTrigger.position;
+                //                Debug.Log("set muerte subita");
+
                 break;
 
             case Location.WEIRDROOM:
@@ -482,6 +508,8 @@ public class NewPlayer : MonoBehaviour
                 ambientAudio.clip = wierdRoomSound;
                 if (!ambientAudio.isPlaying)
                     ambientAudio.Play();
+
+                destinationPoint = futuroTrigger.position;
 
                 break;
         }
