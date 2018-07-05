@@ -16,10 +16,14 @@ public class CityBuilder : MonoBehaviour
 
     public NewPlayer p;
 
+    Vector3 meshSize;
+
+
 
     // Use this for initialization
     void Start()
     {
+        meshSize = building.transform.GetChild(0).transform.GetChild(3).GetComponent<Renderer>().bounds.size;
 
         for (int x = 0; x < maxBuildingsSide; x++)
         {
@@ -36,6 +40,7 @@ public class CityBuilder : MonoBehaviour
                 //spaceBetweenBuildingsY = 0;
 
                 bool dontDestroy = false;
+                bool destroyed = false;
 
                 sizeZ = Random.Range(9.5f, 12.0f);
                 sizeX = Random.Range(9.5f, 12.0f);
@@ -53,24 +58,26 @@ public class CityBuilder : MonoBehaviour
 
 
                 GameObject g = Instantiate(building, transform);
-                g.transform.localPosition = new Vector3(x * 10, -5, z * 10);
+                g.transform.localPosition = new Vector3(x * meshSize.x, 0, z * meshSize.z);
 
 
 
-                g.transform.localScale = new Vector3(sizeX, sizeY, sizeZ);
+
+                //g.transform.localScale = new Vector3(sizeX, sizeY, sizeZ);
 
 
-                //if (g.transform.localPosition.x < 150 && g.transform.localPosition.z < 120)
-                //  g.transform.localScale = new Vector3(g.transform.localScale.x, g.transform.localScale.y * 4, g.transform.localScale.z);
+
+
+
 
 
                 g.transform.localPosition -= new Vector3((maxBuildingsSide * 10) / 2, 1, (maxBuildingsSide * 10) / 2);//esto les centra
 
                 if (x % 5 == 0 || z % 4 == 0)
                 {
-                    g.transform.localScale = new Vector3(10, 1.1f, 10);
-                    g.transform.localPosition += new Vector3(0, 1, 0);
-                    g.GetComponent<MeshRenderer>().material.color = Color.black;
+                    g.transform.localScale = new Vector3(1, 0.1f, 1);
+                    g.transform.localPosition += new Vector3(0, 0, 0);
+                    //g.GetComponent<MeshRenderer>().material.color = Color.black;
                     dontDestroy = true;
 
                 }
@@ -82,9 +89,10 @@ public class CityBuilder : MonoBehaviour
                 {
                     if (z % 4 == 2)
                     {
-                        g.transform.localScale = new Vector3(23, 1.1f, 15);
+                        g.transform.localScale = new Vector3(2.3f, 0.1f, 1.5f);
                         g.transform.localPosition += new Vector3(5, 1, 0);
-                        g.GetComponent<MeshRenderer>().material.color = Color.red;
+                        //g.GetComponent<MeshRenderer>().material.color = Color.red;
+                        dontDestroy = true;
                     }
                 }
                 if (!dontDestroy)//poner arbolitos o huevadas en vez de solo destruir
@@ -92,34 +100,51 @@ public class CityBuilder : MonoBehaviour
                     if (x % 10 == 3 || x % 10 == 8)
                     {
                         if (z % 4 == 2)
+                        {
                             Destroy(g);
+                            destroyed = true;
+                        }
                     }
 
                     if (x < maxBuildingsSide / 3)
                     {
                         if (Random.Range(0, maxBuildingsSide / 3) > x)
+                        {
                             Destroy(g);
+                            destroyed = true;
+                        }
                     }
 
                     if (x > (maxBuildingsSide * 2) / 3)
                     {
                         if (Random.Range((maxBuildingsSide * 2) / 3, maxBuildingsSide) < x)
+                        {
                             Destroy(g);
+                            destroyed = true;
+
+                        }
                     }
                     if (z < maxBuildingsSide / 3)
                     {
                         if (Random.Range(0, maxBuildingsSide / 3) > z)
+                        {
                             Destroy(g);
+                            destroyed = true;
+                        }
                     }
 
                     if (z > (maxBuildingsSide * 2) / 3)
                     {
                         if (Random.Range((maxBuildingsSide * 2) / 3, maxBuildingsSide) < z)
+                        {
                             Destroy(g);
+                            destroyed = true;
+
+                        }
                     }
                 }
 
-                if (!placedCentralBuilding && g != null)
+                if (!placedCentralBuilding && !destroyed)
                 {
                     if (x > maxBuildingsSide / 3f && x < (maxBuildingsSide * 2) / 3 &&
                         z > maxBuildingsSide / 3f && z < (maxBuildingsSide * 2) / 3)
@@ -131,6 +156,7 @@ public class CityBuilder : MonoBehaviour
 
 
                             Destroy(g);
+                            destroyed = true;
 
                             GameObject c = Instantiate(centralBuilding, transform);
                             c.name = "centralBuilding";
@@ -145,6 +171,28 @@ public class CityBuilder : MonoBehaviour
 
                     }
                 }
+
+                if (!destroyed && !dontDestroy)
+                {
+                    if (sizeY > 35)
+                    {
+                        GameObject gg = Instantiate(building, transform);
+                        gg.transform.localPosition = new Vector3(g.transform.localPosition.x, meshSize.y, g.transform.localPosition.z);
+                    }
+                    if (sizeY > 55)
+                    {
+                        GameObject ggg = Instantiate(building, transform);
+                        ggg.transform.localPosition = new Vector3(g.transform.localPosition.x, meshSize.y * 2, g.transform.localPosition.z);
+
+                    }
+                    if (sizeY > 75)
+                    {
+                        GameObject gggg = Instantiate(building, transform);
+                        gggg.transform.localPosition = new Vector3(g.transform.localPosition.x, meshSize.y * 3, g.transform.localPosition.z);
+
+                    }
+                }
+
 
             }
 

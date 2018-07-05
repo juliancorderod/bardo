@@ -7,7 +7,7 @@ public class MuerteSubitaManager : MonoBehaviour
 
     AudioSpectrum spectrum;
 
-    public MeshRenderer[] objects;
+    public MeshRenderer[] lights;
 
     public float levelScale, sphereRadius;
 
@@ -23,14 +23,14 @@ public class MuerteSubitaManager : MonoBehaviour
 
         Collider[] windows = Physics.OverlapSphere(transform.position, sphereRadius, windowsLayer);
 
-        objects = new MeshRenderer[windows.Length];
+        lights = new MeshRenderer[windows.Length];
 
         for (int i = 0; i < windows.Length; i++)
         {
 
-            objects[i] = windows[i].GetComponent<MeshRenderer>();
+            lights[i] = windows[i].GetComponent<MeshRenderer>();
 
-            windows[i].GetComponent<MeshRenderer>().material.color = Color.black;
+            lights[i].material.color = Color.black;
         }
 
     }
@@ -40,10 +40,11 @@ public class MuerteSubitaManager : MonoBehaviour
     {
         if (player.inSong)
         {
-            for (int i = 0; i < objects.Length; i++)
+            for (int i = 0; i < lights.Length; i++)
             {
-                if (objects[i] != null)
-                    objects[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * levelScale);
+                if (lights[i] != null)
+                    lights[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * levelScale);
+                //lights[i].intensity = spectrum.MeanLevels[i % 10] * levelScale;
 
                 //            Debug.Log(i + "|||" + spectrum.MeanLevels[i]);
             }

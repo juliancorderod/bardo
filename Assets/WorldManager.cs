@@ -22,7 +22,7 @@ public class WorldManager : MonoBehaviour
         if (player.position.x > xPos + 2 || player.position.x < xPos - 2 ||
            player.position.z > zPos + 2 || player.position.z < zPos - 2)
         {
-            Debug.Log("kas sucks");
+            //            Debug.Log("kas sucks");
             for (int i = 0; i < deactivateObj.Count; i++)
             {
                 if (deactivateObj[i] != null)
@@ -40,10 +40,12 @@ public class WorldManager : MonoBehaviour
                     i--;
                 }
             }
+
+            xPos = player.position.x;
+            zPos = player.position.z;
         }
 
 
-        xPos = player.position.x;
-        zPos = player.position.z;
+
     }
 }
