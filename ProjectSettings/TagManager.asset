@@ -8,6 +8,8 @@ TagManager:
   - city
   - weirdRoom
   - cloudSky
+  - songMan
+  - worldMan
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - 
   - ground
-  - 
+  - windows
   - 
   - 
   - 

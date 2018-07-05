@@ -51,7 +51,8 @@ public class NewPlayer : MonoBehaviour
 
     //Vector3 oldMousePos, newMousePos;
 
-    bool inSongArea, inSong;
+    bool inSongArea;
+    public bool inSong;
     public GameObject cloudSky;
 
     Color originalFogCol;
@@ -370,17 +371,18 @@ public class NewPlayer : MonoBehaviour
 
         slowDownSpeed = Mathf.Lerp(1f, slowDownSpeedOriginal, descendLerp);
 
+        //        Debug.Log(descendLerp);
 
-
-        if (!ascending)
-        {
-            transform.position = Vector3.Lerp(destinationPoint, new Vector3(transform.position.x, yPos, transform.position.z), descendLerp);
-            //yPos = Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight;
-        }
-        else
+        if (ascending)
         {
             transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
             //yPos = Mathf.Lerp(destinationPoint.y, Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight, descendLerp);
+
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(destinationPoint, new Vector3(transform.position.x, yPos, transform.position.z), descendLerp);
+            //yPos = Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight;
         }
 
 
@@ -491,7 +493,10 @@ public class NewPlayer : MonoBehaviour
                     ambientAudio.Play();
 
                 destinationPoint = muerteSubitaTrigger.position;
-                //                Debug.Log("set muerte subita");
+
+
+                muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;
+
 
                 break;
 
