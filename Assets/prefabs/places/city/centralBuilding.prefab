@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67806cc4dba2a4d269a410ea172b2e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScale: 11.16
+  lights: []
+  levelScale: 50
   sphereRadius: 20
   windowsLayer:
     serializedVersion: 2
