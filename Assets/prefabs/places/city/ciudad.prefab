@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc0e9e99dffa4f7595086a8f99ece0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 1407681264408972, guid: b7c87bf0e2f1647bbb51cb78c9efb76b, type: 2}
+  building: {fileID: 1691617332534928, guid: b7c87bf0e2f1647bbb51cb78c9efb76b, type: 2}
   centralBuilding: {fileID: 1407681264408972, guid: 50762698ee602496692ae3f1c2366ac6,
     type: 2}
   maxBuildingsSide: 30
