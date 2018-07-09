@@ -213,9 +213,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4580013754868596}
   - component: {fileID: 135853202893697742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: futuro
-  m_TagString: Untagged
+  m_TagString: songTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

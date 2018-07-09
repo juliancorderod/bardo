@@ -10,6 +10,7 @@ TagManager:
   - cloudSky
   - songMan
   - worldMan
+  - songTrigger
   layers:
   - Default
   - TransparentFX

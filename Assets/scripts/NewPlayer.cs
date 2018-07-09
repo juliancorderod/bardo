@@ -21,6 +21,7 @@ public class NewPlayer : MonoBehaviour
     RaycastHit hit;
     int groundLayer = 1 << 8;
 
+
     public Light mountainLight, cityLight, floorLight;
     float mountainLightIntensity, cityLightIntensity;
     enum Location
@@ -63,6 +64,8 @@ public class NewPlayer : MonoBehaviour
 
     public Vector3 destinationPoint;
     public Transform muerteSubitaTrigger, futuroTrigger;
+
+    public LayerMask songTriggerLayer;
 
     // Use this for initialization
     void Start()
@@ -439,7 +442,7 @@ public class NewPlayer : MonoBehaviour
 
 
         //------------------------------------------ WRAP AROUND MAP ------------------------------------------
-        wrapAround();
+        //wrapAround();
 
         //------------------------------------------ LOCATION MANAGER ------------------------------------------
         if (hit.collider != null)
@@ -579,26 +582,35 @@ public class NewPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        inSongArea = true;
-        songAreaName = other.name;
-        Text.text = "escuchar " + other.name;
 
-        if (other.tag == "cloudSky")
+        if (other.gameObject.tag == "songTrigger")
         {
-            Camera.main.clearFlags = CameraClearFlags.Color;
-            RenderSettings.fogColor = Color.white;
-            RenderSettings.fogDensity = 0.01f;
+
+            inSongArea = true;
+            songAreaName = other.name;
+            Text.text = "escuchar " + other.name;
+
+
+            if (other.tag == "brisas")
+            {
+                Camera.main.clearFlags = CameraClearFlags.Color;
+                RenderSettings.fogColor = Color.white;
+                RenderSettings.fogDensity = 0.01f;
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inSongArea = false;
-        songAreaName = "";
+        if (other.gameObject.tag == "songTrigger")
+        {
+            inSongArea = false;
+            songAreaName = "";
 
-        Camera.main.clearFlags = CameraClearFlags.Skybox;
-        RenderSettings.fogColor = originalFogCol;
-        RenderSettings.fogDensity = originalFogDens;
+            Camera.main.clearFlags = CameraClearFlags.Skybox;
+            RenderSettings.fogColor = originalFogCol;
+            RenderSettings.fogDensity = originalFogDens;
+        }
     }
 
 }
