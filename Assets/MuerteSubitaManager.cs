@@ -13,10 +13,17 @@ public class MuerteSubitaManager : MonoBehaviour
 
     public LayerMask windowsLayer;
 
+    Light playerFloorLight;
+    Color originalLightColor;
+
     NewPlayer player;
+    float lightHue;
+
     // Use this for initialization
     void Start()
     {
+        playerFloorLight = GameObject.Find("floorLight").GetComponent<Light>();
+        originalLightColor = playerFloorLight.color;
         player = GameObject.Find("newPlayer").GetComponent<NewPlayer>();
 
         spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
@@ -33,6 +40,9 @@ public class MuerteSubitaManager : MonoBehaviour
             lights[i].material.color = Color.black;
         }
 
+        float s, v;
+        Color.RGBToHSV(originalLightColor, out lightHue, out s, out v);
+
     }
 
     // Update is called once per frame
@@ -48,9 +58,26 @@ public class MuerteSubitaManager : MonoBehaviour
 
                 //            Debug.Log(i + "|||" + spectrum.MeanLevels[i]);
             }
+
+            if (lightHue < 0)
+                lightHue = 1;
+            else
+            {
+                if (lightHue < 0.45f && lightHue > 0.12f)
+                    lightHue -= Time.deltaTime / 30;
+                else
+                    lightHue -= Time.deltaTime / 300;
+            }
+
+
+            playerFloorLight.color = Color.HSVToRGB(lightHue, 1, 1);
+        }
+        else
+        {
+            playerFloorLight.color = originalLightColor;
         }
 
 
-
+        Debug.Log(lightHue);
     }
 }

@@ -10,7 +10,7 @@ public class CityBuilder : MonoBehaviour
     public GameObject building, centralBuilding;
     public float maxBuildingsSide;
 
-    float sizeX, sizeZ, sizeY;
+    float sizeX, sizeZ, sizeY, posY;
 
     bool placedCentralBuilding = false;
 
@@ -18,7 +18,7 @@ public class CityBuilder : MonoBehaviour
 
     Vector3 meshSize;
 
-
+    int groundLayer = 1 << 8;
 
     // Use this for initialization
     void Start()
@@ -57,28 +57,45 @@ public class CityBuilder : MonoBehaviour
 
 
 
+
+
+
+
                 GameObject g = Instantiate(building, transform);
-                g.transform.localPosition = new Vector3(x * meshSize.x, 0, z * meshSize.z);
+                g.transform.localPosition = new Vector3(x * meshSize.x, 800, z * meshSize.z);
+
+                g.transform.localPosition -= new Vector3((maxBuildingsSide * meshSize.x) / 2, 0, (maxBuildingsSide * meshSize.z) / 2);//esto les centra
 
 
+                RaycastHit hit;
+                Ray groundCheckRay = new Ray(g.transform.position, Vector3.down);
+                Physics.Raycast(groundCheckRay, out hit, 1000f, groundLayer);
 
+                if (hit.collider != null)
+                {
+                    posY = hit.point.y + meshSize.y / 2;
+                }
+                else
+                    Debug.Log("kas really sucks");
+
+                //                Debug.Log(posY);
 
                 //g.transform.localScale = new Vector3(sizeX, sizeY, sizeZ);
 
 
 
-
-
-
-
-                g.transform.localPosition -= new Vector3((maxBuildingsSide * 10) / 2, 1, (maxBuildingsSide * 10) / 2);//esto les centra
+                g.transform.position = new Vector3(g.transform.position.x, posY, g.transform.position.z);
 
                 if (x % 5 == 0 || z % 4 == 0)
                 {
-                    g.transform.localScale = new Vector3(1, 0.1f, 1);
+                    g.transform.localScale = new Vector3(1, 0.01f, 1);
                     g.transform.localPosition += new Vector3(0, 0, 0);
-                    //g.GetComponent<MeshRenderer>().material.color = Color.black;
-                    dontDestroy = true;
+                    //                    g.GetComponent<Renderer>().material.color = Color.black;
+
+                    //dontDestroy = true;
+
+                    Destroy(g);
+                    destroyed = true;
 
                 }
 
@@ -162,7 +179,7 @@ public class CityBuilder : MonoBehaviour
                             c.name = "centralBuilding";
                             c.transform.localPosition = pos;
                             c.transform.localScale = new Vector3(10, 50, 10);
-                            c.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                            c.GetComponent<MeshRenderer>().material.color = Color.black;
 
                             p.muerteSubitaTrigger = c.transform.GetChild(0);
 
@@ -177,18 +194,21 @@ public class CityBuilder : MonoBehaviour
                     if (sizeY > 35)
                     {
                         GameObject gg = Instantiate(building, transform);
-                        gg.transform.localPosition = new Vector3(g.transform.localPosition.x, meshSize.y, g.transform.localPosition.z);
+                        gg.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                                 g.transform.localPosition.y + meshSize.y, g.transform.localPosition.z);
                     }
                     if (sizeY > 55)
                     {
                         GameObject ggg = Instantiate(building, transform);
-                        ggg.transform.localPosition = new Vector3(g.transform.localPosition.x, meshSize.y * 2, g.transform.localPosition.z);
+                        ggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                                  g.transform.localPosition.y + meshSize.y * 2, g.transform.localPosition.z);
 
                     }
                     if (sizeY > 75)
                     {
                         GameObject gggg = Instantiate(building, transform);
-                        gggg.transform.localPosition = new Vector3(g.transform.localPosition.x, meshSize.y * 3, g.transform.localPosition.z);
+                        gggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                                   g.transform.localPosition.y + meshSize.y * 3, g.transform.localPosition.z);
 
                     }
                 }

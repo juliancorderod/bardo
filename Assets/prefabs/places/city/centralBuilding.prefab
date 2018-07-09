@@ -38,9 +38,9 @@ GameObject:
   - component: {fileID: 4168434993055828}
   - component: {fileID: 135854822835872426}
   - component: {fileID: 114870553350848200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: muerte subita
-  m_TagString: Untagged
+  m_TagString: songTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lights: []
-  levelScale: 50
-  sphereRadius: 20
+  levelScale: 45
+  sphereRadius: 30
   windowsLayer:
     serializedVersion: 2
     m_Bits: 512

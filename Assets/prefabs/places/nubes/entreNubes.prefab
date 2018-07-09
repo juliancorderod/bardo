@@ -262,13 +262,13 @@ GameObject:
   - component: {fileID: 23399066623264424}
   - component: {fileID: 135608456993667354}
   - component: {fileID: 114493735342991936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: brisas
-  m_TagString: cloudSky
+  m_TagString: songTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1219572375598556
 GameObject:
   m_ObjectHideFlags: 1
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1292913265743972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -402.1, y: 105.8, z: 75.9}
+  m_LocalPosition: {x: -306.3, y: 116.9, z: 1.9}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4431953988698844}
@@ -1745,7 +1745,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305863079096810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
