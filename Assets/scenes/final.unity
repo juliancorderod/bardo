@@ -158,6 +158,28 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4651674216057754, guid: 9879e1c39b63049d3b9d9614be671ce7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 23635790660212906, guid: 9879e1c39b63049d3b9d9614be671ce7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65677173744863996, guid: 9879e1c39b63049d3b9d9614be671ce7,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731393339343288, guid: 9879e1c39b63049d3b9d9614be671ce7, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731393339343288, guid: 9879e1c39b63049d3b9d9614be671ce7, type: 2}
+      propertyPath: m_Name
+      value: cityArea
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9879e1c39b63049d3b9d9614be671ce7, type: 2}
   m_IsPrefabParent: 0
@@ -312,6 +334,11 @@ Prefab:
       propertyPath: songTriggerLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 114336055996171068, guid: 9d3b6be224d80401086039ed2cef6517,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d3b6be224d80401086039ed2cef6517, type: 2}
   m_IsPrefabParent: 0
@@ -354,6 +381,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1691617332534928, guid: b7c87bf0e2f1647bbb51cb78c9efb76b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7c87bf0e2f1647bbb51cb78c9efb76b, type: 2}
   m_IsPrefabParent: 0
@@ -391,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1475200484}
   deactivateObj: []
-  activationDist: 75
+  activationDist: 150
   xPos: 0
   zPos: 0
 --- !u!4 &814302463
@@ -557,7 +588,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4803634218650280, guid: b8e28f7a8c585451e92547ac31bf243b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 287.9
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 4803634218650280, guid: b8e28f7a8c585451e92547ac31bf243b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -578,6 +609,24 @@ Prefab:
     - target: {fileID: 4803634218650280, guid: b8e28f7a8c585451e92547ac31bf243b, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068888057354676, guid: b8e28f7a8c585451e92547ac31bf243b, type: 2}
+      propertyPath: m_Name
+      value: wierdRoomArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740646371209096, guid: b8e28f7a8c585451e92547ac31bf243b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 65195266801205506, guid: b8e28f7a8c585451e92547ac31bf243b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23366217043656060, guid: b8e28f7a8c585451e92547ac31bf243b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8e28f7a8c585451e92547ac31bf243b, type: 2}

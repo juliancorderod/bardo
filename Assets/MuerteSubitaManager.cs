@@ -28,7 +28,7 @@ public class MuerteSubitaManager : MonoBehaviour
 
         spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
 
-        Collider[] windows = Physics.OverlapSphere(transform.position, sphereRadius, windowsLayer);
+        Collider[] windows = Physics.OverlapSphere(new Vector3(25, 30, 9), sphereRadius, windowsLayer);
 
         lights = new MeshRenderer[windows.Length];
 
@@ -66,7 +66,7 @@ public class MuerteSubitaManager : MonoBehaviour
                 if (lightHue < 0.45f && lightHue > 0.12f)
                     lightHue -= Time.deltaTime / 30;
                 else
-                    lightHue -= Time.deltaTime / 300;
+                    lightHue -= Time.deltaTime / 350;
             }
 
 
@@ -78,6 +78,6 @@ public class MuerteSubitaManager : MonoBehaviour
         }
 
 
-        Debug.Log(lightHue);
+        //        Debug.Log(lightHue);
     }
 }
