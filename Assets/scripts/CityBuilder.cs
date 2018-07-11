@@ -73,10 +73,8 @@ public class CityBuilder : MonoBehaviour
 
                 if (hit.collider != null)
                 {
-                    posY = hit.point.y + meshSize.y / 2;
+                    posY = hit.point.y;// + meshSize.y / 2;
                 }
-                else
-                    Debug.Log("kas really sucks");
 
                 //                Debug.Log(posY);
 
@@ -159,56 +157,90 @@ public class CityBuilder : MonoBehaviour
 
                         }
                     }
+                    if (z == 1 && (x == Mathf.RoundToInt(maxBuildingsSide / 2) - 2 ||
+                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) - 3 ||
+                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) - 1 ||
+                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) ||
+                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) - 4))
+                    {
+                        Destroy(g);
+                        destroyed = true;
+                    }
                 }
 
-                if (!placedCentralBuilding && !destroyed)
+                if (!placedCentralBuilding)// && !destroyed)
                 {
-                    if (x > maxBuildingsSide / 3f && x < (maxBuildingsSide * 2) / 3 &&
-                        z > maxBuildingsSide / 3f && z < (maxBuildingsSide * 2) / 3)
+
+                    //if (x  maxBuildingsSide / 3f && x < (maxBuildingsSide * 2) / 3 &&
+                    //                              z < maxBuildingsSide / 8f)// && z < (maxBuildingsSide * 2) / 3)
+                    //{
+                    if (z == 0 && x == Mathf.RoundToInt(maxBuildingsSide / 2) - 2)
                     {
+                        Debug.Log(x + "," + z);
 
-                        if (Random.Range(0, 100) > 95)
-                        {
-                            Vector3 pos = g.transform.localPosition;
+                        //if (Random.Range(0, 100) > 70)
+                        //{
+                        Vector3 pos = g.transform.localPosition;
 
 
-                            Destroy(g);
-                            destroyed = true;
+                        Destroy(g);
+                        destroyed = true;
 
-                            GameObject c = Instantiate(centralBuilding, transform);
-                            c.name = "centralBuilding";
-                            c.transform.localPosition = pos;
-                            c.transform.localScale = new Vector3(10, 50, 10);
-                            c.GetComponent<MeshRenderer>().material.color = Color.black;
+                        GameObject c = Instantiate(centralBuilding, transform);
+                        c.name = "centralBuilding";
+                        c.transform.localPosition = pos;
+                        //c.transform.localScale = new Vector3(10, 10, 10);
+                        c.GetComponent<MeshRenderer>().material.color = Color.black;
 
-                            p.muerteSubitaTrigger = c.transform.GetChild(0);
+                        p.muerteSubitaTrigger = c.transform.GetChild(0);
 
-                            placedCentralBuilding = true;
-                        }
+                        placedCentralBuilding = true;
+                        //}
 
                     }
                 }
 
                 if (!destroyed && !dontDestroy)
                 {
-                    if (sizeY > 35)
+                    if (sizeY > 30)
                     {
                         GameObject gg = Instantiate(building, transform);
                         gg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                  g.transform.localPosition.y + meshSize.y, g.transform.localPosition.z);
                     }
-                    if (sizeY > 55)
+                    if (sizeY > 40)
                     {
                         GameObject ggg = Instantiate(building, transform);
                         ggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                   g.transform.localPosition.y + meshSize.y * 2, g.transform.localPosition.z);
 
                     }
-                    if (sizeY > 75)
+                    if (sizeY > 50)
                     {
                         GameObject gggg = Instantiate(building, transform);
                         gggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                    g.transform.localPosition.y + meshSize.y * 3, g.transform.localPosition.z);
+
+                    }
+                    if (sizeY > 60)
+                    {
+                        GameObject ggggg = Instantiate(building, transform);
+                        ggggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                                   g.transform.localPosition.y + meshSize.y * 4, g.transform.localPosition.z);
+
+                    }
+                    if (sizeY > 70)
+                    {
+                        GameObject gggggg = Instantiate(building, transform);
+                        gggggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                                   g.transform.localPosition.y + meshSize.y * 5, g.transform.localPosition.z);
+
+                    }
+                    if (sizeY > 80)
+                    {
+                        GameObject ggggggg = Instantiate(building, transform);
+                        ggggggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                                   g.transform.localPosition.y + meshSize.y * 6, g.transform.localPosition.z);
 
                     }
                 }

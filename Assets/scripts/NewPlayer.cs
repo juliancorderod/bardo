@@ -232,6 +232,7 @@ public class NewPlayer : MonoBehaviour
 
         if (inSongArea)
         {
+            cityLight.enabled = false;
             if (!inSong)
             {
                 Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);
@@ -262,6 +263,7 @@ public class NewPlayer : MonoBehaviour
         else
         {
             Text.color -= new Color(0, 0, 0, Time.deltaTime * 1f);
+            cityLight.enabled = true;
         }
 
 
@@ -445,21 +447,7 @@ public class NewPlayer : MonoBehaviour
         //wrapAround();
 
         //------------------------------------------ LOCATION MANAGER ------------------------------------------
-        if (hit.collider != null)
-        {
-            if (hit.collider.tag == "mountains")
-                location = Location.MOUNTAINS;
 
-            if (hit.collider.tag == "city")
-                location = Location.CITY;
-            if (hit.collider.tag == "weirdRoom")
-                location = Location.WEIRDROOM;
-
-        }
-        else
-        {
-            location = Location.NOWHERE;
-        }
 
         switch (location)
         {
@@ -596,6 +584,24 @@ public class NewPlayer : MonoBehaviour
                 Camera.main.clearFlags = CameraClearFlags.Color;
                 RenderSettings.fogColor = Color.white;
                 RenderSettings.fogDensity = 0.01f;
+            }
+        }
+        else
+        {
+
+            if (hit.collider != null)
+            {
+                if (other.tag == "mountains")
+                    location = Location.MOUNTAINS;
+                if (other.tag == "city")
+                    location = Location.CITY;
+                if (other.tag == "weirdRoom")
+                    location = Location.WEIRDROOM;
+
+            }
+            else
+            {
+                location = Location.NOWHERE;
             }
         }
     }

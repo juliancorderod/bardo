@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: toonTextureShadow
+  m_Name: testststst 3
   m_Shader: {fileID: 4800000, guid: dfb63b9b9644148ab9fe774d5c4a9413, type: 3}
   m_ShaderKeywords: _INVERSESHADOW_ON
   m_LightmapFlags: 4
@@ -23,7 +23,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _backTexture:
-        m_Texture: {fileID: 2800000, guid: 25bd03383f50e44568b8c0fb4dcb3a01, type: 3}
+        m_Texture: {fileID: 2800000, guid: 55b1445ac225843a2b14621f04bb2666, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _colorTexture:
@@ -39,11 +39,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texture:
-        m_Texture: {fileID: 2800000, guid: ef078ab7e2ead4a87b8e20cac59deabe, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 16.41, y: 15}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _backSize: 2.54
+    - _backSize: 5
     - _fresnelWidth: 0.85
     - _inverseShadow: 1
     - _node_8160: 1
@@ -52,8 +52,8 @@ Material:
     - _toonSteps: 2
     m_Colors:
     - _backColor: {r: 0, g: 0, b: 0, a: 1}
-    - _backTextureColor: {r: 0, g: 0, b: 0, a: 1}
-    - _color: {r: 1, g: 1, b: 1, a: 1}
+    - _backTextureColor: {r: 0.358844, g: 0.496422, b: 0.634, a: 1}
+    - _color: {r: 0.015202, g: 0.020613208, b: 0.022, a: 1}
     - _node_3719: {r: 0.47794116, g: 0.22491348, b: 0.22491348, a: 1}
     - _node_4738: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
     - _node_6305: {r: 0.5735294, g: 0.5735294, b: 0.5735294, a: 1}
