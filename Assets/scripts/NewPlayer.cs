@@ -486,7 +486,7 @@ public class NewPlayer : MonoBehaviour
                 destinationPoint = muerteSubitaTrigger.position;
 
 
-                muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;
+
 
 
                 break;
@@ -578,6 +578,9 @@ public class NewPlayer : MonoBehaviour
             songAreaName = other.name;
             Text.text = "escuchar " + other.name;
 
+            if (other.gameObject.name == "muerte subita")
+                muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;
+
 
             if (other.tag == "brisas")
             {
@@ -612,6 +615,8 @@ public class NewPlayer : MonoBehaviour
         {
             inSongArea = false;
             songAreaName = "";
+
+            muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = false;
 
             Camera.main.clearFlags = CameraClearFlags.Skybox;
             RenderSettings.fogColor = originalFogCol;

@@ -7,12 +7,12 @@ using UnityEngine;
 public class CityBuilder : MonoBehaviour
 {
 
-    public GameObject building, centralBuilding;
+    public GameObject building;//, centralBuilding;
     public float maxBuildingsSide;
 
     float sizeX, sizeZ, sizeY, posY;
 
-    bool placedCentralBuilding = false;
+    //bool placedCentralBuilding = false;
 
     public NewPlayer p;
 
@@ -20,8 +20,12 @@ public class CityBuilder : MonoBehaviour
 
     int groundLayer = 1 << 8;
 
+    public Transform centralBuild;
+
+    public MuerteSubitaManager m;
+
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         meshSize = building.transform.GetChild(0).transform.GetChild(3).GetComponent<Renderer>().bounds.size;
 
@@ -157,48 +161,44 @@ public class CityBuilder : MonoBehaviour
 
                         }
                     }
-                    if (z == 1 && (x == Mathf.RoundToInt(maxBuildingsSide / 2) - 2 ||
-                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) - 3 ||
-                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) - 1 ||
-                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) ||
-                                   x == Mathf.RoundToInt(maxBuildingsSide / 2) - 4))
+                    if (Mathf.Abs(Vector3.Distance(g.transform.position, centralBuild.position)) < 35)
                     {
                         Destroy(g);
                         destroyed = true;
                     }
                 }
 
-                if (!placedCentralBuilding)// && !destroyed)
-                {
+                //if (!placedCentralBuilding)// && !destroyed)
+                //{
 
-                    //if (x  maxBuildingsSide / 3f && x < (maxBuildingsSide * 2) / 3 &&
-                    //                              z < maxBuildingsSide / 8f)// && z < (maxBuildingsSide * 2) / 3)
-                    //{
-                    if (z == 0 && x == Mathf.RoundToInt(maxBuildingsSide / 2) - 2)
-                    {
-                        Debug.Log(x + "," + z);
+                //    //if (x  maxBuildingsSide / 3f && x < (maxBuildingsSide * 2) / 3 &&
+                //    //                              z < maxBuildingsSide / 8f)// && z < (maxBuildingsSide * 2) / 3)
+                //    //{
+                //    if (z == 0 && x == Mathf.RoundToInt(maxBuildingsSide / 2) - 2)
+                //    {
+                //        //                        Debug.Log(x + "," + z);
 
-                        //if (Random.Range(0, 100) > 70)
-                        //{
-                        Vector3 pos = g.transform.localPosition;
+                //        //if (Random.Range(0, 100) > 70)
+                //        //{
+                //        Vector3 pos = g.transform.localPosition;
 
 
-                        Destroy(g);
-                        destroyed = true;
+                //        Destroy(g);
+                //        destroyed = true;
 
-                        GameObject c = Instantiate(centralBuilding, transform);
-                        c.name = "centralBuilding";
-                        c.transform.localPosition = pos;
-                        //c.transform.localScale = new Vector3(10, 10, 10);
-                        c.GetComponent<MeshRenderer>().material.color = Color.black;
+                //        GameObject c = Instantiate(centralBuilding, transform);
+                //        c.name = "centralBuilding";
+                //        c.transform.localPosition = pos;
+                //        //c.transform.localScale = new Vector3(10, 10, 10);
+                //        c.GetComponent<MeshRenderer>().material.color = Color.black;
 
-                        p.muerteSubitaTrigger = c.transform.GetChild(0);
+                //        p.muerteSubitaTrigger = c.transform.GetChild(0);
 
-                        placedCentralBuilding = true;
-                        //}
+                //        placedCentralBuilding = true;
+                //        //}
 
-                    }
-                }
+                //    }
+                //}
 
                 if (!destroyed && !dontDestroy)
                 {
@@ -250,8 +250,7 @@ public class CityBuilder : MonoBehaviour
 
         }
 
-        if (!placedCentralBuilding)
-            Debug.Log("noooo que verga");//poner un fix para esto!!
+        m.enabled = true;
     }
 
 

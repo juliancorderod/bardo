@@ -4306,6 +4306,8 @@ MonoBehaviour:
   windowsLayer:
     serializedVersion: 2
     m_Bits: 512
+  kasWalkAnim: {fileID: 1994256584469278, guid: a0ee0f556e30748369c68297e2617030,
+    type: 2}
 --- !u!135 &135854822835872426
 SphereCollider:
   m_ObjectHideFlags: 1

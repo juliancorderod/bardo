@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1591742756376862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,11 +1424,15 @@ MonoBehaviour:
   onIOS: 0
   iosAdjustmentSpeed: 0.05
   Text: {fileID: 102477241330401954}
+  inSong: 0
   cloudSky: {fileID: 0}
   songMan: {fileID: 0}
   destinationPoint: {x: 0, y: 0, z: 0}
   muerteSubitaTrigger: {fileID: 0}
   futuroTrigger: {fileID: 0}
+  songTriggerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!124 &124731059609034586
 Behaviour:
   m_ObjectHideFlags: 1
