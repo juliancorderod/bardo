@@ -179,6 +179,23 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114549144828892816, guid: 9879e1c39b63049d3b9d9614be671ce7,
+        type: 2}
+      propertyPath: m
+      value: 
+      objectReference: {fileID: 549749106}
+    - target: {fileID: 114549144828892816, guid: 9879e1c39b63049d3b9d9614be671ce7,
+        type: 2}
+      propertyPath: tree
+      value: 
+      objectReference: {fileID: 1047591043533720, guid: 3f0a52734c61b439fa7c118380e6aa16,
+        type: 2}
+    - target: {fileID: 114549144828892816, guid: 9879e1c39b63049d3b9d9614be671ce7,
+        type: 2}
+      propertyPath: lampPost
+      value: 
+      objectReference: {fileID: 1047591043533720, guid: 3f0a52734c61b439fa7c118380e6aa16,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9879e1c39b63049d3b9d9614be671ce7, type: 2}
   m_IsPrefabParent: 0
@@ -329,6 +346,12 @@ AudioSource:
   m_PrefabParentObject: {fileID: 82517160268786678, guid: efbaf655cada74417b065d0eadfca081,
     type: 2}
   m_PrefabInternal: {fileID: 1167959514}
+--- !u!114 &549749106 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114025340153033242, guid: 9879e1c39b63049d3b9d9614be671ce7,
+    type: 2}
+  m_PrefabInternal: {fileID: 268589059}
+  m_Script: {fileID: 11500000, guid: 67806cc4dba2a4d269a410ea172b2e55, type: 3}
 --- !u!4 &561454520 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4540971827257902, guid: 9879e1c39b63049d3b9d9614be671ce7,

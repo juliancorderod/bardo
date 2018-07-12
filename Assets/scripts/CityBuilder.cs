@@ -7,7 +7,7 @@ using UnityEngine;
 public class CityBuilder : MonoBehaviour
 {
 
-    public GameObject building;//, centralBuilding;
+    public GameObject building;
     public float maxBuildingsSide;
 
     float sizeX, sizeZ, sizeY, posY;
@@ -23,6 +23,8 @@ public class CityBuilder : MonoBehaviour
     public Transform centralBuild;
 
     public MuerteSubitaManager m;
+
+    public GameObject lampPost;
 
     // Use this for initialization
     void Awake()
@@ -88,16 +90,35 @@ public class CityBuilder : MonoBehaviour
 
                 g.transform.position = new Vector3(g.transform.position.x, posY, g.transform.position.z);
 
-                if (x % 5 == 0 || z % 4 == 0)
+                if (x % 5 == 0)//roads
                 {
-                    g.transform.localScale = new Vector3(1, 0.01f, 1);
-                    g.transform.localPosition += new Vector3(0, 0, 0);
-                    //                    g.GetComponent<Renderer>().material.color = Color.black;
+                    if (Random.Range(0, 10) > 6)
+                    {
+                        GameObject t = Instantiate(lampPost, transform);
+                        t.transform.position = g.transform.position;
+                        t.transform.eulerAngles = new Vector3(0, 90, 0);
+                    }
 
-                    //dontDestroy = true;
 
                     Destroy(g);
                     destroyed = true;
+                }
+                if (z % 4 == 0)//roads
+                {
+
+
+
+                    if (Random.Range(0, 10) > 6)
+                    {
+                        GameObject t = Instantiate(lampPost, transform);
+                        t.transform.position = g.transform.position;
+                    }
+
+
+                    Destroy(g);
+                    destroyed = true;
+
+
 
                 }
 
@@ -112,6 +133,8 @@ public class CityBuilder : MonoBehaviour
                         g.transform.localPosition += new Vector3(5, 1, 0);
                         //g.GetComponent<MeshRenderer>().material.color = Color.red;
                         dontDestroy = true;
+                        Destroy(g);
+                        destroyed = true;
                     }
                 }
                 if (!dontDestroy)//poner arbolitos o huevadas en vez de solo destruir
@@ -129,8 +152,17 @@ public class CityBuilder : MonoBehaviour
                     {
                         if (Random.Range(0, maxBuildingsSide / 3) > x)
                         {
+                            //if (Random.Range(0, 10) > 6)
+                            //{
+                            //    GameObject t = Instantiate(lampPost, transform);
+                            //    t.transform.position = g.transform.position;
+                            //    t.transform.eulerAngles = new Vector3(0, Random.Range(0, 359), 0);
+                            //}
+
                             Destroy(g);
                             destroyed = true;
+
+
                         }
                     }
 
@@ -138,6 +170,8 @@ public class CityBuilder : MonoBehaviour
                     {
                         if (Random.Range((maxBuildingsSide * 2) / 3, maxBuildingsSide) < x)
                         {
+
+
                             Destroy(g);
                             destroyed = true;
 
@@ -147,6 +181,8 @@ public class CityBuilder : MonoBehaviour
                     {
                         if (Random.Range(0, maxBuildingsSide / 3) > z)
                         {
+
+
                             Destroy(g);
                             destroyed = true;
                         }
@@ -156,6 +192,8 @@ public class CityBuilder : MonoBehaviour
                     {
                         if (Random.Range((maxBuildingsSide * 2) / 3, maxBuildingsSide) < z)
                         {
+
+
                             Destroy(g);
                             destroyed = true;
 
@@ -163,6 +201,8 @@ public class CityBuilder : MonoBehaviour
                     }
                     if (Mathf.Abs(Vector3.Distance(g.transform.position, centralBuild.position)) < 35)
                     {
+
+
                         Destroy(g);
                         destroyed = true;
                     }

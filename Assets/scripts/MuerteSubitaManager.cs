@@ -83,24 +83,23 @@ public class MuerteSubitaManager : MonoBehaviour
             for (int i = 0; i < lights.Count; i++)
             {
 
-                lights[i].material.color = Color.red;
+                //lights[i].material.color = Color.red;
+
+
+                if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
+                {
+                    if (Random.Range(0, 10) > 8)
+                    {
+                        GameObject kwa = Instantiate(kasWalkAnim, lights[i].transform);
+
+                        kwa.transform.localPosition = new Vector3(0, 0f, -4.35f);
+                        Debug.Log("kwa");
+                    }
+                }
+
+
             }
 
-            //            if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
-            //            {
-            //                if (Random.Range(0, 10) > 2)
-            //                {
-            //                    GameObject kwa = Instantiate(kasWalkAnim, lights[i].transform);
-
-            //                    kwa.transform.localPosition = new Vector3(0, 0f, -4.35f);
-            //                    Debug.Log("kwa");
-            //                }
-            //            }
-            //        }
-            //        //else
-            //        //Debug.Log("hit" + hit.transform.name);
-            //    }
-            //}
             haveReOrdered = true;
             this.enabled = false;
         }
@@ -111,10 +110,10 @@ public class MuerteSubitaManager : MonoBehaviour
             if (shortDelay < 1.1f)
             {
                 shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
-                for (int i = 0; i < lights.Count; i++)
+                for (int i = 0; i < preLights.Length; i++)
                 {
-
-                    lights[i].material.color = Color.Lerp(lights[i].material.color, Color.black, shortDelay / 2);
+                    if (preLights[i] != null)
+                        preLights[i].material.color = Color.Lerp(preLights[i].material.color, Color.clear, shortDelay / 2);
 
 
                 }
@@ -124,7 +123,8 @@ public class MuerteSubitaManager : MonoBehaviour
                 for (int i = 0; i < lights.Count; i++)
                 {
 
-                    lights[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * levelScale);
+                    //lights[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * levelScale);
+                    lights[i].material.color = new Color(1, 1, 1, spectrum.MeanLevels[i % 10] * levelScale);
                     //lights[i].intensity = spectrum.MeanLevels[i % 10] * levelScale;
 
                     //            Debug.Log(i + "|||" + spectrum.MeanLevels[i]);
