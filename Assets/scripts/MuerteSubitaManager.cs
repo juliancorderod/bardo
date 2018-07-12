@@ -30,6 +30,8 @@ public class MuerteSubitaManager : MonoBehaviour
 
     RaycastHit hit;
 
+    Vector3 rayPosAdjustment;
+
     // Use this for initialization
     void Start()
     {
@@ -66,8 +68,14 @@ public class MuerteSubitaManager : MonoBehaviour
             {
                 if (preLights[i] != null)
                 {
+                    if (preLights[i].name == "pCube1" || preLights[i].name == "pCube2")
+                        rayPosAdjustment = Vector3.zero;
+                    else
+                        rayPosAdjustment = new Vector3(0, 0, -5);
 
-                    Ray checkIfInSight = new Ray(transform.position, (preLights[i].transform.position + new Vector3(0, 0, -5)) - transform.position);
+
+
+                    Ray checkIfInSight = new Ray(transform.position, (preLights[i].transform.position + rayPosAdjustment) - transform.position);
                     Physics.Raycast(checkIfInSight, out hit, Vector3.Distance(preLights[i].transform.position, transform.position), windowsLayer);
 
                     if (hit.transform == preLights[i].transform)
@@ -83,7 +91,7 @@ public class MuerteSubitaManager : MonoBehaviour
             for (int i = 0; i < lights.Count; i++)
             {
 
-                //lights[i].material.color = Color.red;
+                lights[i].material.color = Color.red;
 
 
                 if (lights[i].name == "pCube44" || lights[i].name == "pCube43")

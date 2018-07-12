@@ -92,11 +92,14 @@ public class CityBuilder : MonoBehaviour
 
                 if (x % 5 == 0)//roads
                 {
-                    if (Random.Range(0, 10) > 6)
+                    if (centralBuild.position.z < g.transform.position.z)
                     {
-                        GameObject t = Instantiate(lampPost, transform);
-                        t.transform.position = g.transform.position;
-                        t.transform.eulerAngles = new Vector3(0, 90, 0);
+                        if (Random.Range(0, 10) > 5)
+                        {
+                            GameObject t = Instantiate(lampPost, transform);
+                            t.transform.position = g.transform.position;
+                            t.transform.eulerAngles = new Vector3(0, 90, 0);
+                        }
                     }
 
 
@@ -107,18 +110,19 @@ public class CityBuilder : MonoBehaviour
                 {
 
 
-
-                    if (Random.Range(0, 10) > 6)
+                    if (centralBuild.position.z < g.transform.position.z)
                     {
-                        GameObject t = Instantiate(lampPost, transform);
-                        t.transform.position = g.transform.position;
+                        if (Random.Range(0, 10) > 5)
+                        {
+                            GameObject t = Instantiate(lampPost, transform);
+                            t.transform.position = g.transform.position + Vector3.up * 4;
+
+                        }
                     }
 
 
                     Destroy(g);
                     destroyed = true;
-
-
 
                 }
 
