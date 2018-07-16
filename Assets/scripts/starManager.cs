@@ -20,8 +20,9 @@ public class starManager : MonoBehaviour
             if (randOnSphere.y > 0)
             {
                 GameObject s = Instantiate(starObj, randOnSphere, Quaternion.identity);
-                s.transform.localScale = Vector3.one * Random.Range(0.5f, maxSize);
+                s.transform.localScale = Vector3.one * 2; //Random.Range(0.5f, maxSize);
                 s.transform.parent = transform;
+                s.transform.LookAt(ms.transform);
 
                 ms.stars.Add(s);
             }

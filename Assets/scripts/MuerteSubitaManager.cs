@@ -15,7 +15,7 @@ public class MuerteSubitaManager : MonoBehaviour
     public List<GameObject> stars = new List<GameObject>();
 
 
-    public float lightsLevelScale, starsLevelScale, sphereRadius;
+    public float lightsLevelScale, starsLevelScale, smokeLevelScale, sphereRadius;
 
     public LayerMask windowsLayer;
 
@@ -38,6 +38,12 @@ public class MuerteSubitaManager : MonoBehaviour
     Vector3 rayPosAdjustment;
 
     bool animsActive;
+
+    public smokeScript smoke;
+
+    public Transform moon;
+    Vector3 originalMoonEuler;
+    float timer;
 
     // Use this for initialization
     void Start()
@@ -63,6 +69,7 @@ public class MuerteSubitaManager : MonoBehaviour
         Color.RGBToHSV(originalLightColor, out lightHue, out s, out v);
 
         originalHue = lightHue;
+        originalMoonEuler = moon.eulerAngles;
     }
 
     // Update is called once per frame
@@ -182,9 +189,24 @@ public class MuerteSubitaManager : MonoBehaviour
 
                 for (int i = 0; i < stars.Count; i++)
                 {
-                    stars[i].transform.localScale = Vector3.one * (1 + (spectrum.MeanLevels[(i % 2) + 8] * starsLevelScale));
-                    //the (i % 3) + 7 always returns 6,7,8 in this case
+                    Vector3 size = Vector3.one * 2 * (1 + (spectrum.MeanLevels[(i % 2) + 8] * starsLevelScale));
+                    if (size.x < 4f)
+                        stars[i].transform.localScale = size;
+                    //the (i % 2) + 8 always returns 8,9 in this case
+                    else
+                        stars[i].transform.localScale = Vector3.one * 4f;
+
                 }
+
+                if (spectrum.MeanLevels[6] < 0.005f)
+                    smoke.spread = 0.0002f;
+                else
+                    //smoke.spread = (Mathf.Pow(spectrum.MeanLevels[4], 2)) * smokeLevelScale;
+                    smoke.spread = 0.03f;
+
+
+                timer += Time.deltaTime;
+                moon.eulerAngles = Vector3.Lerp(originalMoonEuler, new Vector3(40, 120, 284), timer / 200);
 
             }
 

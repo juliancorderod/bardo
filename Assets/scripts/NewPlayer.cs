@@ -237,7 +237,7 @@ public class NewPlayer : MonoBehaviour
             {
                 Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);
 
-                if (Text.color.a > 0.9f)
+                if (Text.color.a > 0.5f)
                 {
                     //ADJUST FOR IOS
                     if (Input.GetKeyDown(KeyCode.Space))
