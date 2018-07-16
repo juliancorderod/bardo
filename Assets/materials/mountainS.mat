@@ -24,8 +24,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Glossiness: 0
-    - _Light: -10.9
-    - _Metallic: 0
-    - _height: 0.52
+    - _Light: -13.17
+    - _Metallic: 1
+    - _height: 0.3
     m_Colors:
-    - _Color: {r: 0.214434, g: 0.722, b: 0.6998357, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
