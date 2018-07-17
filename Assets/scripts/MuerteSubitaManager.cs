@@ -27,7 +27,7 @@ public class MuerteSubitaManager : MonoBehaviour
 
     float shortDelay;
 
-    public GameObject kasWalkAnim, jBeer1;
+    public GameObject kasWalkAnim, jBeer1, emiFum1;
 
     float originalHue;
 
@@ -115,7 +115,7 @@ public class MuerteSubitaManager : MonoBehaviour
                         {
                             GameObject kwa = Instantiate(kasWalkAnim, lights[i].transform);
 
-                            kwa.transform.localPosition = new Vector3(0, 0f, -4.35f);
+                            kwa.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
                             animationList.Add(kwa);
                             placedAnim = true;
                         }
@@ -130,11 +130,39 @@ public class MuerteSubitaManager : MonoBehaviour
                             if (Random.Range(0, 10) > 5)
                             {
                                 GameObject jb1 = Instantiate(jBeer1, lights[i].transform);
+                                if (Random.Range(0, 10) > 5)
+                                {
+                                    jb1.transform.localPosition = new Vector3(-4.15f, 0f, -4.4f);
+                                }
+                                else
+                                {
+                                    jb1.transform.localPosition = new Vector3(4.15f, 0f, -4.4f);
+                                    jb1.GetComponent<SpriteRenderer>().flipX = true;
+                                }
 
-                                jb1.transform.localPosition = new Vector3(-4.15f, 0f, -4.4f);
+
 
                                 jb1.GetComponent<Animator>().speed = Random.Range(0.8f, 1.2f);
                                 animationList.Add(jb1);
+                                placedAnim = true;
+                            }
+                        }
+                    }
+                }
+                if (!placedAnim)
+                {
+                    if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
+                    {
+                        if (lights[i].transform.position.y > 20 && lights[i].transform.position.x < 100)
+                        {
+                            if (Random.Range(0, 10) > 6)
+                            {
+                                GameObject ef1 = Instantiate(emiFum1, lights[i].transform);
+
+                                ef1.transform.localPosition = new Vector3(1.6f, -0.5f, -4.4f);
+
+                                ef1.GetComponent<Animator>().speed = Random.Range(0.5f, 1f);
+                                animationList.Add(ef1);
                                 placedAnim = true;
                             }
                         }

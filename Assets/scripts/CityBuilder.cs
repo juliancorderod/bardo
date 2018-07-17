@@ -7,7 +7,7 @@ using UnityEngine;
 public class CityBuilder : MonoBehaviour
 {
 
-    public GameObject building;
+    public GameObject building, top1, top2, topTall, street1;
     public float maxBuildingsSide;
 
     float sizeX, sizeZ, sizeY, posY;
@@ -90,15 +90,21 @@ public class CityBuilder : MonoBehaviour
 
                 g.transform.position = new Vector3(g.transform.position.x, posY, g.transform.position.z);
 
-                if (x % 5 == 0)//roads
+                if (x % 5 == 0 && z % 4 == 0)//roads
                 {
+
                     if (centralBuild.position.z < g.transform.position.z)
                     {
-                        if (Random.Range(0, 10) > 5)
+
+                        if (Random.Range(0, 10) < 9)
                         {
+
                             GameObject t = Instantiate(lampPost, transform);
                             t.transform.position = g.transform.position;
-                            t.transform.eulerAngles = new Vector3(0, 90, 0);
+                            if (Random.Range(0, 10) > 5)
+                                t.transform.eulerAngles = new Vector3(0, 45, 0);
+                            else
+                                t.transform.eulerAngles = new Vector3(0, 225, 0);
                         }
                     }
 
@@ -106,19 +112,38 @@ public class CityBuilder : MonoBehaviour
                     Destroy(g);
                     destroyed = true;
                 }
-                if (z % 4 == 0)//roads
+                if (z % 4 == 0)
+                {
+
+                    if (x % 5 != 0 && g.transform.position.z > centralBuild.position.z + 10)
+                    {
+                        if (Random.Range(0, 10) > 4)
+                        {
+                            GameObject street = Instantiate(street1, transform);
+                            street.transform.position = g.transform.position;
+                        }
+
+                    }
+
+
+                    Destroy(g);
+                    destroyed = true;
+
+                }
+
+                if (x % 5 == 0)//roads
                 {
 
 
-                    if (centralBuild.position.z < g.transform.position.z)
-                    {
-                        if (Random.Range(0, 10) > 5)
-                        {
-                            GameObject t = Instantiate(lampPost, transform);
-                            t.transform.position = g.transform.position + Vector3.up * 4;
+                    //if (centralBuild.position.z < g.transform.position.z)
+                    //{
+                    //    if (Random.Range(0, 10) > 5)
+                    //    {
+                    //        GameObject t = Instantiate(lampPost, transform);
+                    //        t.transform.position = g.transform.position + Vector3.up * 4;
 
-                        }
-                    }
+                    //    }
+                    //}
 
 
                     Destroy(g);
@@ -246,48 +271,90 @@ public class CityBuilder : MonoBehaviour
 
                 if (!destroyed && !dontDestroy)
                 {
+                    GameObject highestBuild = null;
+                    bool isTallest = false;
+
+                    if (sizeY <= 30)
+                        highestBuild = g;
+
+
                     if (sizeY > 30)
                     {
                         GameObject gg = Instantiate(building, transform);
                         gg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                  g.transform.localPosition.y + meshSize.y, g.transform.localPosition.z);
+                        highestBuild = gg;
                     }
                     if (sizeY > 40)
                     {
                         GameObject ggg = Instantiate(building, transform);
                         ggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                   g.transform.localPosition.y + meshSize.y * 2, g.transform.localPosition.z);
-
+                        highestBuild = ggg;
                     }
                     if (sizeY > 50)
                     {
                         GameObject gggg = Instantiate(building, transform);
                         gggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                    g.transform.localPosition.y + meshSize.y * 3, g.transform.localPosition.z);
-
+                        highestBuild = gggg;
                     }
                     if (sizeY > 60)
                     {
                         GameObject ggggg = Instantiate(building, transform);
                         ggggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                    g.transform.localPosition.y + meshSize.y * 4, g.transform.localPosition.z);
-
+                        highestBuild = ggggg;
                     }
                     if (sizeY > 70)
                     {
                         GameObject gggggg = Instantiate(building, transform);
                         gggggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                    g.transform.localPosition.y + meshSize.y * 5, g.transform.localPosition.z);
-
+                        highestBuild = gggggg;
+                        isTallest = true;
                     }
                     if (sizeY > 80)
                     {
                         GameObject ggggggg = Instantiate(building, transform);
                         ggggggg.transform.localPosition = new Vector3(g.transform.localPosition.x,
                                                                    g.transform.localPosition.y + meshSize.y * 6, g.transform.localPosition.z);
+                        highestBuild = ggggggg;
+
+                        isTallest = true;
+                    }
+
+
+
+                    GameObject top = null;
+
+                    if (isTallest)
+                    {
+
+                        top = Instantiate(topTall, transform);
 
                     }
+                    else
+                    {
+                        if (Random.Range(0, 10) > 5)
+                            top = Instantiate(top1, transform);
+                        else
+                            top = Instantiate(top2, transform);
+                    }
+
+                    top.transform.localPosition = new Vector3(g.transform.localPosition.x,
+                                                              highestBuild.transform.localPosition.y + meshSize.y * 0.846f, g.transform.localPosition.z);
+
+                    top.transform.localScale = new Vector3(top.transform.localScale.x,
+                    top.transform.localScale.y * Random.Range(0.7f, 1.5f),
+                    top.transform.localScale.z);
+
+                    if (Random.Range(0, 10) > 5)
+                        top.transform.eulerAngles = new Vector3(0, 180, 0);
                 }
+
+
+
 
 
             }
