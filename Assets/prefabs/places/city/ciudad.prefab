@@ -4557,8 +4557,10 @@ MonoBehaviour:
     type: 2}
   jBeer1: {fileID: 1067360959292938, guid: ae0c99588020e470e8a475a4debd5628, type: 2}
   emiFum1: {fileID: 1220355210744694, guid: bd26999c6b83e4d04ad836855792ef30, type: 2}
+  cafesinosa: {fileID: 1328352731799606, guid: cf4c4f68ce62541a6b9a2a6b79f43d4c, type: 2}
   smoke: {fileID: 114240964393000390}
   moon: {fileID: 0}
+  streetLightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114240964393000390
 MonoBehaviour:
   m_ObjectHideFlags: 1

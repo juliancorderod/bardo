@@ -27,7 +27,7 @@ public class MuerteSubitaManager : MonoBehaviour
 
     float shortDelay;
 
-    public GameObject kasWalkAnim, jBeer1, emiFum1;
+    public GameObject kasWalkAnim, jBeer1, emiFum1, cafesinosa;
 
     float originalHue;
 
@@ -44,6 +44,11 @@ public class MuerteSubitaManager : MonoBehaviour
     public Transform moon;
     Vector3 originalMoonEuler;
     float timer;
+
+    bool willNeedReset = false;
+
+    [HideInInspector]
+    public Color streetLightColor;
 
     // Use this for initialization
     void Start()
@@ -63,6 +68,7 @@ public class MuerteSubitaManager : MonoBehaviour
         for (int i = 0; i < windows.Length; i++)
         {
             preLights[i] = windows[i].GetComponent<MeshRenderer>();
+
         }
 
         float s, v;
@@ -70,6 +76,8 @@ public class MuerteSubitaManager : MonoBehaviour
 
         originalHue = lightHue;
         originalMoonEuler = moon.eulerAngles;
+
+
     }
 
     // Update is called once per frame
@@ -168,6 +176,25 @@ public class MuerteSubitaManager : MonoBehaviour
                         }
                     }
                 }
+                if (!placedAnim)
+                {
+                    if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
+                    {
+                        if (lights[i].transform.position.y > 10 && lights[i].transform.position.x < 100)
+                        {
+                            if (Random.Range(0, 10) > 6)
+                            {
+                                GameObject caf = Instantiate(cafesinosa, lights[i].transform);
+
+                                caf.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
+
+                                caf.GetComponent<Animator>().speed = Random.Range(0.7f, 1.2f);
+                                animationList.Add(caf);
+                                placedAnim = true;
+                            }
+                        }
+                    }
+                }
             }
 
             for (int i = 0; i < animationList.Count; i++)
@@ -181,9 +208,11 @@ public class MuerteSubitaManager : MonoBehaviour
             this.enabled = false;
         }
 
+        //actual update start here!
 
         if (player.inSong)
         {
+            willNeedReset = true;
             if (shortDelay < 1.1f)
             {
                 shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
@@ -253,11 +282,48 @@ public class MuerteSubitaManager : MonoBehaviour
         }
         else
         {
-            playerFloorLight.color = originalLightColor;
-            lightHue = originalHue;
+            if (willNeedReset)
+            {
+                ResetMuerteSubita();
+                willNeedReset = false;
+            }
         }
 
 
         //        Debug.Log(lightHue);
+    }
+
+
+    void ResetMuerteSubita()
+    {
+
+        for (int i = 0; i < preLights.Length; i++)
+        {
+            if (preLights[i] != null)
+            {
+                preLights[i].gameObject.SetActive(true);
+                //                preLights[i].GetComponent<Deactivate>().enabled = false;
+
+                if (preLights[i].GetComponent<randomHSV>() != null)
+                    preLights[i].GetComponent<randomHSV>().setRandom();
+                else
+                    preLights[i].GetComponent<MeshRenderer>().material.color = streetLightColor;
+
+
+                //              preLights[i].GetComponent<Deactivate>().enabled = true;
+            }
+        }
+
+        for (int i = 0; i < animationList.Count; i++)
+        {
+            animationList[i].SetActive(false);
+        }
+        animsActive = false;
+
+        playerFloorLight.color = originalLightColor;
+        lightHue = originalHue;
+
+        shortDelay = 0;
+
     }
 }

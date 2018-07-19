@@ -26,6 +26,8 @@ public class CityBuilder : MonoBehaviour
 
     public GameObject lampPost;
 
+
+
     // Use this for initialization
     void Awake()
     {
@@ -117,7 +119,7 @@ public class CityBuilder : MonoBehaviour
 
                     if (x % 5 != 0 && g.transform.position.z > centralBuild.position.z + 10)
                     {
-                        if (Random.Range(0, 10) > 4)
+                        if (Random.Range(0, 10) > 2)
                         {
                             GameObject street = Instantiate(street1, transform);
                             street.transform.position = g.transform.position;
@@ -362,6 +364,7 @@ public class CityBuilder : MonoBehaviour
         }
 
         m.enabled = true;
+        m.streetLightColor = lampPost.transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial.color;
     }
 
 

@@ -165,7 +165,7 @@ public class NewPlayer : MonoBehaviour
                 {
                     //poner un 'are you sure'
                     songMan.stopSong();
-                    inSong = false;
+
                 }
             }
             clicked = false;

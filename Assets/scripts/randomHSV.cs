@@ -9,9 +9,15 @@ public class randomHSV : MonoBehaviour
     void Start()
     {
 
-        GetComponent<MeshRenderer>().material.color = Color.HSVToRGB(0, 0, Random.Range(0.00f, 1.00f));
-        this.enabled = false;
+        setRandom();
 
+    }
+
+    public void setRandom()
+    {
+
+        GetComponent<MeshRenderer>().material.color = Color.HSVToRGB(0, 0, Random.Range(0.00f, 1.00f));
+        //this.enabled = false;
     }
 
 
