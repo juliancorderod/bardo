@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MuerteSubitaManager : MonoBehaviour
 {
+    public WorldManager wm;
 
     AudioSpectrum spectrum;
 

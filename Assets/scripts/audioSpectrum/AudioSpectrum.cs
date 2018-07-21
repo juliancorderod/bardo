@@ -95,6 +95,13 @@ public class AudioSpectrum : MonoBehaviour
         CheckBuffers();
     }
 
+    WorldManager wm;
+
+    void Start()
+    {
+        wm = GameObject.FindWithTag("worldMan").GetComponent<WorldManager>();
+    }
+
     void Update()
     {
         CheckBuffers();
@@ -115,7 +122,7 @@ public class AudioSpectrum : MonoBehaviour
             var bandMax = 0.0f;
             for (var fi = imin; fi <= imax; fi++)
             {
-                bandMax = Mathf.Max(bandMax, rawSpectrum[fi]);
+                bandMax = Mathf.Max(bandMax, rawSpectrum[fi]) * wm.masterScaleSpectrum;
             }
 
             levels[bi] = bandMax;

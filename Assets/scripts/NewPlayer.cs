@@ -67,6 +67,8 @@ public class NewPlayer : MonoBehaviour
 
     public LayerMask songTriggerLayer;
 
+    public headBob hb;
+
     // Use this for initialization
     void Start()
     {
@@ -105,6 +107,7 @@ public class NewPlayer : MonoBehaviour
             else
                 clicked = false;
 
+            //HACER NOTA DE ESTO
             if (Input.GetKeyDown(KeyCode.Period))
                 moveSpeed *= 1.5f;
             if (Input.GetKeyDown(KeyCode.Comma))
@@ -289,6 +292,7 @@ public class NewPlayer : MonoBehaviour
 
     void FlyMovement()
     {
+        hb.enabled = false;
         //------------------------------------------ DIRECT MOVEMENT ------------------------------------------
 
 
@@ -547,6 +551,8 @@ public class NewPlayer : MonoBehaviour
         lrLook = mouseX * lookSpeed;
 
         transform.eulerAngles += new Vector3(transform.eulerAngles.x, lrLook, transform.eulerAngles.z);
+
+        hb.enabled = true;
     }
 
     void wrapAround()
@@ -580,6 +586,9 @@ public class NewPlayer : MonoBehaviour
 
             if (other.gameObject.name == "muerte subita")
                 muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;
+
+            if (other.gameObject.name == "futuro")
+                futuroTrigger.GetComponent<FuturoManager>().enabled = true;
 
 
             if (other.tag == "brisas")
@@ -617,6 +626,7 @@ public class NewPlayer : MonoBehaviour
             songAreaName = "";
 
             muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = false;
+            futuroTrigger.GetComponent<FuturoManager>().enabled = false;
 
             Camera.main.clearFlags = CameraClearFlags.Skybox;
             RenderSettings.fogColor = originalFogCol;

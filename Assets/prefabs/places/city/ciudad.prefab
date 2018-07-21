@@ -4545,6 +4545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67806cc4dba2a4d269a410ea172b2e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wm: {fileID: 0}
   stars: []
   lightsLevelScale: 45
   starsLevelScale: 2500

@@ -23,11 +23,11 @@ public class songManager : MonoBehaviour
     void Update()
     {
 
-        if (playerScript.inSong)
-        {
-            if (!a.isPlaying)
-                stopSong();
-        }
+        //if (playerScript.inSong)
+        //{
+        //    if (!a.isPlaying)
+        //        stopSong();
+        //}
 
     }
 

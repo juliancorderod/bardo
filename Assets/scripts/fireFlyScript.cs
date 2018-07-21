@@ -2,35 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fireFlyScript : MonoBehaviour {
+public class fireFlyScript : MonoBehaviour
+{
 
-	float resetTimer;
-	bool resetNow = false;
+    float resetTimer;
+    bool resetNow = false;
 
-	public float timeToResetAvg;
+    public float timeToResetAvg;
+    public float speed;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-		transform.rotation = Random.rotation;
+        transform.rotation = Random.rotation;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
 
-		transform.Translate(Vector3.forward * Time.deltaTime * 0.4f);
+    // Update is called once per frame
+    void Update()
+    {
 
-		resetTimer += Time.deltaTime;
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-		if (resetTimer >= Random.Range(timeToResetAvg - 5f,timeToResetAvg + 5f)){
-			resetNow = true;
-			resetTimer = 0f;
-		}
+        resetTimer += Time.deltaTime;
 
-		if(resetNow){
-			transform.rotation = Random.rotation;
-			resetNow = false;
-		}
-	}
+        if (resetTimer >= Random.Range(timeToResetAvg - 5f, timeToResetAvg + 5f))
+        {
+            resetNow = true;
+            resetTimer = 0f;
+        }
+
+        if (resetNow)
+        {
+            transform.rotation = Random.rotation;
+            resetNow = false;
+        }
+    }
 }

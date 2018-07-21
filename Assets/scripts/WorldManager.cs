@@ -9,6 +9,9 @@ public class WorldManager : MonoBehaviour
     public float activationDist;
     public float xPos, zPos;
 
+
+    public float masterScaleSpectrum;
+
     // Use this for initialization
     void Start()
     {
@@ -18,6 +21,11 @@ public class WorldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Minus))
+            masterScaleSpectrum -= 0.2f;
+        if (Input.GetKeyDown(KeyCode.Equals))
+            masterScaleSpectrum += 0.2f;
+
 
         if (player.position.x > xPos + 2 || player.position.x < xPos - 2 ||
            player.position.z > zPos + 2 || player.position.z < zPos - 2)

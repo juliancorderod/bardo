@@ -9,25 +9,11 @@ public class headBob : MonoBehaviour
 
     float yVal, lerpVal;
 
-    public AudioSource playerSound;
-    //public AudioSource fxSound;
-
-    public AudioClip step1, step2, step3, step4, splash1, splash2, splash3, splash4;
-
-    bool stepCanPlay = false;
-
-    public GameObject seaObj;
-    //	seaBehavior seaScript;
-
-
-    //	bool setF = true;
-    //	float f;
 
     // Use this for initialization
     void Start()
     {
         lerpVal = 1;
-        //seaScript = seaObj.GetComponent<seaBehavior>();
 
     }
 
@@ -38,7 +24,7 @@ public class headBob : MonoBehaviour
         //		Debug.Log(yValWithCrouch);
 
 
-        if (Mathf.Round(Input.GetAxis("Vertical")) != 0)
+        if (Mathf.Round(Input.GetAxis("Vertical")) != 0 || Mathf.Round(Input.GetAxis("Horizontal")) != 0)
         {
 
             lerpVal -= Time.deltaTime * 5;
@@ -48,11 +34,11 @@ public class headBob : MonoBehaviour
         }
         else
         {
-            lerpVal += Time.deltaTime * 5;
+            lerpVal += Time.deltaTime * 5f;
 
         }
 
-
+        //Debug.Log(lerpVal);
 
         yVal = Mathf.Lerp(0.75f + (Mathf.Sin(Time.time * freq) / amplitude), 0.75f, lerpVal);
 
@@ -66,76 +52,7 @@ public class headBob : MonoBehaviour
 
 
 
-        if (yVal == 0.66f && stepCanPlay)
-        {
 
-            playStepSound();
-            stepCanPlay = false;
-        }
-        if (yVal > 0.75f)
-        {
-            stepCanPlay = true;
-        }
-
-
-
-
-
-
-    }
-
-    void playStepSound()
-    {
-
-        int randNum = Random.Range(1, 5);
-
-        //if (!seaScript.inSea)
-        //{
-        //    if (randNum == 1)
-        //    {
-        //        playerSound.clip = step1;
-        //        playerSound.Play();
-        //    }
-        //    if (randNum == 2)
-        //    {
-        //        playerSound.clip = step2;
-        //        playerSound.Play();
-        //    }
-        //    if (randNum == 3)
-        //    {
-        //        playerSound.clip = step3;
-        //        playerSound.Play();
-        //    }
-        //    if (randNum == 4)
-        //    {
-        //        playerSound.clip = step4;
-        //        playerSound.Play();
-        //    }
-        //}
-        //else
-        //{
-        if (randNum == 1)
-        {
-            playerSound.clip = splash1;
-            playerSound.Play();
-        }
-        if (randNum == 2)
-        {
-            playerSound.clip = splash2;
-            playerSound.Play();
-        }
-        if (randNum == 3)
-        {
-            playerSound.clip = splash3;
-            playerSound.Play();
-        }
-        if (randNum == 4)
-        {
-            playerSound.clip = splash4;
-            playerSound.Play();
-        }
-
-        //}
     }
 
     void LateUpdate()
@@ -146,7 +63,7 @@ public class headBob : MonoBehaviour
         float waveX = Mathf.Sin(Time.time * freq * 0.01f) / amplitude * 0.25f;
 
         if (Mathf.Round(Input.GetAxis("Vertical")) == 0 && Mathf.Round(Input.GetAxis("Horizontal")) == 0)
-            transform.localPosition = new Vector3(waveX, 0.75f + waveY, transform.localPosition.z);
+            transform.localPosition = new Vector3(waveX, transform.localPosition.y + waveY, transform.localPosition.z);
 
         //print(waveX);
     }
