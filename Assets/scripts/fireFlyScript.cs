@@ -11,11 +11,14 @@ public class fireFlyScript : MonoBehaviour
     public float timeToResetAvg;
     public float speed;
 
+    public Transform futuroPoint;
+
     // Use this for initialization
     void Start()
     {
 
         transform.rotation = Random.rotation;
+        //transform.localPosition =
 
     }
 
@@ -23,7 +26,9 @@ public class fireFlyScript : MonoBehaviour
     void Update()
     {
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        //transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+        transform.RotateAround(futuroPoint.position, transform.up, speed);
 
         resetTimer += Time.deltaTime;
 
