@@ -615,7 +615,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940629588909584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.919074, y: 17, z: -1.031704}
+  m_LocalPosition: {x: 5.919074, y: 12, z: -1.031704}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 4703613990836198}
@@ -1063,7 +1063,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1178,7 +1178,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1293,7 +1293,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1408,7 +1408,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1523,7 +1523,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1638,7 +1638,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1753,7 +1753,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1868,7 +1868,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -1983,7 +1983,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -2098,7 +2098,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 15
@@ -2614,10 +2614,11 @@ MonoBehaviour:
   - {fileID: 96094960981013332}
   - {fileID: 96727597062367530}
   fireFlyScale: 110
-  wallColScale: 50
+  wallColScale: 100
   p: {fileID: 0}
   wallMat: {fileID: 2100000, guid: 2ff99292ae84b427e858c4e228b9a280, type: 2}
   refreshTrailFreq: 1
+  kaleidescope: {fileID: 0}
 --- !u!114 &114192042766565700
 MonoBehaviour:
   m_ObjectHideFlags: 1

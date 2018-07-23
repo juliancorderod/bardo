@@ -6,7 +6,8 @@ public class NewPlayer : MonoBehaviour
 {
     public Transform camHolder;
 
-    float mouseX, mouseY;
+    [HideInInspector]
+    public float mouseX, mouseY;
 
     public float moveSpeed, slowDownSpeed, maxSpeed;
     float slowDownSpeedOriginal;

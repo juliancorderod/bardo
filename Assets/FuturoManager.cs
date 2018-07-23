@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Kino;
 
 public class FuturoManager : MonoBehaviour
 {
@@ -19,9 +20,12 @@ public class FuturoManager : MonoBehaviour
 
     float shortDelay;
 
-    public float refreshTrailFreq;
 
     float[] spectrumValue, returnValue, scrollSpeed;
+
+    public Mirror kaleidescope;
+    float idleTimer, realInterval, subtractK;
+    public float kInterval;
 
 
     // Use this for initialization
@@ -49,7 +53,7 @@ public class FuturoManager : MonoBehaviour
             {
                 kf[k] = new Keyframe(k / (kf.Length - 1f), 0);
 
-                Debug.Log(kf[k].time);
+                //                Debug.Log(kf[k].time);
             }
 
             AnimationCurve curve = new AnimationCurve(kf);
@@ -77,11 +81,12 @@ public class FuturoManager : MonoBehaviour
             if (shortDelay < 1.1f)
             {
                 shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
-
+                kaleidescope.enabled = true;
             }
             else
             {
 
+                //----------------------fireFly Trails----------------------
 
                 for (int i = 0; i < fireFlies.Length; i++)//hacer que cada frame solo haga uno en realidad
                 {
@@ -131,23 +136,58 @@ public class FuturoManager : MonoBehaviour
                     //                    Debug.Log(curve.keys.Length);
 
                     fireFlies[i].widthCurve = curve;
-                    fireFlies[i].widthMultiplier = Mathf.Lerp(fireFlies[i].widthMultiplier, spectrum.PeakLevels[i % 10] * fireFlyScale, 0.2f);
+                    fireFlies[i].widthMultiplier = Mathf.Lerp(fireFlies[i].widthMultiplier, spectrum.PeakLevels[i % 10] * fireFlyScale + 5, 0.25f);
 
 
 
                 }
 
 
-                //}
+                //----------------------wall Color----------------------
 
                 wallMat.SetColor("_EmissionColor", new Vector4(c.r, c.g, c.b, 0) * Mathf.Pow(spectrum.MeanLevels[1], 2) * wallColScale);
+
+
+                //----------------------kaleidescope----------------------
+                Debug.Log(p.mouseY);
+
+                if (Mathf.Abs(p.mouseX) < 0f && Mathf.Abs(p.mouseY) < 0f)
+                    idleTimer += Time.deltaTime;
+                else
+                    idleTimer = 0;
+
+                //Debug.Log(idleTimer);
+
+                if (kaleidescope._repeat > 0)
+                    realInterval = kInterval * kaleidescope._repeat;
+                else
+                    realInterval = kInterval;
+
+
+                if (idleTimer > realInterval)
+                {
+                    kaleidescope._repeat++;
+                    subtractK = kaleidescope._repeat;
+                    kaleidescope._symmetry = true;
+                }
+
+
+                if (idleTimer < kInterval - 1)
+                {
+                    if (kaleidescope._repeat >= 0)
+                    {
+                        subtractK -= Time.deltaTime * 3f;
+
+                        kaleidescope._repeat = Mathf.RoundToInt(subtractK);
+                    }
+                    if (kaleidescope._repeat >= 1)
+                        kaleidescope._symmetry = false;
+                }
 
             }
 
 
+
         }
-
-
-
     }
 }
