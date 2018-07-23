@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: testststst 3
   m_Shader: {fileID: 4800000, guid: dfb63b9b9644148ab9fe774d5c4a9413, type: 3}
-  m_ShaderKeywords: _INVERSESHADOW_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -45,15 +45,15 @@ Material:
     m_Floats:
     - _backSize: 5
     - _fresnelWidth: 0.85
-    - _inverseShadow: 1
+    - _inverseShadow: 0
     - _node_8160: 1
     - _outlineWidth: 0
     - _size: 5
     - _toonSteps: 2
     m_Colors:
     - _backColor: {r: 0, g: 0, b: 0, a: 1}
-    - _backTextureColor: {r: 0.358844, g: 0.496422, b: 0.634, a: 1}
-    - _color: {r: 0.015202, g: 0.020613208, b: 0.022, a: 1}
+    - _backTextureColor: {r: 0.32355145, g: 0.44027573, b: 0.557, a: 1}
+    - _color: {r: 0, g: 0, b: 0, a: 1}
     - _node_3719: {r: 0.47794116, g: 0.22491348, b: 0.22491348, a: 1}
     - _node_4738: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
     - _node_6305: {r: 0.5735294, g: 0.5735294, b: 0.5735294, a: 1}

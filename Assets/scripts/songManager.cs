@@ -23,6 +23,12 @@ public class songManager : MonoBehaviour
     void Update()
     {
 
+        //if (playerScript.inSong)
+        //{
+        //    if (!a.isPlaying)
+        //        stopSong();
+        //}
+
     }
 
     public void startSong(string songName)
@@ -60,6 +66,7 @@ public class songManager : MonoBehaviour
     {
         a.Stop();
         a.clip = null;
+        playerScript.inSong = false;
         //slowly reset everything here
 
     }
