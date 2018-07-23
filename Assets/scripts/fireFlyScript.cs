@@ -28,7 +28,7 @@ public class fireFlyScript : MonoBehaviour
 
         //transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        transform.RotateAround(futuroPoint.position, transform.up, speed);
+        transform.RotateAround(futuroPoint.position, Vector3.up, speed);
 
         resetTimer += Time.deltaTime;
 
