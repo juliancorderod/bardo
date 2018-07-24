@@ -27,12 +27,21 @@ public class FuturoManager : MonoBehaviour
     float idleTimer, realInterval, subtractK;
     public float kInterval;
 
+    public ParticleSystem roofPartycle;
+    bool emittedRoof;
+    float originalFOV;
+
+    public Transform partycles;
+    public float partyScale;
+
+    public LineRenderer lightning;
+    public float lightningScale;
 
     // Use this for initialization
     void Start()
     {
 
-
+        originalFOV = Camera.main.fieldOfView;
 
 
         spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
@@ -51,7 +60,7 @@ public class FuturoManager : MonoBehaviour
             Keyframe[] kf = new Keyframe[10];
             for (int k = 0; k < kf.Length; k++)
             {
-                kf[k] = new Keyframe(k / (kf.Length - 1f), 0);
+                kf[k] = new Keyframe(k / (kf.Length - 1f), 0.01f);
 
                 //                Debug.Log(kf[k].time);
             }
@@ -59,14 +68,14 @@ public class FuturoManager : MonoBehaviour
             AnimationCurve curve = new AnimationCurve(kf);
 
             fireFlies[i].widthCurve = curve;
+            lightning.widthCurve = curve;
 
             scrollSpeed[i] = i + 2;
-            //fireFlies[i].widthMultiplier = (fireFlies.Length - i) * 2;
+
         }
 
         spectrumValue = new float[fireFlies.Length];
         returnValue = new float[fireFlies.Length];
-
 
 
 
@@ -149,9 +158,9 @@ public class FuturoManager : MonoBehaviour
 
 
                 //----------------------kaleidescope----------------------
-                Debug.Log(p.mouseY);
+                //                Debug.Log(p.mouseY);
 
-                if (Mathf.Abs(p.mouseX) < 0f && Mathf.Abs(p.mouseY) < 0f)
+                if (Mathf.Abs(p.mouseX) < 0.000005f && Mathf.Abs(p.mouseY) < 0.000005f)
                     idleTimer += Time.deltaTime;
                 else
                     idleTimer = 0;
@@ -167,6 +176,8 @@ public class FuturoManager : MonoBehaviour
                 if (idleTimer > realInterval)
                 {
                     kaleidescope._repeat++;
+                    //if (Camera.main.fieldOfView < 152)
+                    //Camera.main.fieldOfView += 5;
                     subtractK = kaleidescope._repeat;
                     kaleidescope._symmetry = true;
                 }
@@ -176,17 +187,66 @@ public class FuturoManager : MonoBehaviour
                 {
                     if (kaleidescope._repeat >= 0)
                     {
-                        subtractK -= Time.deltaTime * 3f;
+                        subtractK -= Time.deltaTime * 10f;
 
                         kaleidescope._repeat = Mathf.RoundToInt(subtractK);
+
+                        //if (Camera.main.fieldOfView > originalFOV)
+                        //Camera.main.fieldOfView -= Time.deltaTime * 100;
                     }
                     if (kaleidescope._repeat >= 1)
                         kaleidescope._symmetry = false;
                 }
 
+
+                //----------------------roofParticle----------------------
+
+                if (spectrum.MeanLevels[7] > 0.002f)
+                {
+                    if (!emittedRoof)
+                    {
+                        Debug.Log("KAS EMITS");
+                        roofPartycle.Emit(1);
+                        emittedRoof = true;
+                    }
+                }
+                else
+                {
+                    emittedRoof = false;
+                }
+
+                //                Debug.Log(spectrum.MeanLevels[7]);
+
+                //----------------------partycles----------------------
+
+                partycles.localScale = Vector3.one * (spectrum.MeanLevels[4] * partyScale + 0.1f);
+
+                //----------------------lightning----------------------
+
+                AnimationCurve curve2 = lightning.widthCurve;
+
+                for (int i = 0; i < lightning.positionCount; i++)
+                {
+                    float yPos = Mathf.Pow(spectrum.MeanLevels[i % 4] * lightningScale, i + 3) / lightningScale;
+                    yPos = Mathf.Clamp(yPos, -10, 20);
+
+                    lightning.SetPosition(i, Vector3.Lerp(lightning.GetPosition(i),
+                                                          new Vector3(lightning.GetPosition(i).x, yPos, lightning.GetPosition(i).z),
+                                                          0.1f));
+
+
+
+                    curve2.MoveKey(i, new Keyframe(curve2.keys[i].time, Mathf.Lerp(curve2.keys[i].value,
+                                                                                   spectrum.MeanLevels[i % 4] * lightningScale * 1.5f, 0.2f)));
+
+                    curve2.MoveKey(curve2.keys.Length - 1, new Keyframe(1, curve2.keys[0].value));
+
+                    lightning.widthCurve = curve2;
+                    lightning.widthMultiplier = lightning.transform.localScale.y;
+
+                }
+
             }
-
-
 
         }
     }

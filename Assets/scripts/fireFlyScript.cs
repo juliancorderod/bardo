@@ -8,7 +8,7 @@ public class fireFlyScript : MonoBehaviour
     float resetTimer;
     bool resetNow = false;
 
-    public float timeToResetAvg;
+    //public float timeToResetAvg;
     public float speed;
 
     public Transform futuroPoint;
@@ -30,18 +30,18 @@ public class fireFlyScript : MonoBehaviour
 
         transform.RotateAround(futuroPoint.position, Vector3.up, speed);
 
-        resetTimer += Time.deltaTime;
+        //resetTimer += Time.deltaTime;
 
-        if (resetTimer >= Random.Range(timeToResetAvg - 5f, timeToResetAvg + 5f))
-        {
-            resetNow = true;
-            resetTimer = 0f;
-        }
+        //if (resetTimer >= Random.Range(timeToResetAvg - 5f, timeToResetAvg + 5f))
+        //{
+        //    resetNow = true;
+        //    resetTimer = 0f;
+        //}
 
-        if (resetNow)
-        {
-            transform.rotation = Random.rotation;
-            resetNow = false;
-        }
+        //if (resetNow)
+        //{
+        //    transform.rotation = Random.rotation;
+        //    resetNow = false;
+        //}
     }
 }
