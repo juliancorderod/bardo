@@ -17,6 +17,7 @@ public class MuerteSubitaManager : MonoBehaviour
 
 
     public float lightsLevelScale, starsLevelScale, smokeLevelScale, sphereRadius;
+    float originalLightsScale, originalStarsScale, originalSmokeScale;
 
     public LayerMask windowsLayer;
 
@@ -78,6 +79,9 @@ public class MuerteSubitaManager : MonoBehaviour
         originalHue = lightHue;
         originalMoonEuler = moon.eulerAngles;
 
+        originalLightsScale = lightsLevelScale;
+        originalStarsScale = starsLevelScale;
+        originalSmokeScale = smokeLevelScale;
 
     }
 
@@ -91,6 +95,8 @@ public class MuerteSubitaManager : MonoBehaviour
             {
                 if (preLights[i] != null)
                 {
+
+
                     if (preLights[i].name == "pCube1" || preLights[i].name == "pCube2")
                         rayPosAdjustment = Vector3.zero;
                     else
@@ -325,6 +331,17 @@ public class MuerteSubitaManager : MonoBehaviour
         lightHue = originalHue;
 
         shortDelay = 0;
+
+    }
+
+    public void adjustScales()
+    {
+
+        lightsLevelScale = originalLightsScale * wm.masterScaleSpectrum;
+        starsLevelScale = originalStarsScale * wm.masterScaleSpectrum;
+        smokeLevelScale = originalSmokeScale * wm.masterScaleSpectrum;
+
+
 
     }
 }

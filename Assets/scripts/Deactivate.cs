@@ -8,21 +8,36 @@ public class Deactivate : MonoBehaviour
     Transform player;
 
 
+    float startTimer;
+
+    NewPlayer p;
+
+
     // Use this for initialization
     void Start()
     {
         worldMan = GameObject.FindGameObjectWithTag("worldMan").GetComponent<WorldManager>();
         player = GameObject.Find("newPlayer").transform;
+
+        p = player.GetComponent<NewPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Vector3.Distance(player.transform.position, transform.position) > worldMan.activationDist)
+        if (!p.dontDeactivate)
         {
-            worldMan.deactivateObj.Add(gameObject);
-            gameObject.SetActive(false);
+            if (startTimer < 2)
+                startTimer += Time.deltaTime;
+            else
+            {
+                if (Vector3.Distance(player.transform.position, transform.position) > worldMan.activationDist)
+                {
+                    worldMan.deactivateObj.Add(gameObject);
+                    gameObject.SetActive(false);
+                    //            Debug.Log("deactivated");
+                }
+            }
         }
 
 

@@ -11,6 +11,7 @@ public class FuturoManager : MonoBehaviour
     public TrailRenderer[] fireFlies;
 
     public float fireFlyScale, wallColScale;
+    float originalFireFlyScale, originalWallColScale;
 
     public NewPlayer p;
 
@@ -23,19 +24,32 @@ public class FuturoManager : MonoBehaviour
 
     float[] spectrumValue, returnValue, scrollSpeed;
 
+
     public Mirror kaleidescope;
     float idleTimer, realInterval, subtractK;
     public float kInterval;
+    //[HideInInspector]
+    public bool kaleidescopeOn;
 
     public ParticleSystem roofPartycle;
     bool emittedRoof;
-    float originalFOV;
+    float originalFOV, originalRoofPartyScale;
+    public float roofPartyScale;
 
     public Transform partycles;
     public float partyScale;
+    float originalPartyScale;
 
     public LineRenderer lightning;
     public float lightningScale;
+    float originalLighningScale;
+
+    public ParticleSystem TriParty;
+
+    bool willNeedReset;
+
+    Vector3 partyclesOriginalSize, lightningOriginalSize, lightningOriginalEuler, lightningOriginalPos;
+
 
     // Use this for initialization
     void Start()
@@ -55,14 +69,13 @@ public class FuturoManager : MonoBehaviour
         scrollSpeed = new float[fireFlies.Length];
 
 
-        for (int i = 0; i < fireFlies.Length; i++)//hacer que cada frame solo haga uno en realidad
+        for (int i = 0; i < fireFlies.Length; i++)
         {
             Keyframe[] kf = new Keyframe[10];
             for (int k = 0; k < kf.Length; k++)
             {
                 kf[k] = new Keyframe(k / (kf.Length - 1f), 0.01f);
 
-                //                Debug.Log(kf[k].time);
             }
 
             AnimationCurve curve = new AnimationCurve(kf);
@@ -78,7 +91,16 @@ public class FuturoManager : MonoBehaviour
         returnValue = new float[fireFlies.Length];
 
 
+        partyclesOriginalSize = partycles.localScale;
+        lightningOriginalSize = lightning.transform.localScale;
+        lightningOriginalEuler = lightning.transform.localEulerAngles;
+        lightningOriginalPos = lightning.transform.localPosition;
 
+        originalFireFlyScale = fireFlyScale;
+        originalWallColScale = wallColScale;
+        originalRoofPartyScale = roofPartyScale;
+        originalPartyScale = partyScale;
+        originalLighningScale = lightningScale;
 
     }
 
@@ -87,10 +109,12 @@ public class FuturoManager : MonoBehaviour
     {
         if (p.inSong)
         {
+            willNeedReset = true;
             if (shortDelay < 1.1f)
             {
                 shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
-                kaleidescope.enabled = true;
+
+
             }
             else
             {
@@ -147,7 +171,7 @@ public class FuturoManager : MonoBehaviour
                     fireFlies[i].widthCurve = curve;
                     fireFlies[i].widthMultiplier = Mathf.Lerp(fireFlies[i].widthMultiplier, spectrum.PeakLevels[i % 10] * fireFlyScale + 5, 0.25f);
 
-
+                    fireFlies[i].widthMultiplier = Mathf.Clamp(fireFlies[i].widthMultiplier, 0, 80);
 
                 }
 
@@ -160,52 +184,66 @@ public class FuturoManager : MonoBehaviour
                 //----------------------kaleidescope----------------------
                 //                Debug.Log(p.mouseY);
 
-                if (Mathf.Abs(p.mouseX) < 0.000005f && Mathf.Abs(p.mouseY) < 0.000005f)
-                    idleTimer += Time.deltaTime;
-                else
-                    idleTimer = 0;
-
-                //Debug.Log(idleTimer);
-
-                if (kaleidescope._repeat > 0)
-                    realInterval = kInterval * kaleidescope._repeat;
-                else
-                    realInterval = kInterval;
-
-
-                if (idleTimer > realInterval)
+                if (kaleidescopeOn)
                 {
-                    kaleidescope._repeat++;
-                    //if (Camera.main.fieldOfView < 152)
-                    //Camera.main.fieldOfView += 5;
-                    subtractK = kaleidescope._repeat;
-                    kaleidescope._symmetry = true;
+                    if (kaleidescope.enabled == false)
+                        kaleidescope.enabled = true;
+                }
+                else
+                {
+                    if (kaleidescope.enabled == true)
+                        kaleidescope.enabled = false;
                 }
 
-
-                if (idleTimer < kInterval - 1)
+                if (kaleidescope.enabled == true)
                 {
-                    if (kaleidescope._repeat >= 0)
+
+                    if (Mathf.Abs(p.mouseX) < 0.000005f && Mathf.Abs(p.mouseY) < 0.000005f)
+                        idleTimer += Time.deltaTime;
+                    else
+                        idleTimer = 0;
+
+                    //Debug.Log(idleTimer);
+
+                    if (kaleidescope._repeat > 0)
+                        realInterval = kInterval * kaleidescope._repeat;
+                    else
+                        realInterval = kInterval;
+
+
+                    if (idleTimer > realInterval)
                     {
-                        subtractK -= Time.deltaTime * 10f;
-
-                        kaleidescope._repeat = Mathf.RoundToInt(subtractK);
-
-                        //if (Camera.main.fieldOfView > originalFOV)
-                        //Camera.main.fieldOfView -= Time.deltaTime * 100;
+                        kaleidescope._repeat++;
+                        //if (Camera.main.fieldOfView < 152)
+                        //Camera.main.fieldOfView += 5;
+                        subtractK = kaleidescope._repeat;
+                        kaleidescope._symmetry = true;
                     }
-                    if (kaleidescope._repeat >= 1)
-                        kaleidescope._symmetry = false;
-                }
 
+
+                    if (idleTimer < kInterval - 1)
+                    {
+                        if (kaleidescope._repeat >= 0)
+                        {
+                            subtractK -= Time.deltaTime * 10f;
+
+                            kaleidescope._repeat = Mathf.RoundToInt(subtractK);
+
+                            //if (Camera.main.fieldOfView > originalFOV)
+                            //Camera.main.fieldOfView -= Time.deltaTime * 100;
+                        }
+                        if (kaleidescope._repeat >= 1)
+                            kaleidescope._symmetry = false;
+                    }
+                }
 
                 //----------------------roofParticle----------------------
 
-                if (spectrum.MeanLevels[7] > 0.002f)
+                if (spectrum.MeanLevels[7] > 0.002f * roofPartyScale)
                 {
                     if (!emittedRoof)
                     {
-                        Debug.Log("KAS EMITS");
+                        //Debug.Log("KAS EMITS");
                         roofPartycle.Emit(1);
                         emittedRoof = true;
                     }
@@ -246,8 +284,88 @@ public class FuturoManager : MonoBehaviour
 
                 }
 
+                //----------------------Tris----------------------
+                if (kaleidescope._repeat > 2)
+                {
+                    if (!TriParty.isPlaying)
+                    {
+                        TriParty.gameObject.SetActive(true);
+                        TriParty.transform.parent = Camera.main.transform;
+                        TriParty.transform.localPosition = new Vector3(0, 0, -1);
+                        TriParty.transform.LookAt(Camera.main.transform.position);
+                        TriParty.transform.localEulerAngles = new Vector3(0, 270, 0);
+                        TriParty.Play();
+                    }
+
+                    // Debug.Log("playing:" + TriParty.isPlaying + "|| emitting:" + TriParty.isEmitting);
+                }
+                else
+                {
+                    TriParty.Stop();//y borrarles a todos!
+                    TriParty.gameObject.SetActive(false);
+
+                }
             }
 
         }
+        else
+        {
+            if (willNeedReset)
+            {
+                ResetFuturo();
+                willNeedReset = false;
+            }
+        }
+    }
+
+    void ResetFuturo()
+    {
+        for (int i = 0; i < fireFlies.Length; i++)
+        {
+            Keyframe[] kf = new Keyframe[10];
+            for (int k = 0; k < kf.Length; k++)
+            {
+                kf[k] = new Keyframe(k / (kf.Length - 1f), 0.01f);
+
+
+            }
+
+            AnimationCurve curve = new AnimationCurve(kf);
+
+            fireFlies[i].widthCurve = curve;
+            lightning.widthCurve = curve;
+
+            scrollSpeed[i] = i + 2;
+
+        }
+        kaleidescope._repeat = 0;
+        kaleidescope._symmetry = false;
+        kaleidescope.enabled = false;
+
+        wallMat.SetColor("_EmissionColor", new Vector4(c.r, c.g, c.b, 0) * 0);
+        shortDelay = 0;
+
+        partycles.localScale = partyclesOriginalSize;
+        lightning.transform.localScale = lightningOriginalSize;
+        lightning.transform.localEulerAngles = lightningOriginalEuler;
+        lightning.transform.localPosition = lightningOriginalPos;
+
+        TriParty.Stop();
+        TriParty.transform.parent = transform.parent;
+        TriParty.gameObject.SetActive(false);
+
+    }
+
+    public void adjustScales()
+    {
+
+        fireFlyScale = originalFireFlyScale * wm.masterScaleSpectrum;
+        wallColScale = originalWallColScale * wm.masterScaleSpectrum;
+        roofPartyScale = originalRoofPartyScale * wm.masterScaleSpectrum;
+        partyScale = originalPartyScale * wm.masterScaleSpectrum;
+        lightningScale = originalLighningScale * wm.masterScaleSpectrum;
+
+
+
     }
 }

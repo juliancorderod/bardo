@@ -36,7 +36,8 @@ public class NewPlayer : MonoBehaviour
 
     float sineWaveForYRot;
 
-    bool onFloor, descending, ascending, onSky;
+    [HideInInspector]
+    public bool onFloor = true, descending, ascending, onSky;
 
     float upDownLook, lrLook;
     public float lookSpeed;
@@ -70,6 +71,13 @@ public class NewPlayer : MonoBehaviour
 
     public headBob hb;
 
+    bool inArea = false;
+
+    [HideInInspector]
+    public bool dontDeactivate = true;
+
+    public float slowDownSpeedLook;
+
     // Use this for initialization
     void Start()
     {
@@ -88,6 +96,8 @@ public class NewPlayer : MonoBehaviour
         originalFogCol = RenderSettings.fogColor;
         originalFogDens = RenderSettings.fogDensity;
 
+        destinationPoint = transform.position;
+
 
     }
 
@@ -104,6 +114,8 @@ public class NewPlayer : MonoBehaviour
             {
                 clicked = true;
 
+                if (dontDeactivate)
+                    dontDeactivate = false;
             }
             else
                 clicked = false;
@@ -239,9 +251,9 @@ public class NewPlayer : MonoBehaviour
             cityLight.enabled = false;
             if (!inSong)
             {
-                Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);
+                Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);//Turn back on!!!
 
-                if (Text.color.a > 0.5f)
+                if (Text.color.a > 0.5f)//Turn back on!!!
                 {
                     //ADJUST FOR IOS
                     if (Input.GetKeyDown(KeyCode.Space))
@@ -440,16 +452,16 @@ public class NewPlayer : MonoBehaviour
 
         //------------------------------------------ Y ROTATION ------------------------------------------
 
-        sineWaveForYRot = Mathf.Sin(Time.time * 0.2f) * 0.5f;
+        sineWaveForYRot = Mathf.Sin(Time.time * 0.4f) * 0.7f;
+        //        Debug.Log(sineWaveForYRot);
 
-
-        transform.eulerAngles += Vector3.Lerp(Vector3.zero, new Vector3(0, (speed.x + speed.z) * sineWaveForYRot, 0), 0.5f);
+        transform.eulerAngles += Vector3.Lerp(Vector3.zero, new Vector3(0, (speed.x + speed.z) * sineWaveForYRot, 0), 0.7f);
 
 
 
 
         //------------------------------------------ WRAP AROUND MAP ------------------------------------------
-        //wrapAround();
+        wrapAround();
 
         //------------------------------------------ LOCATION MANAGER ------------------------------------------
 
@@ -527,8 +539,9 @@ public class NewPlayer : MonoBehaviour
         //UPDOWN:
 
 
-        upDownLook = mouseY * lookSpeed;
+        upDownLook += mouseY * lookSpeed;
         //upDownLook = Mathf.Clamp(upDownLook, -80, 80);
+        upDownLook = Mathf.Lerp(upDownLook, 0, slowDownSpeedLook);
 
 
         Camera.main.transform.localEulerAngles += new Vector3(-upDownLook, 0, 0);
@@ -549,7 +562,8 @@ public class NewPlayer : MonoBehaviour
         //Camera.main.transform.localEulerAngles.z);
 
         //LEFTRIGHT:
-        lrLook = mouseX * lookSpeed;
+        lrLook += mouseX * lookSpeed;
+        lrLook = Mathf.Lerp(lrLook, 0, slowDownSpeedLook);
 
         transform.eulerAngles += new Vector3(transform.eulerAngles.x, lrLook, transform.eulerAngles.z);
 
@@ -568,9 +582,17 @@ public class NewPlayer : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, transform.position.y, 475);
 
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -520, 150),
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -150, 340),
                                          transform.position.y,
-                                         Mathf.Clamp(transform.position.z, -60, 420));
+                                         Mathf.Clamp(transform.position.z, -150, 530));
+
+
+        if (!inArea)
+        {
+            location = Location.MOUNTAINS;
+        }
+
+        //Debug.Log(location);
     }
 
 
@@ -619,6 +641,11 @@ public class NewPlayer : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        inArea = true;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "songTrigger")
@@ -632,6 +659,10 @@ public class NewPlayer : MonoBehaviour
             Camera.main.clearFlags = CameraClearFlags.Skybox;
             RenderSettings.fogColor = originalFogCol;
             RenderSettings.fogDensity = originalFogDens;
+        }
+        else
+        {
+            inArea = false;
         }
     }
 

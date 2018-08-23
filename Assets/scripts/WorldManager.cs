@@ -11,6 +11,10 @@ public class WorldManager : MonoBehaviour
 
 
     public float masterScaleSpectrum;
+    public FuturoManager futuroMan;
+    public MuerteSubitaManager muerteMan;
+
+
 
     // Use this for initialization
     void Start()
@@ -22,9 +26,39 @@ public class WorldManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Minus))
-            masterScaleSpectrum -= 0.2f;
+        {
+            if (masterScaleSpectrum > 0.3f)
+            {
+                masterScaleSpectrum -= 0.2f;
+                futuroMan.adjustScales();
+                muerteMan.adjustScales();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Equals))
+        {
             masterScaleSpectrum += 0.2f;
+            futuroMan.adjustScales();
+            muerteMan.adjustScales();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            masterScaleSpectrum = 1;
+            futuroMan.adjustScales();
+            muerteMan.adjustScales();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (futuroMan.kaleidescopeOn)
+                futuroMan.kaleidescopeOn = false;
+            else
+                futuroMan.kaleidescopeOn = true;
+        }
+
+
+
 
 
         if (player.position.x > xPos + 2 || player.position.x < xPos - 2 ||

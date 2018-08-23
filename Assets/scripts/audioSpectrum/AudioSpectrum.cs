@@ -122,7 +122,7 @@ public class AudioSpectrum : MonoBehaviour
             var bandMax = 0.0f;
             for (var fi = imin; fi <= imax; fi++)
             {
-                bandMax = Mathf.Max(bandMax, rawSpectrum[fi]) * wm.masterScaleSpectrum;
+                bandMax = Mathf.Max(bandMax, rawSpectrum[fi]);
             }
 
             levels[bi] = bandMax;
