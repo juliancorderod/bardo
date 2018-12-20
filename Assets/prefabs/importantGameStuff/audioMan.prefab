@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114557971634302158}
   m_Layer: 0
   m_Name: song
-  m_TagString: Untagged
+  m_TagString: songMan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1868575566728270
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4048280099496862
 Transform:
   m_ObjectHideFlags: 1
@@ -411,11 +411,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 0e51235815132428a8fbfeb83497635b, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -512,6 +512,15 @@ MonoBehaviour:
   futuro: {fileID: 8300000, guid: 46e86477de5c74fe9904d20e09f81dbd, type: 3}
   agua: {fileID: 8300000, guid: fb0e4b52dd37d4fafacf12f47bfd1f57, type: 3}
   playerScript: {fileID: 0}
+  songs:
+  - {fileID: 8300000, guid: 0e51235815132428a8fbfeb83497635b, type: 3}
+  - {fileID: 8300000, guid: 84d103fc0aa0545fc972d783c5bffbf7, type: 3}
+  - {fileID: 8300000, guid: a0de683e75eab46468234518cea3d230, type: 3}
+  - {fileID: 8300000, guid: fd5dccb30b1ef471daa3ebce4a93ebcf, type: 3}
+  - {fileID: 8300000, guid: 9e03404ba88b1439099c935d3e58d341, type: 3}
+  - {fileID: 8300000, guid: 8be3b42db2dcf4147abe45fa11eab134, type: 3}
+  - {fileID: 8300000, guid: be0e6af227929453f94419037b8f4d99, type: 3}
+  - {fileID: 8300000, guid: fce267fdae0a14504b419c7a47e41899, type: 3}
 --- !u!114 &114557971634302158
 MonoBehaviour:
   m_ObjectHideFlags: 1

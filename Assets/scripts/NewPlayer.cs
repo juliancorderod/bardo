@@ -20,19 +20,21 @@ public class NewPlayer : MonoBehaviour
     public float camRotReturnSpeed, maxCamRotSpeed, camRotLerp, maxRotTotal;
 
     RaycastHit hit;
-    int groundLayer = 1 << 8;
+    int groundLayer = 1 << 8 | 1 << 4;
 
 
     public Light mountainLight, cityLight, floorLight;
     float mountainLightIntensity, cityLightIntensity;
-    enum Location
+    [HideInInspector]
+    public enum Location
     {
         NOWHERE,
         MOUNTAINS,
         CITY,
         WEIRDROOM
     }
-    Location location;
+    [HideInInspector]
+    public Location location;
 
     float sineWaveForYRot;
 
@@ -78,6 +80,8 @@ public class NewPlayer : MonoBehaviour
 
     public float slowDownSpeedLook;
 
+    float yPosSpeedAdjustment;
+
     // Use this for initialization
     void Start()
     {
@@ -98,7 +102,7 @@ public class NewPlayer : MonoBehaviour
 
         destinationPoint = transform.position;
 
-
+        inSong = true;
     }
 
     void Update()
@@ -172,21 +176,31 @@ public class NewPlayer : MonoBehaviour
 
             if (onFloor)
             {
-                if (!inSong)
-                {
-                    ascending = true;
-                    onFloor = false;
-                }
-                else
-                {
-                    //poner un 'are you sure'
-                    songMan.stopSong();
+                //if (!inSong)
+                //{
+                ascending = true;
+                onFloor = false;
+                //}
+                //else
+                //{
+                //    //poner un 'are you sure'
+                //    songMan.stopSong();
 
-                }
+                //}
             }
             clicked = false;
         }
 
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            songMan.PreviousSong();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            songMan.NextSong();
+        }
 
 
     }
@@ -249,19 +263,20 @@ public class NewPlayer : MonoBehaviour
         if (inSongArea)
         {
             cityLight.enabled = false;
+            inSong = true;
             if (!inSong)
             {
-                Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);//Turn back on!!!
+                //Text.color += new Color(0, 0, 0, Time.deltaTime * 0.2f);//Turn back on!!!
 
-                if (Text.color.a > 0.5f)//Turn back on!!!
-                {
-                    //ADJUST FOR IOS
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        songMan.startSong(songAreaName);
-                        inSong = true;
-                    }
-                }
+                //if (Text.color.a > 0.5f)//Turn back on!!!
+                //{
+                //ADJUST FOR IOS
+                //if (Input.GetKeyDown(KeyCode.Space))
+                //{
+                //songMan.startSong(songAreaName);
+
+                //}
+                // }
             }
             else
             {
@@ -278,6 +293,7 @@ public class NewPlayer : MonoBehaviour
         }
         else
         {
+            inSong = false;
             Text.color -= new Color(0, 0, 0, Time.deltaTime * 1f);
             cityLight.enabled = true;
         }
@@ -388,8 +404,38 @@ public class NewPlayer : MonoBehaviour
         if (descendLerp > 0.99f && !descending)
             descendLerp = 1;
 
+        if (speed.magnitude > 0.7f)//also change height!
+        {
+            //Camera.main.fov = Mathf.Lerp(Camera.main.fov, Camera.main.fov + Time.deltaTime * 50, 0.1f);
+            //yPosSpeedAdjustment = Mathf.Lerp(yPosSpeedAdjustment, yPosSpeedAdjustment + Time.deltaTime * 70, 0.1f);
+            //transform.position += (destination - transform.position) * speed * Time.deltaTime;
+            Camera.main.fov += (110 - Camera.main.fov) * Time.deltaTime * 1.5f;
+            yPosSpeedAdjustment += (60 - yPosSpeedAdjustment) * Time.deltaTime * 0.2f;
+
+
+        }
+        else
+        {
+            //Camera.main.fov = Mathf.Lerp(Camera.main.fov, Camera.main.fov - Time.deltaTime * 30, 0.1f);
+            //yPosSpeedAdjustment = Mathf.Lerp(yPosSpeedAdjustment, yPosSpeedAdjustment - Time.deltaTime * 40, 0.1f);
+
+            Camera.main.fov += (75 - Camera.main.fov) * Time.deltaTime * 0.3f;
+            yPosSpeedAdjustment += (0 - yPosSpeedAdjustment) * Time.deltaTime * 0.1f;
+        }
+        //        Debug.Log(yPosSpeedAdjustment);
+
+        yPosSpeedAdjustment = Mathf.Clamp(yPosSpeedAdjustment, 0, 60);
+        //Camera.main.fov = Mathf.Lerp(75, Mathf.Lerp(75, Camera.main.fov * Mathf.Pow((speed.magnitude + 1), 2), 0.2f), 0.4f);
+        Camera.main.fov = Mathf.Clamp(Camera.main.fov, 75, 110);
+
+        //yPos = Mathf.Lerp(yPos, yPos * Mathf.Pow((speed.magnitude + 1), 6), 0.05f);
+
+
+
         skyLerp = Mathf.Sin(Time.time * 0.2f) * 0.5f + 0.5f;
-        yPos = Mathf.Lerp(destinationPoint.y, Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight, descendLerp);
+        yPos = Mathf.Lerp(destinationPoint.y, Mathf.Lerp(camHeightDown, camHeightUp, skyLerp) + groundHeight + yPosSpeedAdjustment, descendLerp);
+
+
 
         slowDownSpeed = Mathf.Lerp(1f, slowDownSpeedOriginal, descendLerp);
 
@@ -570,6 +616,9 @@ public class NewPlayer : MonoBehaviour
         hb.enabled = true;
     }
 
+    [HideInInspector]
+    public float minX = -150, maxX = 340, minZ = -150, maxZ = 530;
+
     void wrapAround()
     {
         //if (transform.position.x > 225)
@@ -582,9 +631,9 @@ public class NewPlayer : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, transform.position.y, 475);
 
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -150, 340),
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX),
                                          transform.position.y,
-                                         Mathf.Clamp(transform.position.z, -150, 530));
+                                         Mathf.Clamp(transform.position.z, minZ, maxZ));
 
 
         if (!inArea)
@@ -607,11 +656,11 @@ public class NewPlayer : MonoBehaviour
             songAreaName = other.name;
             Text.text = "escuchar " + other.name;
 
-            if (other.gameObject.name == "muerte subita")
-                muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;
+            //if (other.gameObject.name == "muerte subita")
+            //    muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;
 
-            if (other.gameObject.name == "futuro")
-                futuroTrigger.GetComponent<FuturoManager>().enabled = true;
+            //if (other.gameObject.name == "futuro")
+            //futuroTrigger.GetComponent<FuturoManager>().enabled = true;
 
 
             if (other.tag == "brisas")
@@ -653,8 +702,8 @@ public class NewPlayer : MonoBehaviour
             inSongArea = false;
             songAreaName = "";
 
-            muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = false;
-            futuroTrigger.GetComponent<FuturoManager>().enabled = false;
+            //muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = false;
+            //futuroTrigger.GetComponent<FuturoManager>().enabled = false;
 
             Camera.main.clearFlags = CameraClearFlags.Skybox;
             RenderSettings.fogColor = originalFogCol;

@@ -9,17 +9,19 @@ public class WorldManager : MonoBehaviour
     public float activationDist;
     public float xPos, zPos;
 
-
-    public float masterScaleSpectrum;
+    [HideInInspector]
+    public float masterScaleSpectrum = 1;
     public FuturoManager futuroMan;
     public MuerteSubitaManager muerteMan;
+    public FireFlyManager fireFlyMan;
 
-
+    public GameObject workDirLight;
 
     // Use this for initialization
     void Start()
     {
-
+        masterScaleSpectrum -= 0.4f;
+        workDirLight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class WorldManager : MonoBehaviour
                 masterScaleSpectrum -= 0.2f;
                 futuroMan.adjustScales();
                 muerteMan.adjustScales();
+                fireFlyMan.adjustScales();
             }
         }
 

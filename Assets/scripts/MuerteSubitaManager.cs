@@ -210,17 +210,17 @@ public class MuerteSubitaManager : MonoBehaviour
             }
             animsActive = false;
 
-            Debug.Log(animationList.Count);
+            //            Debug.Log(animationList.Count);
             haveReOrdered = true;
-            this.enabled = false;
+            //this.enabled = false;
         }
 
         //actual update start here!
 
-        if (player.inSong)
+        if (player.location == NewPlayer.Location.CITY)
         {
             willNeedReset = true;
-            if (shortDelay < 1.1f)
+            if (shortDelay < 0f)
             {
                 shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
                 for (int i = 0; i < preLights.Length; i++)

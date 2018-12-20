@@ -11,7 +11,9 @@ public class songManager : MonoBehaviour
 
     public NewPlayer playerScript;
 
-
+    public AudioClip[] songs;
+    int songInt;
+    float songTimer;
 
     // Use this for initialization
     void Start()
@@ -29,6 +31,8 @@ public class songManager : MonoBehaviour
         //        stopSong();
         //}
 
+
+        songTimer += Time.deltaTime;
     }
 
     public void startSong(string songName)
@@ -56,10 +60,35 @@ public class songManager : MonoBehaviour
 
         a.clip = songToPlay;
 
-
-
         a.PlayDelayed(2f);
 
+    }
+
+    public void NextSong()
+    {
+        songInt++;
+        if (songInt == songs.Length)
+            songInt = 0;
+
+        a.clip = songs[songInt];
+
+        a.Play();
+        songTimer = 0;
+    }
+
+    public void PreviousSong()
+    {
+        if (songTimer < 3)
+        {
+            songInt--;
+            if (songInt == -1)
+                songInt = songs.Length - 1;
+        }
+        a.clip = songs[songInt];
+
+
+        a.Play();
+        songTimer = 0;
     }
 
     public void stopSong()
@@ -68,6 +97,6 @@ public class songManager : MonoBehaviour
         a.clip = null;
         playerScript.inSong = false;
         //slowly reset everything here
-
+        songTimer = 0;
     }
 }

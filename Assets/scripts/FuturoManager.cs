@@ -17,7 +17,7 @@ public class FuturoManager : MonoBehaviour
 
     public Material wallMat;
 
-    Color c;
+    public Color c;
 
     float shortDelay;
 
@@ -60,11 +60,11 @@ public class FuturoManager : MonoBehaviour
 
         spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
 
-        c = wallMat.color;
+        //c = wallMat.GetColor("_Col1");
 
-        this.enabled = false;
+        //this.enabled = false;
 
-        wallMat.SetColor("_EmissionColor", new Vector4(c.r, c.g, c.b, 0) * 0);
+        //wallMat.SetColor("_Col1", new Vector4(c.r, c.g, c.b, 0));
 
         scrollSpeed = new float[fireFlies.Length];
 
@@ -107,10 +107,10 @@ public class FuturoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (p.inSong)
+        if (p.location == NewPlayer.Location.WEIRDROOM)
         {
             willNeedReset = true;
-            if (shortDelay < 1.1f)
+            if (shortDelay < 0f)
             {
                 shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
 
@@ -178,7 +178,7 @@ public class FuturoManager : MonoBehaviour
 
                 //----------------------wall Color----------------------
 
-                wallMat.SetColor("_EmissionColor", new Vector4(c.r, c.g, c.b, 0) * Mathf.Pow(spectrum.MeanLevels[1], 2) * wallColScale);
+                wallMat.SetColor("_Col1", new Vector4(c.r, c.g, c.b, 0) * ((Mathf.Pow(spectrum.MeanLevels[1], 2) * wallColScale) + 1));
 
 
                 //----------------------kaleidescope----------------------
@@ -301,7 +301,7 @@ public class FuturoManager : MonoBehaviour
                 }
                 else
                 {
-                    TriParty.Stop();//y borrarles a todos!
+                    TriParty.Stop();//y borrarles a tod.os!
                     TriParty.gameObject.SetActive(false);
 
                 }
@@ -342,7 +342,7 @@ public class FuturoManager : MonoBehaviour
         kaleidescope._symmetry = false;
         kaleidescope.enabled = false;
 
-        wallMat.SetColor("_EmissionColor", new Vector4(c.r, c.g, c.b, 0) * 0);
+        wallMat.SetColor("_Col1", new Vector4(c.r, c.g, c.b, 0));
         shortDelay = 0;
 
         partycles.localScale = partyclesOriginalSize;
