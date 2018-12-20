@@ -409,7 +409,7 @@ public class NewPlayer : MonoBehaviour
             //Camera.main.fov = Mathf.Lerp(Camera.main.fov, Camera.main.fov + Time.deltaTime * 50, 0.1f);
             //yPosSpeedAdjustment = Mathf.Lerp(yPosSpeedAdjustment, yPosSpeedAdjustment + Time.deltaTime * 70, 0.1f);
             //transform.position += (destination - transform.position) * speed * Time.deltaTime;
-            Camera.main.fov += (110 - Camera.main.fov) * Time.deltaTime * 1.5f;
+            Camera.main.fieldOfView += (110 - Camera.main.fieldOfView) * Time.deltaTime * 1.5f;
             yPosSpeedAdjustment += (60 - yPosSpeedAdjustment) * Time.deltaTime * 0.2f;
 
 
@@ -419,14 +419,14 @@ public class NewPlayer : MonoBehaviour
             //Camera.main.fov = Mathf.Lerp(Camera.main.fov, Camera.main.fov - Time.deltaTime * 30, 0.1f);
             //yPosSpeedAdjustment = Mathf.Lerp(yPosSpeedAdjustment, yPosSpeedAdjustment - Time.deltaTime * 40, 0.1f);
 
-            Camera.main.fov += (75 - Camera.main.fov) * Time.deltaTime * 0.3f;
+            Camera.main.fieldOfView += (75 - Camera.main.fieldOfView) * Time.deltaTime * 0.3f;
             yPosSpeedAdjustment += (0 - yPosSpeedAdjustment) * Time.deltaTime * 0.1f;
         }
         //        Debug.Log(yPosSpeedAdjustment);
 
         yPosSpeedAdjustment = Mathf.Clamp(yPosSpeedAdjustment, 0, 60);
         //Camera.main.fov = Mathf.Lerp(75, Mathf.Lerp(75, Camera.main.fov * Mathf.Pow((speed.magnitude + 1), 2), 0.2f), 0.4f);
-        Camera.main.fov = Mathf.Clamp(Camera.main.fov, 75, 110);
+        Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, 75, 110);
 
         //yPos = Mathf.Lerp(yPos, yPos * Mathf.Pow((speed.magnitude + 1), 6), 0.05f);
 
