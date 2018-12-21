@@ -26,7 +26,7 @@ public class CityBuilder : MonoBehaviour
 
     public GameObject lampPost;
 
-
+    public bool hasFinished;
 
     // Use this for initialization
     void Awake()
@@ -37,15 +37,6 @@ public class CityBuilder : MonoBehaviour
         {
             for (int z = 0; z < maxBuildingsSide; z++)
             {
-                //if (x % 4 == 0)
-                //    spaceBetweenBuildingsX = 1;
-                //else
-                //    spaceBetweenBuildingsX = 0;
-
-                //if (y % 3 == 0)
-                //    spaceBetweenBuildingsY = 2;
-                //else
-                //spaceBetweenBuildingsY = 0;
 
                 bool dontDestroy = false;
                 bool destroyed = false;
@@ -64,16 +55,10 @@ public class CityBuilder : MonoBehaviour
                     sizeY *= (maxBuildingsSide - z) / (maxBuildingsSide / 2);
 
 
-
-
-
-
-
                 GameObject g = Instantiate(building, transform);
                 g.transform.localPosition = new Vector3(x * meshSize.x, 800, z * meshSize.z);
 
                 g.transform.localPosition -= new Vector3((maxBuildingsSide * meshSize.x) / 2, 0, (maxBuildingsSide * meshSize.z) / 2);//esto les centra
-
 
                 RaycastHit hit;
                 Ray groundCheckRay = new Ray(g.transform.position, Vector3.down);
@@ -81,16 +66,11 @@ public class CityBuilder : MonoBehaviour
 
                 if (hit.collider != null)
                 {
-                    posY = hit.point.y;// + meshSize.y / 2;
+                    posY = hit.point.y;
                 }
 
-                //                Debug.Log(posY);
-
-                //g.transform.localScale = new Vector3(sizeX, sizeY, sizeZ);
-
-
-
                 g.transform.position = new Vector3(g.transform.position.x, posY, g.transform.position.z);
+
 
                 if (x % 5 == 0 && z % 4 == 0)//roads
                 {
@@ -365,7 +345,11 @@ public class CityBuilder : MonoBehaviour
 
         m.enabled = true;
         m.streetLightColor = lampPost.transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial.color;
+
+
     }
+
+
 
 
 }

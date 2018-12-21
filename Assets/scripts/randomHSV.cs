@@ -5,11 +5,17 @@ using UnityEngine;
 public class randomHSV : MonoBehaviour
 {
 
+    MuerteSubitaManager m;
+
     // Use this for initialization
     void Start()
     {
 
-        setRandom();
+        //setRandom();
+
+        m = GameObject.Find("muerte subita").GetComponent<MuerteSubitaManager>();
+
+        //        m.windows.Add(gameObject);
 
     }
 

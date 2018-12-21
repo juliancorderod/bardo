@@ -8,9 +8,11 @@ public class MuerteSubitaManager : MonoBehaviour
 
     AudioSpectrum spectrum;
 
-    MeshRenderer[] preLights;
-    List<MeshRenderer> lights = new List<MeshRenderer>();
-    List<GameObject> animationList = new List<GameObject>();
+    public Material[] buildInsides;
+
+    List<GameObject> realWindows = new List<GameObject>();
+
+    public List<GameObject> animationList = new List<GameObject>();
 
     [HideInInspector]
     public List<GameObject> stars = new List<GameObject>();
@@ -52,6 +54,13 @@ public class MuerteSubitaManager : MonoBehaviour
     [HideInInspector]
     public Color streetLightColor;
 
+    //[HideInInspector]
+    //public List<GameObject> windows = new List<GameObject>();
+
+    Collider[] windows;
+
+    public CityBuilder c;
+
     // Use this for initialization
     void Start()
     {
@@ -62,15 +71,15 @@ public class MuerteSubitaManager : MonoBehaviour
 
         spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
 
-        Collider[] windows = Physics.OverlapSphere(new Vector3(25, 30, 9), sphereRadius, windowsLayer);
+        windows = Physics.OverlapSphere(new Vector3(25, 30, 9), sphereRadius, windowsLayer);
 
-        preLights = new MeshRenderer[windows.Length];
-        //Debug.Log(windows.Length);
+        //preLights = new MeshRenderer[windows.Length];
 
-        for (int i = 0; i < windows.Length; i++)
+
+
+        for (int i = 0; i < buildInsides.Length; i++)
         {
-            preLights[i] = windows[i].GetComponent<MeshRenderer>();
-
+            buildInsides[i].color = Color.HSVToRGB(0, 0, Random.Range(0.45f, 0.95f));
         }
 
         float s, v;
@@ -85,134 +94,19 @@ public class MuerteSubitaManager : MonoBehaviour
 
     }
 
+
+
+
+
     // Update is called once per frame
     void Update()
     {
         if (!haveReOrdered)
         {
+            ReorderStuff();
 
-            for (int i = 0; i < preLights.Length; i++)
-            {
-                if (preLights[i] != null)
-                {
-
-
-                    if (preLights[i].name == "pCube1" || preLights[i].name == "pCube2")
-                        rayPosAdjustment = Vector3.zero;
-                    else
-                        rayPosAdjustment = new Vector3(0, 0, -5);
-
-
-
-                    Ray checkIfInSight = new Ray(transform.position, (preLights[i].transform.position + rayPosAdjustment) - transform.position);
-                    Physics.Raycast(checkIfInSight, out hit, Vector3.Distance(preLights[i].transform.position, transform.position), windowsLayer);
-
-                    if (hit.transform == preLights[i].transform)
-                    {
-                        lights.Add(preLights[i]); //add it to the list here!
-                    }
-                }
-            }
-
-            // Debug.Log(lights.Count);
-
-
-            for (int i = 0; i < lights.Count; i++)
-            {
-                bool placedAnim = false;
-                //lights[i].material.color = Color.red;
-
-                if (!placedAnim)
-                {
-                    if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
-                    {
-                        if (Random.Range(0, 10) > 8)
-                        {
-                            GameObject kwa = Instantiate(kasWalkAnim, lights[i].transform);
-
-                            kwa.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
-                            animationList.Add(kwa);
-                            placedAnim = true;
-                        }
-                    }
-                }
-                if (!placedAnim)
-                {
-                    if (lights[i].name == "pCube45" || lights[i].name == "pCube43")
-                    {
-                        if (lights[i].transform.position.y < 40 && lights[i].transform.position.x < 100)
-                        {
-                            if (Random.Range(0, 10) > 5)
-                            {
-                                GameObject jb1 = Instantiate(jBeer1, lights[i].transform);
-                                if (Random.Range(0, 10) > 5)
-                                {
-                                    jb1.transform.localPosition = new Vector3(-4.15f, 0f, -4.4f);
-                                }
-                                else
-                                {
-                                    jb1.transform.localPosition = new Vector3(4.15f, 0f, -4.4f);
-                                    jb1.GetComponent<SpriteRenderer>().flipX = true;
-                                }
-
-
-
-                                jb1.GetComponent<Animator>().speed = Random.Range(0.8f, 1.2f);
-                                animationList.Add(jb1);
-                                placedAnim = true;
-                            }
-                        }
-                    }
-                }
-                if (!placedAnim)
-                {
-                    if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
-                    {
-                        if (lights[i].transform.position.y > 20 && lights[i].transform.position.x < 100)
-                        {
-                            if (Random.Range(0, 10) > 6)
-                            {
-                                GameObject ef1 = Instantiate(emiFum1, lights[i].transform);
-
-                                ef1.transform.localPosition = new Vector3(1.6f, -0.5f, -4.4f);
-
-                                ef1.GetComponent<Animator>().speed = Random.Range(0.5f, 1f);
-                                animationList.Add(ef1);
-                                placedAnim = true;
-                            }
-                        }
-                    }
-                }
-                if (!placedAnim)
-                {
-                    if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
-                    {
-                        if (lights[i].transform.position.y > 10 && lights[i].transform.position.x < 100)
-                        {
-                            if (Random.Range(0, 10) > 6)
-                            {
-                                GameObject caf = Instantiate(cafesinosa, lights[i].transform);
-
-                                caf.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
-
-                                caf.GetComponent<Animator>().speed = Random.Range(0.7f, 1.2f);
-                                animationList.Add(caf);
-                                placedAnim = true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            for (int i = 0; i < animationList.Count; i++)
-            {
-                animationList[i].SetActive(false);
-            }
-            animsActive = false;
-
-            //            Debug.Log(animationList.Count);
             haveReOrdered = true;
-            //this.enabled = false;
+
         }
 
         //actual update start here!
@@ -222,14 +116,14 @@ public class MuerteSubitaManager : MonoBehaviour
             willNeedReset = true;
             if (shortDelay < 0f)
             {
-                shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
-                for (int i = 0; i < preLights.Length; i++)
-                {
-                    if (preLights[i] != null)
-                        preLights[i].material.color = Color.Lerp(preLights[i].material.color, Color.clear, shortDelay / 2);
+                //shortDelay += Time.deltaTime;//para saltarse ese segundito que se prenden las luces
+                //for (int i = 0; i < preLights.Length; i++)
+                //{
+                //    if (preLights[i] != null)
+                //        preLights[i].material.color = Color.Lerp(preLights[i].material.color, Color.clear, shortDelay / 2);
 
 
-                }
+                //}
             }
             else//actually start messing with stuff here!
             {
@@ -241,15 +135,30 @@ public class MuerteSubitaManager : MonoBehaviour
                     }
                     animsActive = true;
                 }
-                for (int i = 0; i < lights.Count; i++)
+
+                //buuldings
+
+                for (int i = 0; i < buildInsides.Length; i++)
                 {
 
-                    //lights[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * levelScale);
-                    lights[i].material.color = new Color(1, 1, 1, spectrum.MeanLevels[i % 10] * lightsLevelScale);
-                    //lights[i].intensity = spectrum.MeanLevels[i % 10] * levelScale;
+                    buildInsides[i].color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i] * lightsLevelScale);
 
-                    //            Debug.Log(i + "|||" + spectrum.MeanLevels[i]);
                 }
+
+                //for (int i = 0; i < lights.Count; i++)
+                //{
+
+
+
+                //    lights[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * lightsLevelScale);
+                //    //lights[i].material.SetColor("_EmissionColor", Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * lightsLevelScale));
+                //    //lights[i].material.color = new Color(1, 1, 1, spectrum.MeanLevels[i % 10] * lightsLevelScale);
+                //    //lights[i].intensity = spectrum.MeanLevels[i % 10] * levelScale;
+
+                //    //            Debug.Log(i + "|||" + spectrum.MeanLevels[i]);
+                //}
+
+                //stars:
 
                 for (int i = 0; i < stars.Count; i++)
                 {
@@ -261,6 +170,8 @@ public class MuerteSubitaManager : MonoBehaviour
                         stars[i].transform.localScale = Vector3.one * 4f;
 
                 }
+
+                //smoke
 
                 if (spectrum.MeanLevels[6] < 0.005f)
                     smoke.spread = 0.0002f;
@@ -297,28 +208,15 @@ public class MuerteSubitaManager : MonoBehaviour
         }
 
 
-        //        Debug.Log(lightHue);
     }
 
 
     void ResetMuerteSubita()
     {
 
-        for (int i = 0; i < preLights.Length; i++)
+        for (int i = 0; i < buildInsides.Length; i++)
         {
-            if (preLights[i] != null)
-            {
-                preLights[i].gameObject.SetActive(true);
-                //                preLights[i].GetComponent<Deactivate>().enabled = false;
-
-                if (preLights[i].GetComponent<randomHSV>() != null)
-                    preLights[i].GetComponent<randomHSV>().setRandom();
-                else
-                    preLights[i].GetComponent<MeshRenderer>().material.color = streetLightColor;
-
-
-                //              preLights[i].GetComponent<Deactivate>().enabled = true;
-            }
+            buildInsides[i].color = Color.HSVToRGB(0, 0, Random.Range(0.45f, 0.95f));
         }
 
         for (int i = 0; i < animationList.Count; i++)
@@ -341,7 +239,242 @@ public class MuerteSubitaManager : MonoBehaviour
         starsLevelScale = originalStarsScale * wm.masterScaleSpectrum;
         smokeLevelScale = originalSmokeScale * wm.masterScaleSpectrum;
 
+    }
 
 
+
+    void ReorderStuff()
+    {
+        for (int i = 0; i < windows.Length; i++)
+        {
+            if (windows[i] != null)
+            {
+                realWindows.Add(windows[i].gameObject);
+            }
+        }
+
+        AssignMatPlaceAnims();
+
+        //    for (int i = 0; i < preLights.Length; i++)
+        //    {
+        //        if (preLights[i] != null)
+        //        {
+
+
+        //            if (preLights[i].name == "pCube1" || preLights[i].name == "pCube2")
+        //                rayPosAdjustment = Vector3.zero;
+        //            else
+        //                rayPosAdjustment = new Vector3(0, 0, -5);
+
+
+
+        //            Ray checkIfInSight = new Ray(transform.position, (preLights[i].transform.position + rayPosAdjustment) - transform.position);
+        //            Physics.Raycast(checkIfInSight, out hit, Vector3.Distance(preLights[i].transform.position, transform.position), windowsLayer);
+
+        //            if (hit.transform == preLights[i].transform)
+        //            {
+        //                lights.Add(preLights[i]); //add it to the list here!
+        //            }
+        //        }
+        //    }
+
+        //    // Debug.Log(lights.Count);
+
+
+        //    for (int i = 0; i < lights.Count; i++)
+        //    {
+        //        bool placedAnim = false;
+        //        //lights[i].material.color = Color.red;
+
+        //        if (!placedAnim)
+        //        {
+        //            if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
+        //            {
+        //                if (Random.Range(0, 10) > 8)
+        //                {
+        //                    GameObject kwa = Instantiate(kasWalkAnim, lights[i].transform);
+
+        //                    kwa.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
+        //                    animationList.Add(kwa);
+        //                    placedAnim = true;
+        //                }
+        //            }
+        //        }
+        //        if (!placedAnim)
+        //        {
+        //            if (lights[i].name == "pCube45" || lights[i].name == "pCube43")
+        //            {
+        //                if (lights[i].transform.position.y < 40 && lights[i].transform.position.x < 100)
+        //                {
+        //                    if (Random.Range(0, 10) > 5)
+        //                    {
+        //                        GameObject jb1 = Instantiate(jBeer1, lights[i].transform);
+        //                        if (Random.Range(0, 10) > 5)
+        //                        {
+        //                            jb1.transform.localPosition = new Vector3(-4.15f, 0f, -4.4f);
+        //                        }
+        //                        else
+        //                        {
+        //                            jb1.transform.localPosition = new Vector3(4.15f, 0f, -4.4f);
+        //                            jb1.GetComponent<SpriteRenderer>().flipX = true;
+        //                        }
+
+        //                        jb1.GetComponent<Animator>().speed = Random.Range(0.8f, 1.2f);
+        //                        animationList.Add(jb1);
+        //                        placedAnim = true;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        if (!placedAnim)
+        //        {
+        //            if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
+        //            {
+        //                if (lights[i].transform.position.y > 20 && lights[i].transform.position.x < 100)
+        //                {
+        //                    if (Random.Range(0, 10) > 6)
+        //                    {
+        //                        GameObject ef1 = Instantiate(emiFum1, lights[i].transform);
+
+        //                        ef1.transform.localPosition = new Vector3(1.6f, -0.5f, -4.4f);
+
+        //                        ef1.GetComponent<Animator>().speed = Random.Range(0.5f, 1f);
+        //                        animationList.Add(ef1);
+        //                        placedAnim = true;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        if (!placedAnim)
+        //        {
+        //            if (lights[i].name == "pCube44" || lights[i].name == "pCube43")
+        //            {
+        //                if (lights[i].transform.position.y > 10 && lights[i].transform.position.x < 100)
+        //                {
+        //                    if (Random.Range(0, 10) > 6)
+        //                    {
+        //                        GameObject caf = Instantiate(cafesinosa, lights[i].transform);
+
+        //                        caf.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
+
+        //                        caf.GetComponent<Animator>().speed = Random.Range(0.7f, 1.2f);
+        //                        animationList.Add(caf);
+        //                        placedAnim = true;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    for (int i = 0; i < animationList.Count; i++)
+        //    {
+        //        animationList[i].SetActive(false);
+        //    }
+        //    animsActive = false;
+
+        //    //            Debug.Log(animationList.Count);
+    }
+    void AssignMatPlaceAnims()
+    {
+
+        for (int i = 0; i < realWindows.Count; i++)
+        {
+
+            //preLights[i] = windows[i].GetComponent<MeshRenderer>();
+
+            realWindows[i].GetComponent<MeshRenderer>().material = buildInsides[i % 10];
+
+
+            //place anims!
+
+            bool placedAnim = false;
+            //lights[i].material.color = Color.red;
+
+            if (!placedAnim)
+            {
+                if (realWindows[i].name == "pCube44" || realWindows[i].name == "pCube43")
+                {
+                    if (Random.Range(0, 10) > 8)
+                    {
+                        GameObject kwa = Instantiate(kasWalkAnim, realWindows[i].transform);
+
+                        kwa.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
+                        animationList.Add(kwa);
+                        placedAnim = true;
+                    }
+                }
+            }
+            if (!placedAnim)
+            {
+                if (realWindows[i].name == "pCube45" || realWindows[i].name == "pCube43")
+                {
+                    if (realWindows[i].transform.position.y < 40 && realWindows[i].transform.position.x < 100)
+                    {
+                        if (Random.Range(0, 10) > 5)
+                        {
+                            GameObject jb1 = Instantiate(jBeer1, realWindows[i].transform);
+                            if (Random.Range(0, 10) > 5)
+                            {
+                                jb1.transform.localPosition = new Vector3(-4.15f, 0f, -4.4f);
+                            }
+                            else
+                            {
+                                jb1.transform.localPosition = new Vector3(4.15f, 0f, -4.4f);
+                                jb1.GetComponent<SpriteRenderer>().flipX = true;
+                            }
+
+                            jb1.GetComponent<Animator>().speed = Random.Range(0.8f, 1.2f);
+                            animationList.Add(jb1);
+                            placedAnim = true;
+                        }
+                    }
+                }
+            }
+            if (!placedAnim)
+            {
+                if (realWindows[i].name == "pCube44" || realWindows[i].name == "pCube43")
+                {
+                    if (realWindows[i].transform.position.y > 20 && realWindows[i].transform.position.x < 100)
+                    {
+                        if (Random.Range(0, 10) > 6)
+                        {
+                            GameObject ef1 = Instantiate(emiFum1, realWindows[i].transform);
+
+                            ef1.transform.localPosition = new Vector3(1.6f, -0.5f, -4.4f);
+
+                            ef1.GetComponent<Animator>().speed = Random.Range(0.5f, 1f);
+                            animationList.Add(ef1);
+                            placedAnim = true;
+                        }
+                    }
+                }
+            }
+            if (!placedAnim)
+            {
+                if (realWindows[i].name == "pCube44" || realWindows[i].name == "pCube43")
+                {
+                    if (realWindows[i].transform.position.y > 10 && realWindows[i].transform.position.x < 100)
+                    {
+                        if (Random.Range(0, 10) > 6)
+                        {
+                            GameObject caf = Instantiate(cafesinosa, realWindows[i].transform);
+
+                            caf.transform.localPosition = new Vector3(0, -0.5f, -4.4f);
+
+                            caf.GetComponent<Animator>().speed = Random.Range(0.7f, 1.2f);
+                            animationList.Add(caf);
+                            placedAnim = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < animationList.Count; i++)
+        {
+            animationList[i].SetActive(false);
+        }
+        animsActive = false;
+        Debug.Log(animationList.Count);
     }
 }
