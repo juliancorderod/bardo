@@ -52,7 +52,6 @@ public class NewPlayer : MonoBehaviour
 
     bool clicked = false;// hasMovedTouch = false, hasStationaryTouch = false;
 
-    public TextMesh Text;
 
     //Vector3 oldMousePos, newMousePos;
 
@@ -280,7 +279,7 @@ public class NewPlayer : MonoBehaviour
             }
             else
             {
-                Text.color -= new Color(0, 0, 0, Time.deltaTime * 1f);
+
 
                 //if (Input.GetKeyDown(KeyCode.Space))
                 //{
@@ -294,7 +293,7 @@ public class NewPlayer : MonoBehaviour
         else
         {
             inSong = false;
-            Text.color -= new Color(0, 0, 0, Time.deltaTime * 1f);
+
             cityLight.enabled = true;
         }
 
@@ -529,9 +528,9 @@ public class NewPlayer : MonoBehaviour
                 if (floorLight.intensity < 4)
                     floorLight.intensity += Time.fixedDeltaTime * 0.5f;
 
-                ambientAudio.clip = mountainSound;
-                if (!ambientAudio.isPlaying)
-                    ambientAudio.Play();
+                //ambientAudio.clip = mountainSound;
+                //if (!ambientAudio.isPlaying)
+                //ambientAudio.Play();
 
                 break;
             case Location.CITY:
@@ -542,9 +541,9 @@ public class NewPlayer : MonoBehaviour
                 if (floorLight.intensity > 1)
                     floorLight.intensity -= Time.fixedDeltaTime * 1f;
 
-                ambientAudio.clip = citySound;
-                if (!ambientAudio.isPlaying)
-                    ambientAudio.Play();
+                //ambientAudio.clip = citySound;
+                //if (!ambientAudio.isPlaying)
+                //ambientAudio.Play();
 
                 destinationPoint = muerteSubitaTrigger.position;
 
@@ -564,9 +563,9 @@ public class NewPlayer : MonoBehaviour
                 if (floorLight.intensity > 1)
                     floorLight.intensity -= Time.fixedDeltaTime * 1f;
 
-                ambientAudio.clip = wierdRoomSound;
-                if (!ambientAudio.isPlaying)
-                    ambientAudio.Play();
+                //ambientAudio.clip = wierdRoomSound;
+                //if (!ambientAudio.isPlaying)
+                //ambientAudio.Play();
 
                 destinationPoint = futuroTrigger.position;
 
@@ -654,7 +653,7 @@ public class NewPlayer : MonoBehaviour
 
             inSongArea = true;
             songAreaName = other.name;
-            Text.text = "escuchar " + other.name;
+
 
             //if (other.gameObject.name == "muerte subita")
             //    muerteSubitaTrigger.GetComponent<MuerteSubitaManager>().enabled = true;

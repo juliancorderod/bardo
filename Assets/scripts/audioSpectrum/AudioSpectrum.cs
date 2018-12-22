@@ -100,13 +100,22 @@ public class AudioSpectrum : MonoBehaviour
     void Start()
     {
         wm = GameObject.FindWithTag("worldMan").GetComponent<WorldManager>();
+
+
     }
 
     void Update()
     {
         CheckBuffers();
 
+#if UNITY_WEBGL && !UNITY_EDITOR
+
+        SSWebInteract.GetSpectrumData(rawSpectrum);
+#else 
         AudioListener.GetSpectrumData(rawSpectrum, 0, FFTWindow.BlackmanHarris);
+#endif
+
+
 
         float[] middlefrequencies = middleFrequenciesForBands[(int)bandType];
         var bandwidth = bandwidthForBands[(int)bandType];

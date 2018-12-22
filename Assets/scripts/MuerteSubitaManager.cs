@@ -46,6 +46,7 @@ public class MuerteSubitaManager : MonoBehaviour
     public smokeScript smoke;
 
     public Transform moon;
+    Light luzLuna;
     Vector3 originalMoonEuler;
     float timer;
 
@@ -82,8 +83,6 @@ public class MuerteSubitaManager : MonoBehaviour
             buildInsides[i].color = Color.HSVToRGB(0, 0, Random.Range(0.45f, 0.95f));
         }
 
-        float s, v;
-        Color.RGBToHSV(originalLightColor, out lightHue, out s, out v);
 
         originalHue = lightHue;
         originalMoonEuler = moon.eulerAngles;
@@ -91,6 +90,8 @@ public class MuerteSubitaManager : MonoBehaviour
         originalLightsScale = lightsLevelScale;
         originalStarsScale = starsLevelScale;
         originalSmokeScale = smokeLevelScale;
+
+        luzLuna = moon.GetComponent<Light>();
 
     }
 
@@ -138,25 +139,29 @@ public class MuerteSubitaManager : MonoBehaviour
 
                 //buuldings
 
+                if (lightHue < 0)
+                    lightHue = 1;
+                else
+                {
+                    if (lightHue < 0.45f && lightHue > 0.12f)
+                        lightHue -= Time.deltaTime / 30;
+                    else
+                        lightHue -= Time.deltaTime / 350;
+                }
+
+                //                Debug.Log(lightHue);
+
                 for (int i = 0; i < buildInsides.Length; i++)
                 {
 
-                    buildInsides[i].color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i] * lightsLevelScale);
+                    buildInsides[i].color = Color.HSVToRGB(lightHue, 1, spectrum.MeanLevels[i] * lightsLevelScale);
+
 
                 }
-
-                //for (int i = 0; i < lights.Count; i++)
-                //{
-
+                float h, s, v;
+                Color.RGBToHSV(buildInsides[3].color, out h, out s, out v);
 
 
-                //    lights[i].material.color = Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * lightsLevelScale);
-                //    //lights[i].material.SetColor("_EmissionColor", Color.HSVToRGB(0, 0, spectrum.MeanLevels[i % 10] * lightsLevelScale));
-                //    //lights[i].material.color = new Color(1, 1, 1, spectrum.MeanLevels[i % 10] * lightsLevelScale);
-                //    //lights[i].intensity = spectrum.MeanLevels[i % 10] * levelScale;
-
-                //    //            Debug.Log(i + "|||" + spectrum.MeanLevels[i]);
-                //}
 
                 //stars:
 
@@ -185,18 +190,11 @@ public class MuerteSubitaManager : MonoBehaviour
 
             }
 
-            if (lightHue < 0)
-                lightHue = 1;
-            else
-            {
-                if (lightHue < 0.45f && lightHue > 0.12f)
-                    lightHue -= Time.deltaTime / 30;
-                else
-                    lightHue -= Time.deltaTime / 350;
-            }
 
 
-            playerFloorLight.color = Color.HSVToRGB(lightHue, 1, 1);
+            playerFloorLight.enabled = false;
+
+            luzLuna.color = Color.HSVToRGB(lightHue, 0.7f, 0.7f);
         }
         else
         {
@@ -224,6 +222,8 @@ public class MuerteSubitaManager : MonoBehaviour
             animationList[i].SetActive(false);
         }
         animsActive = false;
+
+        playerFloorLight.enabled = true;
 
         playerFloorLight.color = originalLightColor;
         lightHue = originalHue;
@@ -475,6 +475,6 @@ public class MuerteSubitaManager : MonoBehaviour
             animationList[i].SetActive(false);
         }
         animsActive = false;
-        Debug.Log(animationList.Count);
+        //        Debug.Log(animationList.Count);
     }
 }

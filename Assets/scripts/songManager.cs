@@ -7,13 +7,13 @@ public class songManager : MonoBehaviour
 
     AudioSource a;
 
-    public AudioClip gato, brisas, victoria, muerteSubita, masai, futuro, agua;
-
     public NewPlayer playerScript;
 
     public AudioClip[] songs;
     int songInt;
     float songTimer;
+
+    public GameObject DebugVisualizer;
 
     // Use this for initialization
     void Start()
@@ -33,36 +33,16 @@ public class songManager : MonoBehaviour
 
 
         songTimer += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (DebugVisualizer.activeSelf)
+                DebugVisualizer.SetActive(false);
+            else
+                DebugVisualizer.SetActive(true);
+        }
     }
 
-    public void startSong(string songName)
-    {
-        AudioClip songToPlay = null;
-
-        if (songName == "gato")
-            songToPlay = gato;
-        else if (songName == "brisas")
-            songToPlay = brisas;
-        else if (songName == "victoria")
-            songToPlay = victoria;
-        else if (songName == "muerte subita")
-            songToPlay = muerteSubita;
-        else if (songName == "masai")
-            songToPlay = masai;
-        else if (songName == "futuro")
-            songToPlay = futuro;
-        else if (songName == "agua")
-            songToPlay = agua;
-        else
-            Debug.Log("wrong songName");
-
-
-
-        a.clip = songToPlay;
-
-        a.PlayDelayed(2f);
-
-    }
 
     public void NextSong()
     {

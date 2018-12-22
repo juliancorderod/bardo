@@ -133,7 +133,7 @@ Shader "blueRoomWalls"
 }
 /*ASEBEGIN
 Version=16100
-376;88;1009;722;2451.073;225.6514;2.277974;True;False
+371;178;849;722;3013.829;466.758;3.290889;True;False
 Node;AmplifyShaderEditor.TextureCoordinatesNode;20;-2396.428,631.7678;Float;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.PannerNode;22;-2121.429,716.9679;Float;False;3;0;FLOAT2;0,0;False;2;FLOAT2;0.04,0.04;False;1;FLOAT;1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.RangedFloatNode;23;-2067.83,841.5668;Float;False;Property;_NormalScale;Normal Scale;3;0;Create;True;0;0;False;0;0;1;0;0;0;1;FLOAT;0
@@ -148,7 +148,7 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;27;-932.7682,587.6199;Float;False;
 Node;AmplifyShaderEditor.SimpleAddOpNode;31;-766.3377,505.4838;Float;False;2;2;0;FLOAT2;0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.ColorNode;9;-981.5302,-60.45843;Float;False;Property;_Col2;Col2;1;0;Create;True;0;0;False;0;0.006444003,0.3076708,0.716,0;0.003635977,0.173602,0.404,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.NoiseGeneratorNode;1;-875.6622,166.3472;Float;True;Simplex2D;1;0;FLOAT2;0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;5;-936.8172,-255.6377;Float;False;Property;_Col1;Col1;0;0;Create;True;0;0;False;0;0,0.5136551,0.56,0;0,0.6754911,0.7373681,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;5;-936.8172,-255.6377;Float;False;Property;_Col1;Col1;0;0;Create;True;0;0;False;0;0,0.5136551,0.56,0;0,0.5137255,0.5607843,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ScreenColorNode;32;-607.2138,459.7838;Float;False;Global;_WaterGrab;WaterGrab;-1;0;Create;True;0;0;False;0;Object;-1;False;False;1;0;FLOAT2;0,0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;34;-586.4985,230.3846;Float;False;Constant;_Float0;Float 0;3;0;Create;True;0;0;False;0;2;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;10;-664.616,-40.54758;Float;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
@@ -177,4 +177,4 @@ WireConnection;17;1;32;0
 WireConnection;17;2;34;0
 WireConnection;38;13;17;0
 ASEEND*/
-//CHKSM=E578AA13B6D56A1A29251F16F81E623F7EB30F90
+//CHKSM=D3D6D339066326B63AD8906C2B8DD8ECCDD80958

@@ -20,6 +20,8 @@ ModelImporter:
     100028: pCylinder6
     100030: pCylinder7
     100032: pCylinder8
+    100034: pCylinder12
+    100036: pCylinder13
     400000: //RootNode
     400002: pCube11
     400004: pCube2
@@ -37,6 +39,8 @@ ModelImporter:
     400028: pCylinder6
     400030: pCylinder7
     400032: pCylinder8
+    400034: pCylinder12
+    400036: pCylinder13
     2300000: pCube11
     2300002: pCube2
     2300004: pCube5
@@ -53,6 +57,8 @@ ModelImporter:
     2300026: pCylinder6
     2300028: pCylinder7
     2300030: pCylinder8
+    2300032: pCylinder12
+    2300034: pCylinder13
     3300000: pCube11
     3300002: pCube2
     3300004: pCube5
@@ -69,6 +75,8 @@ ModelImporter:
     3300026: pCylinder6
     3300028: pCylinder7
     3300030: pCylinder8
+    3300032: pCylinder12
+    3300034: pCylinder13
     4300000: pCylinder1
     4300002: pCube2
     4300004: pCube5
@@ -85,6 +93,8 @@ ModelImporter:
     4300026: pCylinder10
     4300028: pCylinder11
     4300030: pCube11
+    4300032: pCylinder12
+    4300034: pCylinder13
     9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects:
