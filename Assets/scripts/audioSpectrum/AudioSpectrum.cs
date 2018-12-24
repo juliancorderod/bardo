@@ -96,12 +96,14 @@ public class AudioSpectrum : MonoBehaviour
     }
 
     WorldManager wm;
+    LineRenderer debugCurve;
 
     void Start()
     {
         wm = GameObject.FindWithTag("worldMan").GetComponent<WorldManager>();
+        debugCurve = GameObject.Find("debugCurve").GetComponent<LineRenderer>();
 
-
+        debugCurve.gameObject.SetActive(false);
     }
 
     void Update()
@@ -110,12 +112,31 @@ public class AudioSpectrum : MonoBehaviour
 
 #if UNITY_WEBGL && !UNITY_EDITOR
 
+        SSWebInteract.SetFFTSize(numberOfSamples);
         SSWebInteract.GetSpectrumData(rawSpectrum);
 #else 
         AudioListener.GetSpectrumData(rawSpectrum, 0, FFTWindow.BlackmanHarris);
 #endif
 
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (debugCurve.gameObject.activeSelf)
+                debugCurve.gameObject.SetActive(false);
+            else
+                debugCurve.gameObject.SetActive(true);
+        }
 
+        if (debugCurve.gameObject.activeSelf)
+        {
+            Vector3[] points = new Vector3[rawSpectrum.Length];
+            for (int i = 0; i < rawSpectrum.Length; i++)
+            {
+                points[i] = new Vector3(1.0f / rawSpectrum.Length * i, rawSpectrum[i], 0);
+            }
+            debugCurve.positionCount = points.Length;
+            debugCurve.SetPositions(points);
+            Debug.Log(points[200]);
+        }
 
         float[] middlefrequencies = middleFrequenciesForBands[(int)bandType];
         var bandwidth = bandwidthForBands[(int)bandType];
