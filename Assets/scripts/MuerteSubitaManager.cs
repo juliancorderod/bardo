@@ -215,6 +215,7 @@ public class MuerteSubitaManager : MonoBehaviour
         for (int i = 0; i < buildInsides.Length; i++)
         {
             buildInsides[i].color = Color.HSVToRGB(0, 0, Random.Range(0.45f, 0.95f));
+
         }
 
         for (int i = 0; i < animationList.Count; i++)

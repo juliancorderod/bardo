@@ -117,7 +117,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 4.8627095, g: 0, b: 15.156571, a: 1}
+    - _Color: {r: 0.7611663, g: 0.7611663, b: 0.7611663, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _PositionOffsetXYZroomsWprops: {r: 0, g: 0, b: 0, a: 0}
     - _RoomColorTint: {r: 1, g: 1, b: 1, a: 0}

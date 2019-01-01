@@ -1,21 +1,24 @@
 ﻿<Properties StartupConfiguration="{023C9787-B6DF-E439-FDBC-217D487AB94A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SimpleSpectrum/Scripts/SSWebInteract.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SkyThingsManager.cs">
     <Files>
       <File FileName="Assets/scripts/NewPlayer.cs" Line="270" Column="27" />
       <File FileName="Assets/scripts/songManager.cs" Line="30" Column="29" />
       <File FileName="Assets/scripts/WorldManager.cs" Line="37" Column="43" />
       <File FileName="Assets/scripts/Deactivate.cs" Line="44" Column="8" />
       <File FileName="Assets/scripts/waitToLoop.cs" Line="55" Column="36" />
-      <File FileName="Assets/scripts/micTest.cs" Line="9" Column="17" />
-      <File FileName="Assets/scripts/MuerteSubitaManager.cs" Line="194" Column="13" />
+      <File FileName="Assets/scripts/micTest.cs" Line="11" Column="1" />
+      <File FileName="Assets/scripts/MuerteSubitaManager.cs" Line="218" Column="1" />
       <File FileName="Assets/scripts/Compass.cs" Line="37" Column="124" />
       <File FileName="Assets/scripts/FuturoManager.cs" Line="359" Column="26" />
-      <File FileName="Assets/scripts/CityBuilder.cs" Line="349" Column="9" />
+      <File FileName="Assets/scripts/CityBuilder.cs" Line="349" Column="1" />
       <File FileName="Assets/scripts/randomHSV.cs" Line="18" Column="1" />
       <File FileName="Assets/SimpleSpectrum/Scripts/SimpleSpectrum.cs" Line="646" Column="40" />
       <File FileName="Assets/SimpleSpectrum/Scripts/SSWebInteract.cs" Line="33" Column="1" />
       <File FileName="Assets/scripts/audioSpectrum/AudioSpectrum.cs" Line="106" Column="48" />
+      <File FileName="Assets/PostProcessEffect.cs" Line="13" Column="6" />
+      <File FileName="Assets/SkyThingsManager.cs" Line="126" Column="31" />
+      <File FileName="Assets/trailBackwards.cs" Line="26" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

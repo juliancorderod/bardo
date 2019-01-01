@@ -53,7 +53,7 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -284,7 +284,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1735820041103870, guid: 4d548629f951d41a2b0077051e9669da, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 96292781473407072, guid: 4d548629f951d41a2b0077051e9669da,
         type: 2}
@@ -19827,6 +19827,24 @@ Prefab:
       propertyPath: DebugVisualizer
       value: 
       objectReference: {fileID: 792313566}
+    - target: {fileID: 1205520731172538, guid: efbaf655cada74417b065d0eadfca081, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595600813962352, guid: efbaf655cada74417b065d0eadfca081, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82440323513255748, guid: efbaf655cada74417b065d0eadfca081,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82724445078440962, guid: efbaf655cada74417b065d0eadfca081,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efbaf655cada74417b065d0eadfca081, type: 2}
   m_IsPrefabParent: 0
