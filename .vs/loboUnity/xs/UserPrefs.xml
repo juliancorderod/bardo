@@ -17,8 +17,8 @@
       <File FileName="Assets/SimpleSpectrum/Scripts/SSWebInteract.cs" Line="33" Column="1" />
       <File FileName="Assets/scripts/audioSpectrum/AudioSpectrum.cs" Line="106" Column="48" />
       <File FileName="Assets/PostProcessEffect.cs" Line="13" Column="6" />
-      <File FileName="Assets/SkyThingsManager.cs" Line="126" Column="31" />
-      <File FileName="Assets/trailBackwards.cs" Line="26" Column="11" />
+      <File FileName="Assets/SkyThingsManager.cs" Line="53" Column="21" />
+      <File FileName="Assets/scripts/starManager.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

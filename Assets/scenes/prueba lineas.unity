@@ -239,20 +239,20 @@ MonoBehaviour:
     type: 2}
   freeTrailsParent: {fileID: 492050138}
   textToSampleFrom: {fileID: 0}
-  thingySpeed: 250
+  thingySpeed: 400
   turnSpeed: 100
-  amountOfThingys: 50
+  amountOfThingys: 100
   totalTrails: 400
-  noiseSize: 4
+  noiseSize: 10
 --- !u!4 &1093504207
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1093504205}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492050138}
   m_Father: {fileID: 0}
