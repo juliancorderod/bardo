@@ -32,6 +32,8 @@ public class SkyThingsManager : MonoBehaviour
     [Header("spectrum stuff:")]
     public float spectrumSpeedScale;
     public float pulseScale;
+    float noiseSampleScale = 1;
+    float originalPulseScale, originalSpectrumSpeedScale, originalNoiseSampleScale;
 
 
     // Use this for initialization
@@ -88,6 +90,10 @@ public class SkyThingsManager : MonoBehaviour
 
 
         spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
+
+        originalPulseScale = pulseScale;
+        originalSpectrumSpeedScale = spectrumSpeedScale;
+        originalNoiseSampleScale = noiseSampleScale;
     }
 
     float sampleTimer;
@@ -118,7 +124,8 @@ public class SkyThingsManager : MonoBehaviour
         else
         {
             float avgSampleVal = totalSampleVal / sampleTimer;
-            Debug.Log(avgSampleVal);
+            avgSampleVal *= noiseSampleScale;
+            //            Debug.Log(avgSampleVal);
 
 
             avgSampleVal = Mathf.Clamp(avgSampleVal, 7, 27);
@@ -244,4 +251,13 @@ public class SkyThingsManager : MonoBehaviour
         return noise;
 
     }
+
+    public void adjustScales()
+    {
+        noiseSampleScale = originalNoiseSampleScale * wm.masterScaleSpectrum;
+        spectrumSpeedScale = originalSpectrumSpeedScale * wm.masterScaleSpectrum;
+        pulseScale = originalPulseScale * wm.masterScaleSpectrum;
+    }
 }
+
+

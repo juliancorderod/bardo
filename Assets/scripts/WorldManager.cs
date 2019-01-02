@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldManager : MonoBehaviour
 {
@@ -9,19 +10,21 @@ public class WorldManager : MonoBehaviour
     public float activationDist;
     public float xPos, zPos;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float masterScaleSpectrum = 1;
     public FuturoManager futuroMan;
     public MuerteSubitaManager muerteMan;
     public FireFlyManager fireFlyMan;
+    public SkyThingsManager skyThingsMan;
 
     public GameObject workDirLight;
+    public Text wmScaleDebug;
 
     // Use this for initialization
     void Start()
     {
-        masterScaleSpectrum -= 0.4f;
         workDirLight.SetActive(false);
+        wmScaleDebug.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,27 +32,41 @@ public class WorldManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Minus))
         {
-            if (masterScaleSpectrum > 0.3f)
-            {
-                masterScaleSpectrum -= 0.2f;
-                futuroMan.adjustScales();
-                muerteMan.adjustScales();
-                fireFlyMan.adjustScales();
-            }
+            //if (masterScaleSpectrum > 0.3f)
+            //{
+            masterScaleSpectrum /= 1.2f;
+            futuroMan.adjustScales();
+            muerteMan.adjustScales();
+            fireFlyMan.adjustScales();
+            skyThingsMan.adjustScales();
+            //}
         }
 
         if (Input.GetKeyDown(KeyCode.Equals))
         {
-            masterScaleSpectrum += 0.2f;
+            masterScaleSpectrum *= 1.2f;
             futuroMan.adjustScales();
             muerteMan.adjustScales();
+            skyThingsMan.adjustScales();
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             masterScaleSpectrum = 1;
             futuroMan.adjustScales();
             muerteMan.adjustScales();
+            skyThingsMan.adjustScales();
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (wmScaleDebug.gameObject.activeSelf)
+                wmScaleDebug.gameObject.SetActive(false);
+            else
+                wmScaleDebug.gameObject.SetActive(true);
+        }
+
+        if (wmScaleDebug.gameObject.activeSelf)
+            wmScaleDebug.text = "wmScale: " + masterScaleSpectrum;
 
 
         if (Input.GetKeyDown(KeyCode.K))

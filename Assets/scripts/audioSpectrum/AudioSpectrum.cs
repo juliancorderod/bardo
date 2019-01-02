@@ -135,7 +135,7 @@ public class AudioSpectrum : MonoBehaviour
             }
             debugCurve.positionCount = points.Length;
             debugCurve.SetPositions(points);
-            Debug.Log(points[200]);
+            //            Debug.Log(points[200]);
         }
 
         float[] middlefrequencies = middleFrequenciesForBands[(int)bandType];
