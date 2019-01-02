@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{023C9787-B6DF-E439-FDBC-217D487AB94A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SkyThingsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/headBob.cs">
     <Files>
       <File FileName="Assets/scripts/NewPlayer.cs" Line="270" Column="27" />
       <File FileName="Assets/scripts/songManager.cs" Line="30" Column="29" />
@@ -9,16 +9,9 @@
       <File FileName="Assets/scripts/waitToLoop.cs" Line="55" Column="36" />
       <File FileName="Assets/scripts/micTest.cs" Line="11" Column="1" />
       <File FileName="Assets/scripts/MuerteSubitaManager.cs" Line="218" Column="1" />
-      <File FileName="Assets/scripts/Compass.cs" Line="37" Column="124" />
-      <File FileName="Assets/scripts/FuturoManager.cs" Line="359" Column="26" />
-      <File FileName="Assets/scripts/CityBuilder.cs" Line="349" Column="1" />
-      <File FileName="Assets/scripts/randomHSV.cs" Line="18" Column="1" />
-      <File FileName="Assets/SimpleSpectrum/Scripts/SimpleSpectrum.cs" Line="646" Column="40" />
-      <File FileName="Assets/SimpleSpectrum/Scripts/SSWebInteract.cs" Line="33" Column="1" />
-      <File FileName="Assets/scripts/audioSpectrum/AudioSpectrum.cs" Line="106" Column="48" />
-      <File FileName="Assets/PostProcessEffect.cs" Line="13" Column="6" />
-      <File FileName="Assets/SkyThingsManager.cs" Line="53" Column="21" />
-      <File FileName="Assets/scripts/starManager.cs" Line="19" Column="1" />
+      <File FileName="Assets/scripts/FuturoManager.cs" Line="177" Column="19" />
+      <File FileName="Assets/SkyThingsManager.cs" Line="94" Column="43" />
+      <File FileName="Assets/scripts/headBob.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

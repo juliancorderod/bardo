@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Kino;
 
 public class SkyThingsManager : MonoBehaviour
 {
+
+    public WorldManager wm;
+    AudioSpectrum spectrum;
+
 
     public List<Transform> skyThings = new List<Transform>();
     public GameObject gridObj;
@@ -12,15 +17,21 @@ public class SkyThingsManager : MonoBehaviour
 
     public Texture2D textToSampleFrom;
 
-    float sphereSize = 500;
+    public float sphereSize = 500;
     float xMin = -400, xMax = 400, yMin = -400, yMax = 400;
     public float thingySpeed = 100, turnSpeed = 5;
     public int amountOfThingys = 25, totalTrails = 400;
+
+
     [Header("if no texture:")]
     public float noiseSize = 4f;
 
     List<TrailRenderer> freeTrails = new List<TrailRenderer>();
+    List<TrailRenderer> allTrails = new List<TrailRenderer>();
 
+    [Header("spectrum stuff:")]
+    public float spectrumSpeedScale;
+    public float pulseScale;
 
 
     // Use this for initialization
@@ -32,6 +43,7 @@ public class SkyThingsManager : MonoBehaviour
             GameObject t = Instantiate(trailPrefab, freeTrailsParent);
 
             freeTrails.Add(t.GetComponent<TrailRenderer>());
+            allTrails.Add(t.GetComponent<TrailRenderer>());
             //t.GetComponent<TrailRenderer>().endColor = new Color(i / 10.0f, i / 10.0f, i / 10.0f);
             t.SetActive(false);
         }
@@ -73,15 +85,49 @@ public class SkyThingsManager : MonoBehaviour
         //        x--;
 
         //}
+
+
+        spectrum = GameObject.FindGameObjectWithTag("songMan").GetComponent<AudioSpectrum>();
     }
 
-    int wrapsAround;
+    float sampleTimer;
+    float totalSampleVal;
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Break();
 
+        //------pulse------
+        for (int i = 0; i < allTrails.Count; i++)
+        {
+            allTrails[i].widthMultiplier = 3 + (spectrum.MeanLevels[1] * pulseScale);
+        }
+
+
+        //-------cambio de noise sampleando por cierto tiempo---------
+
+        if (sampleTimer < 10)//o en cambio de cancion
+        {
+            sampleTimer += Time.deltaTime;
+            for (int i = 0; i < spectrum.Levels.Length; i++)
+            {
+                totalSampleVal += spectrum.Levels[i];
+            }
+
+        }
+        else
+        {
+            float avgSampleVal = totalSampleVal / sampleTimer;
+            Debug.Log(avgSampleVal);
+
+
+            avgSampleVal = Mathf.Clamp(avgSampleVal, 7, 27);
+            noiseSize = Geo.remapRange(avgSampleVal, 7, 27, 0, 15);
+            sampleTimer = 0;
+            totalSampleVal = 0;
+        }
+
+        //------movimiento------
         for (int i = 0; i < skyThings.Count; i++)
         {
             float textVal = GetPTexture(skyThings[i].localPosition.x,
@@ -100,9 +146,11 @@ public class SkyThingsManager : MonoBehaviour
 
             //float turnVal = (i + 0.5f / 10) - textValNext;
 
+            float spectrumSpeed = (spectrum.MeanLevels[i % 10] * spectrumSpeedScale) + 0.2f;
+            spectrumSpeed = spectrumSpeed * thingySpeed;
 
-            skyThings[i].eulerAngles += new Vector3(0, 0, turnVal * Time.deltaTime * thingySpeed * turnSpeed);
-            skyThings[i].localPosition += skyThings[i].right * Time.deltaTime * thingySpeed;
+            skyThings[i].eulerAngles += new Vector3(0, 0, turnVal * Time.deltaTime * spectrumSpeed * turnSpeed);
+            skyThings[i].localPosition += skyThings[i].right * Time.deltaTime * spectrumSpeed;
             //skyThings[i].position -= skyThings[i].forward * Time.deltaTime * 1f;
 
             bool wrappedAround = false;
@@ -121,7 +169,6 @@ public class SkyThingsManager : MonoBehaviour
 
             if (wrappedAround)
             {
-                wrapsAround++;
                 RemoveTrail(skyThings[i]);
 
                 Vector3 randOnSphere = Random.onUnitSphere * sphereSize;
@@ -158,7 +205,8 @@ public class SkyThingsManager : MonoBehaviour
             freeTrails[0].transform.parent = parent;
             freeTrails[0].gameObject.SetActive(true);
             freeTrails[0].transform.localPosition = Vector3.zero;
-            freeTrails[0].endColor = new Color((index % 10) / 10.0f, (index % 10) / 10.0f, (index % 10) / 10.0f);
+            freeTrails[0].startColor = new Color(10, 10, 10);
+            //freeTrails[0].endColor = new Color((index % 10) / 10.0f, (index % 10) / 10.0f, (index % 10) / 10.0f);
             freeTrails[0].Clear();
             freeTrails[0].enabled = true;
             freeTrails.Remove(freeTrails[0]);
@@ -189,8 +237,8 @@ public class SkyThingsManager : MonoBehaviour
         //Geo.remapRange(y, -sphereSize, sphereSize, 0, 1) * noiseSize);
 
         float noise = Perlin.Noise(Geo.remapRange(x, -sphereSize, sphereSize, 0, 1) * noiseSize,
-                                   Geo.remapRange(y, -sphereSize, sphereSize, 0, 1) * noiseSize,
-                                   Geo.remapRange(z, -sphereSize, sphereSize, 0, 1) * noiseSize);
+        Geo.remapRange(y, -sphereSize, sphereSize, 0, 1) * noiseSize,
+        Geo.remapRange(z, -sphereSize, sphereSize, 0, 1) * noiseSize);
 
 
         return noise;

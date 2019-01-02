@@ -118,7 +118,7 @@ public class FuturoManager : MonoBehaviour
             }
             else
             {
-
+                /*
                 //----------------------fireFly Trails----------------------
 
                 for (int i = 0; i < fireFlies.Length; i++)//hacer que cada frame solo haga uno en realidad
@@ -174,7 +174,7 @@ public class FuturoManager : MonoBehaviour
                     fireFlies[i].widthMultiplier = Mathf.Clamp(fireFlies[i].widthMultiplier, 0, 80);
 
                 }
-
+                */
 
                 //----------------------wall Color----------------------
 

@@ -24,31 +24,31 @@ public class headBob : MonoBehaviour
         //		Debug.Log(yValWithCrouch);
 
 
-        if (Mathf.Round(Input.GetAxis("Vertical")) != 0 || Mathf.Round(Input.GetAxis("Horizontal")) != 0)
-        {
+        //if (Mathf.Round(Input.GetAxis("Vertical")) != 0 || Mathf.Round(Input.GetAxis("Horizontal")) != 0)
+        //{
 
-            lerpVal -= Time.deltaTime * 5;
-            //fxSound.volume += Time.deltaTime * 1.25f;
-
-
-        }
-        else
-        {
-            lerpVal += Time.deltaTime * 5f;
-
-        }
-
-        //Debug.Log(lerpVal);
-
-        yVal = Mathf.Lerp(0.75f + (Mathf.Sin(Time.time * freq) / amplitude), 0.75f, lerpVal);
+        //    lerpVal -= Time.deltaTime * 5;
+        //    //fxSound.volume += Time.deltaTime * 1.25f;
 
 
+        //}
+        //else
+        //{
+        //    lerpVal += Time.deltaTime * 5f;
+
+        //}
+
+        ////Debug.Log(lerpVal);
+
+        //yVal = Mathf.Lerp(0.75f + (Mathf.Sin(Time.time * freq) / amplitude), 0.75f, lerpVal);
 
 
-        transform.localPosition = new Vector3(transform.localPosition.x, yVal, transform.localPosition.z);
 
-        lerpVal = Mathf.Clamp01(lerpVal);
-        yVal = Mathf.Clamp(yVal, clamp, 100f);
+
+        //transform.localPosition = new Vector3(transform.localPosition.x, yVal, transform.localPosition.z);
+
+        //lerpVal = Mathf.Clamp01(lerpVal);
+        //yVal = Mathf.Clamp(yVal, clamp, 100f);
 
 
 
