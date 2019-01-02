@@ -66,7 +66,7 @@ public class NewPlayer : MonoBehaviour
     string songAreaName;
 
     public Vector3 destinationPoint;
-    public Transform muerteSubitaTrigger, futuroTrigger;
+    public Transform muerteSubitaTrigger, futuroTrigger, mountainTrigger;
 
     public LayerMask songTriggerLayer;
 
@@ -102,6 +102,8 @@ public class NewPlayer : MonoBehaviour
         destinationPoint = transform.position;
 
         inSong = true;
+
+        location = Location.MOUNTAINS;
     }
 
     void Update()
@@ -528,9 +530,13 @@ public class NewPlayer : MonoBehaviour
                 if (floorLight.intensity < 4)
                     floorLight.intensity += Time.fixedDeltaTime * 0.5f;
 
+
+
                 //ambientAudio.clip = mountainSound;
                 //if (!ambientAudio.isPlaying)
                 //ambientAudio.Play();
+
+                destinationPoint = mountainTrigger.position;
 
                 break;
             case Location.CITY:
@@ -547,15 +553,9 @@ public class NewPlayer : MonoBehaviour
 
                 destinationPoint = muerteSubitaTrigger.position;
 
-
-
-
-
                 break;
 
             case Location.WEIRDROOM:
-
-
 
                 cityLight.intensity += Time.fixedDeltaTime * 0.05f * cityLightIntensity;
                 mountainLight.intensity -= Time.fixedDeltaTime * 2 * mountainLightIntensity;
@@ -615,8 +615,11 @@ public class NewPlayer : MonoBehaviour
         hb.enabled = true;
     }
 
-    [HideInInspector]
-    public float minX = -150, maxX = 340, minZ = -150, maxZ = 530;
+    [Header("map boundaries: ")]
+    public float minX = -150;
+    public float maxX = 250;
+    public float minZ = -150;
+    public float maxZ = 530;
 
     void wrapAround()
     {

@@ -144,6 +144,7 @@ RectTransform:
   - {fileID: 418236589}
   - {fileID: 465334772}
   - {fileID: 146885161}
+  - {fileID: 1599537759}
   m_Father: {fileID: 1559168126}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -166,10 +167,12 @@ MonoBehaviour:
   player: {fileID: 1475200484}
   futuroMan: {fileID: 1429000737}
   muerSubMan: {fileID: 561454520}
+  mountMan: {fileID: 749673432}
   t: {fileID: 17832568}
   miniPlayer: {fileID: 418236589}
   miniWeirdRoom: {fileID: 146885161}
   miniCity: {fileID: 465334772}
+  miniMountain: {fileID: 1599537759}
   arrowsImage: {fileID: 0}
 --- !u!114 &17832570
 MonoBehaviour:
@@ -15888,7 +15891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17200,12 +17203,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &749673431 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1197141189353208, guid: 6d9fd833ed63e4429a26737d79f98820,
+    type: 2}
+  m_PrefabInternal: {fileID: 1673812273}
+--- !u!4 &749673432 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4628761498176286, guid: 6d9fd833ed63e4429a26737d79f98820,
+    type: 2}
+  m_PrefabInternal: {fileID: 1673812273}
 --- !u!114 &749673433 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114892984254856248, guid: 6d9fd833ed63e4429a26737d79f98820,
     type: 2}
   m_PrefabInternal: {fileID: 1673812273}
   m_Script: {fileID: 11500000, guid: 9b1a394cfe072467f80aca549561cf27, type: 3}
+--- !u!135 &749673434
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 749673431}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &756508121
 GameObject:
   m_ObjectHideFlags: 0
@@ -18245,6 +18270,16 @@ Prefab:
         type: 2}
       propertyPath: m_ReceiveShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114984471237288696, guid: 9d3b6be224d80401086039ed2cef6517,
+        type: 2}
+      propertyPath: mountainTrigger
+      value: 
+      objectReference: {fileID: 749673432}
+    - target: {fileID: 114984471237288696, guid: 9d3b6be224d80401086039ed2cef6517,
+        type: 2}
+      propertyPath: maxX
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d3b6be224d80401086039ed2cef6517, type: 2}
@@ -19962,6 +19997,74 @@ TrailRenderer:
   m_PrefabParentObject: {fileID: 96209804491650728, guid: 4d548629f951d41a2b0077051e9669da,
     type: 2}
   m_PrefabInternal: {fileID: 72259701}
+--- !u!1 &1599537758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1599537759}
+  - component: {fileID: 1599537761}
+  - component: {fileID: 1599537760}
+  m_Layer: 5
+  m_Name: miniMountain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1599537759
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599537758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000057508004}
+  m_LocalScale: {x: 30.00001, y: 29.999994, z: 29.999994}
+  m_Children: []
+  m_Father: {fileID: 17832568}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_SizeDelta: {x: 0.3, y: 0.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1599537760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599537758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6375145, g: 0.895, b: 0.25059998, a: 0.7058824}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 7bb1ed3da48c9469cb00ea71b1a9ff0d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1599537761
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599537758}
 --- !u!1 &1623460086
 GameObject:
   m_ObjectHideFlags: 0
@@ -20103,24 +20206,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114892984254856248, guid: 6d9fd833ed63e4429a26737d79f98820,
         type: 2}
-      propertyPath: noiseSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892984254856248, guid: 6d9fd833ed63e4429a26737d79f98820,
-        type: 2}
-      propertyPath: turnSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892984254856248, guid: 6d9fd833ed63e4429a26737d79f98820,
-        type: 2}
-      propertyPath: amountOfThingys
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892984254856248, guid: 6d9fd833ed63e4429a26737d79f98820,
-        type: 2}
       propertyPath: wm
       value: 
       objectReference: {fileID: 814302462}
+    - target: {fileID: 1197141189353208, guid: 6d9fd833ed63e4429a26737d79f98820, type: 2}
+      propertyPath: m_TagString
+      value: songTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892984254856248, guid: 6d9fd833ed63e4429a26737d79f98820,
+        type: 2}
+      propertyPath: p
+      value: 
+      objectReference: {fileID: 1475200485}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d9fd833ed63e4429a26737d79f98820, type: 2}
   m_IsPrefabParent: 0
@@ -20859,15 +20956,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4500333526190570, guid: 2e159db83c4384598b38a70022444ab4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -50.66
+      value: -52.6
       objectReference: {fileID: 0}
     - target: {fileID: 4500333526190570, guid: 2e159db83c4384598b38a70022444ab4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 55.68
+      value: 54.87
       objectReference: {fileID: 0}
     - target: {fileID: 4500333526190570, guid: 2e159db83c4384598b38a70022444ab4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 223.3
+      value: 222.9
       objectReference: {fileID: 0}
     - target: {fileID: 4500333526190570, guid: 2e159db83c4384598b38a70022444ab4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -21314,7 +21411,7 @@ GameObject:
   - component: {fileID: 1429000737}
   - component: {fileID: 2068121139}
   - component: {fileID: 1685128779}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: futuro
   m_TagString: songTrigger
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

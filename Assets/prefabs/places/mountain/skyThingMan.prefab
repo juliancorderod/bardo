@@ -89,9 +89,9 @@ MonoBehaviour:
   textToSampleFrom: {fileID: 0}
   sphereSize: 500
   thingySpeed: 300
-  turnSpeed: 10
-  amountOfThingys: 50
+  turnSpeed: 175
+  amountOfThingys: 70
   totalTrails: 400
-  noiseSize: 10
+  noiseSize: 0
   spectrumSpeedScale: 20
   pulseScale: 10

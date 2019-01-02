@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{023C9787-B6DF-E439-FDBC-217D487AB94A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/FuturoManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Compass.cs">
     <Files>
-      <File FileName="Assets/scripts/NewPlayer.cs" Line="270" Column="27" />
+      <File FileName="Assets/scripts/NewPlayer.cs" Line="106" Column="39" />
       <File FileName="Assets/scripts/songManager.cs" Line="30" Column="29" />
-      <File FileName="Assets/scripts/WorldManager.cs" Line="14" Column="27" />
+      <File FileName="Assets/scripts/WorldManager.cs" Line="43" Column="10" />
       <File FileName="Assets/scripts/Deactivate.cs" Line="44" Column="8" />
       <File FileName="Assets/scripts/waitToLoop.cs" Line="55" Column="36" />
       <File FileName="Assets/scripts/micTest.cs" Line="11" Column="1" />
       <File FileName="Assets/scripts/MuerteSubitaManager.cs" Line="218" Column="1" />
-      <File FileName="Assets/scripts/FuturoManager.cs" Line="366" Column="53" />
-      <File FileName="Assets/SkyThingsManager.cs" Line="257" Column="78" />
+      <File FileName="Assets/scripts/FuturoManager.cs" Line="322" Column="6" />
+      <File FileName="Assets/SkyThingsManager.cs" Line="103" Column="24" />
       <File FileName="Assets/scripts/audioSpectrum/AudioSpectrum.cs" Line="130" Column="10" />
       <File FileName="Assets/scripts/FireFlyManager.cs" Line="139" Column="50" />
+      <File FileName="Assets/scripts/Compass.cs" Line="37" Column="124" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

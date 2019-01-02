@@ -8,6 +8,7 @@ public class SkyThingsManager : MonoBehaviour
 
     public WorldManager wm;
     AudioSpectrum spectrum;
+    public NewPlayer p;
 
 
     public List<Transform> skyThings = new List<Transform>();
@@ -63,7 +64,7 @@ public class SkyThingsManager : MonoBehaviour
                 skyThings.Add(g.transform);
                 AssignTrail(g.transform, i);
 
-
+                g.SetActive(false);
             }
             else
                 i--;
@@ -98,99 +99,145 @@ public class SkyThingsManager : MonoBehaviour
 
     float sampleTimer;
     float totalSampleVal;
+    float activateSkyThingTimer, waitB4ActivatingTimer, time2Waitb4Activating = 20;
+    int activateIndex;
 
+    bool willNeedReset;
     // Update is called once per frame
     void Update()
     {
-
-        //------pulse------
-        for (int i = 0; i < allTrails.Count; i++)
+        if (p.location == NewPlayer.Location.MOUNTAINS)
         {
-            allTrails[i].widthMultiplier = 3 + (spectrum.MeanLevels[1] * pulseScale);
-        }
+            willNeedReset = true;
 
+            //------activate parents--------
 
-        //-------cambio de noise sampleando por cierto tiempo---------
-
-        if (sampleTimer < 10)//o en cambio de cancion
-        {
-            sampleTimer += Time.deltaTime;
-            for (int i = 0; i < spectrum.Levels.Length; i++)
+            if (waitB4ActivatingTimer < time2Waitb4Activating)
             {
-                totalSampleVal += spectrum.Levels[i];
+                waitB4ActivatingTimer += Time.deltaTime;
             }
+            else
+            {
+                if (activateIndex < skyThings.Count)
+                {
+                    if (activateSkyThingTimer < 10)
+                        activateSkyThingTimer += Time.deltaTime * ((activateIndex * 0.5f) + 1);
+                    else
+                    {
+                        Debug.Log("activated " + activateIndex);
+                        skyThings[activateIndex].gameObject.SetActive(true);
+                        activateSkyThingTimer = 0;
+                        activateIndex++;
+                    }
+                }
+            }
+
+            //------pulse------
+            for (int i = 0; i < allTrails.Count; i++)
+            {
+                if (allTrails[i].gameObject.activeSelf)
+                    allTrails[i].widthMultiplier = Geo.remapRange(allTrails[i].sortingOrder, 0, 9, 1.5f, 3.5f) + (spectrum.MeanLevels[1] * pulseScale);
+            }
+
+
+
+
+            //-------cambio de noise sampleando por cierto tiempo---------
+
+            if (sampleTimer < 10)//o en cambio de cancion
+            {
+                sampleTimer += Time.deltaTime;
+                for (int i = 0; i < spectrum.Levels.Length; i++)
+                {
+                    totalSampleVal += spectrum.Levels[i];
+                }
+
+            }
+            else
+            {
+                float avgSampleVal = totalSampleVal / sampleTimer;
+                avgSampleVal *= noiseSampleScale;
+                //            Debug.Log(avgSampleVal);
+
+
+                avgSampleVal = Mathf.Clamp(avgSampleVal, 7, 27);
+                noiseSize = Geo.remapRange(avgSampleVal, 7, 27, 0, 15);
+                sampleTimer = 0;
+                totalSampleVal = 0;
+            }
+
+            //------movimiento------
+            for (int i = 0; i < skyThings.Count; i++)
+            {
+                if (skyThings[i].gameObject.activeSelf)
+                {
+
+                    float textVal = GetPTexture(skyThings[i].localPosition.x,
+                                                skyThings[i].localPosition.y,
+                                                skyThings[i].localPosition.z);
+                    float textValNext = GetPTexture(skyThings[i].localPosition.x + skyThings[i].right.x * 3,
+                                                    skyThings[i].localPosition.y + skyThings[i].right.y * 3,
+                                                    skyThings[i].localPosition.z + skyThings[i].right.z * 3);
+
+
+
+
+                    float turnVal = (textVal - textValNext);
+
+                    //if(skyThings[i].position.y > )
+
+                    //float turnVal = (i + 0.5f / 10) - textValNext;
+
+                    float spectrumSpeed = (spectrum.MeanLevels[i % 10] * spectrumSpeedScale) + 0.2f;
+                    spectrumSpeed = spectrumSpeed * thingySpeed;
+
+                    skyThings[i].eulerAngles += new Vector3(0, 0, turnVal * Time.deltaTime * spectrumSpeed * turnSpeed);
+                    skyThings[i].localPosition += skyThings[i].right * Time.deltaTime * spectrumSpeed;
+                    //skyThings[i].position -= skyThings[i].forward * Time.deltaTime * 1f;
+
+                    bool wrappedAround = false;
+                    //if (Mathf.Abs(skyThings[i].position.x) > xMax)
+                    //{
+                    //    wrappedAround = true;
+                    //}
+                    //if (Mathf.Abs(skyThings[i].position.y) > yMax)
+                    //{
+                    //    wrappedAround = true;
+                    //}
+                    if (skyThings[i].localPosition.y < -150)
+                    {
+                        wrappedAround = true;
+                    }
+
+                    if (wrappedAround)
+                    {
+                        RemoveTrail(skyThings[i]);
+
+                        Vector3 randOnSphere = Random.onUnitSphere * sphereSize;
+                        while (randOnSphere.y < transform.position.y)
+                        {
+                            randOnSphere = Random.onUnitSphere * sphereSize;
+                        }
+                        skyThings[i].position = randOnSphere; //new Vector3(Random.Range(xMin * 0.8f, xMax * 0.8f), Random.Range(yMin * 0.8f, yMax * 0.8f), 495);
+                        AssignTrail(skyThings[i], i);
+                    }
+
+                    float zRot = skyThings[i].localEulerAngles.z;
+                    skyThings[i].LookAt(transform.position);
+                    skyThings[i].eulerAngles = new Vector3(skyThings[i].eulerAngles.x, skyThings[i].eulerAngles.y, zRot);
+
+                }
+            }
+
 
         }
         else
         {
-            float avgSampleVal = totalSampleVal / sampleTimer;
-            avgSampleVal *= noiseSampleScale;
-            //            Debug.Log(avgSampleVal);
-
-
-            avgSampleVal = Mathf.Clamp(avgSampleVal, 7, 27);
-            noiseSize = Geo.remapRange(avgSampleVal, 7, 27, 0, 15);
-            sampleTimer = 0;
-            totalSampleVal = 0;
-        }
-
-        //------movimiento------
-        for (int i = 0; i < skyThings.Count; i++)
-        {
-            float textVal = GetPTexture(skyThings[i].localPosition.x,
-                                        skyThings[i].localPosition.y,
-                                        skyThings[i].localPosition.z);
-            float textValNext = GetPTexture(skyThings[i].localPosition.x + skyThings[i].right.x * 3,
-                                            skyThings[i].localPosition.y + skyThings[i].right.y * 3,
-                                            skyThings[i].localPosition.z + skyThings[i].right.z * 3);
-
-
-
-
-            float turnVal = (textVal - textValNext);
-
-            //if(skyThings[i].position.y > )
-
-            //float turnVal = (i + 0.5f / 10) - textValNext;
-
-            float spectrumSpeed = (spectrum.MeanLevels[i % 10] * spectrumSpeedScale) + 0.2f;
-            spectrumSpeed = spectrumSpeed * thingySpeed;
-
-            skyThings[i].eulerAngles += new Vector3(0, 0, turnVal * Time.deltaTime * spectrumSpeed * turnSpeed);
-            skyThings[i].localPosition += skyThings[i].right * Time.deltaTime * spectrumSpeed;
-            //skyThings[i].position -= skyThings[i].forward * Time.deltaTime * 1f;
-
-            bool wrappedAround = false;
-            //if (Mathf.Abs(skyThings[i].position.x) > xMax)
-            //{
-            //    wrappedAround = true;
-            //}
-            //if (Mathf.Abs(skyThings[i].position.y) > yMax)
-            //{
-            //    wrappedAround = true;
-            //}
-            if (skyThings[i].localPosition.y < -150)
+            if (willNeedReset)
             {
-                wrappedAround = true;
+                ResetSkyThings();
+                willNeedReset = false;
             }
-
-            if (wrappedAround)
-            {
-                RemoveTrail(skyThings[i]);
-
-                Vector3 randOnSphere = Random.onUnitSphere * sphereSize;
-                while (randOnSphere.y < transform.position.y)
-                {
-                    randOnSphere = Random.onUnitSphere * sphereSize;
-                }
-                skyThings[i].position = randOnSphere; //new Vector3(Random.Range(xMin * 0.8f, xMax * 0.8f), Random.Range(yMin * 0.8f, yMax * 0.8f), 495);
-                AssignTrail(skyThings[i], i);
-            }
-
-            float zRot = skyThings[i].localEulerAngles.z;
-            skyThings[i].LookAt(transform.position);
-            skyThings[i].eulerAngles = new Vector3(skyThings[i].eulerAngles.x, skyThings[i].eulerAngles.y, zRot);
-
         }
 
 
@@ -212,8 +259,9 @@ public class SkyThingsManager : MonoBehaviour
             freeTrails[0].transform.parent = parent;
             freeTrails[0].gameObject.SetActive(true);
             freeTrails[0].transform.localPosition = Vector3.zero;
-            freeTrails[0].startColor = new Color(10, 10, 10);
+            freeTrails[0].startColor = new Color(((index % 10) + 1) * 100000, ((index % 10) + 1) * 100000, ((index % 10) + 1) * 100000);
             //freeTrails[0].endColor = new Color((index % 10) / 10.0f, (index % 10) / 10.0f, (index % 10) / 10.0f);
+            freeTrails[0].sortingOrder = index % 10;
             freeTrails[0].Clear();
             freeTrails[0].enabled = true;
             freeTrails.Remove(freeTrails[0]);
@@ -250,6 +298,20 @@ public class SkyThingsManager : MonoBehaviour
 
         return noise;
 
+    }
+
+    void ResetSkyThings()
+    {
+        //hacerles que vuelvan a aparecer poco a poco
+        for (int i = 0; i < skyThings.Count; i++)
+        {
+            skyThings[i].gameObject.SetActive(false);
+        }
+
+        waitB4ActivatingTimer = 0;
+        time2Waitb4Activating = 5;
+        activateSkyThingTimer = 0;
+        activateIndex = 0;
     }
 
     public void adjustScales()

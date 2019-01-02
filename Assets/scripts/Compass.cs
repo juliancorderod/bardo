@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Compass : MonoBehaviour
 {
 
-    public Transform player, futuroMan, muerSubMan;
+    public Transform player, futuroMan, muerSubMan, mountMan;
     NewPlayer pScript;
 
     Image mainImage, pImage, weirdRoomImage, cityImage;
 
-    public RectTransform t, miniPlayer, miniWeirdRoom, miniCity;
+    public RectTransform t, miniPlayer, miniWeirdRoom, miniCity, miniMountain;
 
     float tim;
 
@@ -35,6 +35,8 @@ public class Compass : MonoBehaviour
                                                   Geo.remapRange(futuroMan.position.z, pScript.minZ, pScript.maxZ, -45, 45), 0);
         miniCity.localPosition = new Vector3(Geo.remapRange(muerSubMan.position.x, pScript.minX, pScript.maxX, -45, 45),
                                                   Geo.remapRange(muerSubMan.position.z, pScript.minZ, pScript.maxZ, -45, 45), 0);
+        miniMountain.localPosition = new Vector3(Geo.remapRange(mountMan.position.x, pScript.minX, pScript.maxX, -45, 45),
+                                                  Geo.remapRange(mountMan.position.z, pScript.minZ, pScript.maxZ, -45, 45), 0);
         //miniWeirdRoom.localPosition = new Vector3(futuroMan.position.x, futuroMan.position.z - 100, 0) * scale;
         //miniCity.localPosition = new Vector3(muerSubMan.position.x, muerSubMan.position.z - 100, 0) * scale;
 
@@ -97,25 +99,25 @@ public class Compass : MonoBehaviour
 
 
 
-        switch (pScript.location)
-        {
-            case NewPlayer.Location.MOUNTAINS:
+        //switch (pScript.location)
+        //{
+        //    case NewPlayer.Location.MOUNTAINS:
 
-                pImage.color = Color.Lerp(pImage.color, new Color(0, 1, 0, pImage.color.a), 0.025f);
+        //        pImage.color = Color.Lerp(pImage.color, new Color(0, 1, 0, pImage.color.a), 0.025f);
 
-                break;
-            case NewPlayer.Location.CITY:
+        //        break;
+        //    case NewPlayer.Location.CITY:
 
-                pImage.color = Color.Lerp(pImage.color, new Color(cityImage.color.r, cityImage.color.g, cityImage.color.b, pImage.color.a), 0.025f);
+        //        pImage.color = Color.Lerp(pImage.color, new Color(cityImage.color.r, cityImage.color.g, cityImage.color.b, pImage.color.a), 0.025f);
 
-                break;
-            case NewPlayer.Location.WEIRDROOM:
+        //        break;
+        //    case NewPlayer.Location.WEIRDROOM:
 
-                pImage.color = Color.Lerp(pImage.color, new Color(weirdRoomImage.color.r, weirdRoomImage.color.g, weirdRoomImage.color.b, pImage.color.a), 0.025f);
+        //        pImage.color = Color.Lerp(pImage.color, new Color(weirdRoomImage.color.r, weirdRoomImage.color.g, weirdRoomImage.color.b, pImage.color.a), 0.025f);
 
-                break;
+        //        break;
 
-        }
+        //}
 
 
 
