@@ -16,7 +16,7 @@ MonoBehaviour:
     m_Settings:
       mode: 0
       depth:
-        scale: 0
+        scale: 0.1
       motionVectors:
         sourceOpacity: 1
         motionImageOpacity: 0
@@ -359,8 +359,8 @@ MonoBehaviour:
     m_Settings:
       colored: 1
       intensity: 0.85
-      size: 0.3
-      luminanceContribution: 0.4
+      size: 3
+      luminanceContribution: 1
   vignette:
     m_Enabled: 0
     m_Settings:

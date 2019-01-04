@@ -15,10 +15,17 @@ public class songManager : MonoBehaviour
 
     public GameObject DebugVisualizer;
 
+    public bool claqueta;
+    bool claquetaOn;
+    public GameObject claquetaObj;
+
     // Use this for initialization
     void Start()
     {
         a = GetComponent<AudioSource>();
+
+        if (claquetaObj.activeSelf)
+            claquetaObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +38,8 @@ public class songManager : MonoBehaviour
         //        stopSong();
         //}
 
+        if (claquetaObj.activeSelf)
+            claquetaObj.SetActive(false);
 
         songTimer += Time.deltaTime;
 
@@ -41,6 +50,24 @@ public class songManager : MonoBehaviour
             else
                 DebugVisualizer.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            PreviousSong();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            NextSong();
+        }
+
+
+        if (!a.isPlaying)
+        {
+            NextSong();
+            //            Debug.Log("se acabo siguiente");
+        }
+
     }
 
 
@@ -54,6 +81,11 @@ public class songManager : MonoBehaviour
 
         a.Play();
         songTimer = 0;
+
+        if (claqueta)
+        {
+            claquetaObj.SetActive(true);
+        }
     }
 
     public void PreviousSong()
@@ -69,6 +101,11 @@ public class songManager : MonoBehaviour
 
         a.Play();
         songTimer = 0;
+
+        if (claqueta)
+        {
+            claquetaObj.SetActive(true);
+        }
     }
 
     public void stopSong()

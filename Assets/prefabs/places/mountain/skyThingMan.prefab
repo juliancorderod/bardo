@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4628761498176286}
   - component: {fileID: 114892984254856248}
+  - component: {fileID: 135066104991665104}
   m_Layer: 0
   m_Name: skyThingMan
-  m_TagString: Untagged
+  m_TagString: songTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wm: {fileID: 0}
+  p: {fileID: 0}
   skyThings: []
   gridObj: {fileID: 1368230274677172, guid: 85e295f0053784813ac464f7e699375b, type: 2}
   trailPrefab: {fileID: 1010023079280956, guid: f368968bfb01b4c398328a07f25c22d7,
@@ -88,10 +90,22 @@ MonoBehaviour:
   freeTrailsParent: {fileID: 4202808500139136}
   textToSampleFrom: {fileID: 0}
   sphereSize: 500
-  thingySpeed: 300
+  thingySpeed: 250
   turnSpeed: 175
   amountOfThingys: 70
   totalTrails: 400
   noiseSize: 0
   spectrumSpeedScale: 20
-  pulseScale: 10
+  pulseScale: 15
+--- !u!135 &135066104991665104
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197141189353208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

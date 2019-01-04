@@ -59,7 +59,7 @@ Shader "Hidden/Post FX/Grain Generator"
         {
             float a = Step2(uv, 0.07 * frac(_Phase));
             float b = Step2(uv, 0.11 * frac(_Phase));
-            float c = Step2(uv, 0.13 * frac(_Phase));
+            float c = Step2(uv, 0.5 * frac(_Phase));
             return float3(a, b, c);
         }
 

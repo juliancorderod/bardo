@@ -193,15 +193,7 @@ public class NewPlayer : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            songMan.PreviousSong();
-        }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            songMan.NextSong();
-        }
 
 
     }
@@ -343,8 +335,9 @@ public class NewPlayer : MonoBehaviour
         //------------------------------------------ HEIGHT & DESCENT ------------------------------------------
 
         //Where is the ground?
-        Ray groundCheckRay = new Ray(transform.position, Vector3.down);
+        Ray groundCheckRay = new Ray(transform.position + (Vector3.up * 100), Vector3.down);
         Physics.Raycast(groundCheckRay, out hit, 1000f, groundLayer);
+
 
         if (hit.collider != null)
         {

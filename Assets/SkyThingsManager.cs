@@ -36,10 +36,15 @@ public class SkyThingsManager : MonoBehaviour
     float noiseSampleScale = 1;
     float originalPulseScale, originalSpectrumSpeedScale, originalNoiseSampleScale;
 
+    float fogColH, fogColS, fogColV;
 
     // Use this for initialization
     void Start()
     {
+
+        Color.RGBToHSV(RenderSettings.fogColor, out fogColH, out fogColS, out fogColV);
+
+        Debug.Log(fogColS);
 
         for (int i = 0; i < totalTrails; i++)
         {
@@ -95,11 +100,13 @@ public class SkyThingsManager : MonoBehaviour
         originalPulseScale = pulseScale;
         originalSpectrumSpeedScale = spectrumSpeedScale;
         originalNoiseSampleScale = noiseSampleScale;
+
+
     }
 
     float sampleTimer;
     float totalSampleVal;
-    float activateSkyThingTimer, waitB4ActivatingTimer, time2Waitb4Activating = 20;
+    float activateSkyThingTimer, waitB4ActivatingTimer, time2Waitb4Activating = 10;
     int activateIndex;
 
     bool willNeedReset;
@@ -124,7 +131,7 @@ public class SkyThingsManager : MonoBehaviour
                         activateSkyThingTimer += Time.deltaTime * ((activateIndex * 0.5f) + 1);
                     else
                     {
-                        Debug.Log("activated " + activateIndex);
+                        //                        Debug.Log("activated " + activateIndex);
                         skyThings[activateIndex].gameObject.SetActive(true);
                         activateSkyThingTimer = 0;
                         activateIndex++;
@@ -136,7 +143,7 @@ public class SkyThingsManager : MonoBehaviour
             for (int i = 0; i < allTrails.Count; i++)
             {
                 if (allTrails[i].gameObject.activeSelf)
-                    allTrails[i].widthMultiplier = Geo.remapRange(allTrails[i].sortingOrder, 0, 9, 1.5f, 3.5f) + (spectrum.MeanLevels[1] * pulseScale);
+                    allTrails[i].widthMultiplier = Geo.remapRange(allTrails[i].sortingOrder, 0, 9, 1.5f, 3f) + (spectrum.MeanLevels[1] * pulseScale);
             }
 
 
@@ -161,7 +168,7 @@ public class SkyThingsManager : MonoBehaviour
 
 
                 avgSampleVal = Mathf.Clamp(avgSampleVal, 7, 27);
-                noiseSize = Geo.remapRange(avgSampleVal, 7, 27, 0, 15);
+                noiseSize = Geo.remapRange(avgSampleVal, 7, 27, 0, 12);
                 sampleTimer = 0;
                 totalSampleVal = 0;
             }
@@ -259,8 +266,8 @@ public class SkyThingsManager : MonoBehaviour
             freeTrails[0].transform.parent = parent;
             freeTrails[0].gameObject.SetActive(true);
             freeTrails[0].transform.localPosition = Vector3.zero;
-            freeTrails[0].startColor = new Color(((index % 10) + 1) * 100000, ((index % 10) + 1) * 100000, ((index % 10) + 1) * 100000);
-            //freeTrails[0].endColor = new Color((index % 10) / 10.0f, (index % 10) / 10.0f, (index % 10) / 10.0f);
+            freeTrails[0].startColor = Color.HSVToRGB(fogColH, fogColS, Geo.remapRange(index % 10, 0, 9, 0.8f, 2f));
+            freeTrails[0].endColor = RenderSettings.fogColor;
             freeTrails[0].sortingOrder = index % 10;
             freeTrails[0].Clear();
             freeTrails[0].enabled = true;
