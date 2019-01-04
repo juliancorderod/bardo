@@ -20,11 +20,12 @@ public class starManager : MonoBehaviour
             if (randOnSphere.y > 0)
             {
                 GameObject s = Instantiate(starObj, randOnSphere, Quaternion.identity);
-                s.transform.localScale = Vector3.one * 2; //Random.Range(0.5f, maxSize);
+                s.transform.localScale = Vector3.one * Random.Range(0.25f, maxSize);
                 s.transform.parent = transform;
                 s.transform.LookAt(ms.transform);
-
+                //s.GetComponent<SpriteRenderer>().color = Color.white * 100;
                 ms.stars.Add(s);
+                ms.originalStarSize.Add(s.transform.localScale.magnitude);
             }
             else
                 i--;

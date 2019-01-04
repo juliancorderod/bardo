@@ -167,8 +167,8 @@ public class SkyThingsManager : MonoBehaviour
                 //            Debug.Log(avgSampleVal);
 
 
-                avgSampleVal = Mathf.Clamp(avgSampleVal, 7, 27);
-                noiseSize = Geo.remapRange(avgSampleVal, 7, 27, 0, 12);
+                avgSampleVal = Mathf.Clamp(avgSampleVal, 5, 27);
+                noiseSize = Geo.remapRange(avgSampleVal, 5, 27, 0, 10);
                 sampleTimer = 0;
                 totalSampleVal = 0;
             }

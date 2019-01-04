@@ -517,8 +517,17 @@ public class NewPlayer : MonoBehaviour
                 break;
             case Location.MOUNTAINS:
 
-                cityLight.intensity -= Time.fixedDeltaTime * 2 * cityLightIntensity;
-                mountainLight.intensity += Time.fixedDeltaTime * 0.2f * mountainLightIntensity;
+
+                if (Vector3.Distance(transform.position, destinationPoint) > 5)
+                {
+                    cityLight.intensity -= Time.fixedDeltaTime * 2 * cityLightIntensity;
+                    mountainLight.intensity += Time.fixedDeltaTime * 0.2f * mountainLightIntensity;
+                }
+                else
+                {
+                    cityLight.intensity -= Time.fixedDeltaTime * 2 * cityLightIntensity;
+                    mountainLight.intensity -= Time.fixedDeltaTime * 2f * mountainLightIntensity;
+                }
 
                 if (floorLight.intensity < 4)
                     floorLight.intensity += Time.fixedDeltaTime * 0.5f;
@@ -664,11 +673,17 @@ public class NewPlayer : MonoBehaviour
                 RenderSettings.fogColor = Color.white;
                 RenderSettings.fogDensity = 0.01f;
             }
+
+            if (location == Location.MOUNTAINS)
+            {
+
+            }
+
         }
         else
         {
 
-            if (hit.collider != null)
+            if (hit.collider != null && !descending)
             {
                 if (other.tag == "mountains")
                     location = Location.MOUNTAINS;

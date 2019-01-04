@@ -17442,7 +17442,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -19565,8 +19565,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7beed126132ef41f28783546c481b438, type: 2}
   animationList: []
   stars: []
+  originalStarSize: []
   lightsLevelScale: 200
-  starsLevelScale: 3000
+  starsLevelScale: 150
   smokeLevelScale: 10
   sphereRadius: 200
   windowsLayer:

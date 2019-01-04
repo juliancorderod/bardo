@@ -16,6 +16,8 @@ public class MuerteSubitaManager : MonoBehaviour
 
     [HideInInspector]
     public List<GameObject> stars = new List<GameObject>();
+    [HideInInspector]
+    public List<float> originalStarSize = new List<float>();
 
 
     public float lightsLevelScale, starsLevelScale, smokeLevelScale, sphereRadius;
@@ -55,9 +57,6 @@ public class MuerteSubitaManager : MonoBehaviour
     [HideInInspector]
     public Color streetLightColor;
 
-    //[HideInInspector]
-    //public List<GameObject> windows = new List<GameObject>();
-
     Collider[] windows;
 
     public CityBuilder c;
@@ -92,6 +91,7 @@ public class MuerteSubitaManager : MonoBehaviour
         originalSmokeScale = smokeLevelScale;
 
         luzLuna = moon.GetComponent<Light>();
+
 
     }
 
@@ -167,12 +167,16 @@ public class MuerteSubitaManager : MonoBehaviour
 
                 for (int i = 0; i < stars.Count; i++)
                 {
-                    Vector3 size = Vector3.one * 2 * (1 + (spectrum.MeanLevels[(i % 2) + 8] * starsLevelScale));
-                    if (size.x < 4f)
-                        stars[i].transform.localScale = size;
+                    Vector3 size = originalStarSize[i] * Vector3.one * (1 + (spectrum.MeanLevels[(i % 2) + 8] * starsLevelScale));
+                    float maxSize = 6;
+                    size = new Vector3(Mathf.Clamp(size.x, originalStarSize[i], maxSize),
+                                       Mathf.Clamp(size.x, originalStarSize[i], maxSize),
+                                       Mathf.Clamp(size.x, originalStarSize[i], maxSize));
+                    //if (size.magnitude < 6f)
+                    stars[i].transform.localScale = size;
                     //the (i % 2) + 8 always returns 8,9 in this case
-                    else
-                        stars[i].transform.localScale = Vector3.one * 4f;
+                    //else
+                    //  stars[i].transform.localScale = Vector3.one * 3.95f;
 
                 }
 
