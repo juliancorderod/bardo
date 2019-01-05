@@ -44,7 +44,7 @@ public class SkyThingsManager : MonoBehaviour
 
         Color.RGBToHSV(RenderSettings.fogColor, out fogColH, out fogColS, out fogColV);
 
-        Debug.Log(fogColS);
+        //        Debug.Log(fogColS);
 
         for (int i = 0; i < totalTrails; i++)
         {
@@ -106,7 +106,7 @@ public class SkyThingsManager : MonoBehaviour
 
     float sampleTimer;
     float totalSampleVal;
-    float activateSkyThingTimer, waitB4ActivatingTimer, time2Waitb4Activating = 10;
+    float activateSkyThingTimer, waitB4ActivatingTimer, time2Waitb4Activating = 5;
     int activateIndex;
 
     bool willNeedReset;

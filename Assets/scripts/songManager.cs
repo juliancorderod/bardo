@@ -61,6 +61,14 @@ public class songManager : MonoBehaviour
             NextSong();
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            if (claqueta)
+                claqueta = false;
+            else
+                claqueta = true;
+        }
+
 
         if (!a.isPlaying)
         {

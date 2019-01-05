@@ -235,6 +235,8 @@ public class MuerteSubitaManager : MonoBehaviour
 
         shortDelay = 0;
 
+        moon.eulerAngles = originalMoonEuler;
+
     }
 
     public void adjustScales()

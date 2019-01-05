@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewPlayer : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class NewPlayer : MonoBehaviour
 
     [HideInInspector]
     public float mouseX, mouseY;
+    float mouseSensitivity;
 
     public float moveSpeed, slowDownSpeed, maxSpeed;
     float slowDownSpeedOriginal;
@@ -80,12 +82,16 @@ public class NewPlayer : MonoBehaviour
     public float slowDownSpeedLook;
 
     float yPosSpeedAdjustment;
+    public Text mouseSensitivityDebug;
 
     // Use this for initialization
     void Start()
     {
         mountainLightIntensity = mountainLight.intensity;
+        mountainLight.intensity = 0;
         cityLightIntensity = cityLight.intensity;
+        cityLight.intensity = 0;
+
 
         ascending = true;
 
@@ -104,12 +110,16 @@ public class NewPlayer : MonoBehaviour
         inSong = true;
 
         location = Location.MOUNTAINS;
+
+        mouseSensitivity = 1;
+
+#if UNITY_WEBGL
+        mouseSensitivity = 0.2f;
+#endif
     }
 
     void Update()
     {
-
-        //debugText.text = mouseX.ToString("F4") + "," + mouseY.ToString("F4");
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -127,10 +137,20 @@ public class NewPlayer : MonoBehaviour
 
             //HACER NOTA DE ESTO
             if (Input.GetKeyDown(KeyCode.Period))
-                moveSpeed *= 1.5f;
+                mouseSensitivity *= 1.25f;
             if (Input.GetKeyDown(KeyCode.Comma))
-                moveSpeed /= 1.5f;
+                mouseSensitivity /= 1.25f;
 
+            mouseSensitivityDebug.text = "mouse sens: " + mouseSensitivity;
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                if (mouseSensitivityDebug.gameObject.activeSelf)
+                    mouseSensitivityDebug.gameObject.SetActive(false);
+                else
+                    mouseSensitivityDebug.gameObject.SetActive(true);
+
+            }
 
         }
         else
@@ -227,8 +247,8 @@ public class NewPlayer : MonoBehaviour
         if (!onIOS)
         {
 
-            mouseX = Input.GetAxis("Mouse X") * Time.fixedDeltaTime * moveSpeed;
-            mouseY = Input.GetAxis("Mouse Y") * Time.fixedDeltaTime * moveSpeed;
+            mouseX = Input.GetAxis("Mouse X") * Time.fixedDeltaTime * moveSpeed * mouseSensitivity;
+            mouseY = Input.GetAxis("Mouse Y") * Time.fixedDeltaTime * moveSpeed * mouseSensitivity;
         }
         else
         {

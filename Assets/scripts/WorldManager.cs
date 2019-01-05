@@ -19,12 +19,17 @@ public class WorldManager : MonoBehaviour
 
     public GameObject workDirLight;
     public Text wmScaleDebug;
+    public GameObject canvas;
 
     // Use this for initialization
     void Start()
     {
         workDirLight.SetActive(false);
         wmScaleDebug.gameObject.SetActive(false);
+
+#if UNITY_WEBGL
+        masterScaleSpectrum = 0.4f;
+#endif
     }
 
     // Update is called once per frame
@@ -78,7 +83,13 @@ public class WorldManager : MonoBehaviour
         }
 
 
-
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (canvas.activeSelf)
+                canvas.SetActive(false);
+            else
+                canvas.SetActive(true);
+        }
 
 
         if (player.position.x > xPos + 2 || player.position.x < xPos - 2 ||
