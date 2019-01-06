@@ -21,6 +21,7 @@ public class WorldManager : MonoBehaviour
     public Text wmScaleDebug;
     public GameObject canvas;
 
+    bool firstFrame = true;
     // Use this for initialization
     void Start()
     {
@@ -28,13 +29,25 @@ public class WorldManager : MonoBehaviour
         wmScaleDebug.gameObject.SetActive(false);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-        masterScaleSpectrum = 0.5f;
+        masterScaleSpectrum = 0.45f;
 #endif
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (firstFrame)
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            futuroMan.adjustScales();
+            muerteMan.adjustScales();
+            fireFlyMan.adjustScales();
+            skyThingsMan.adjustScales();
+#endif
+            firstFrame = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Minus))
         {
             //if (masterScaleSpectrum > 0.3f)
@@ -62,13 +75,13 @@ public class WorldManager : MonoBehaviour
             skyThingsMan.adjustScales();
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (wmScaleDebug.gameObject.activeSelf)
-                wmScaleDebug.gameObject.SetActive(false);
-            else
-                wmScaleDebug.gameObject.SetActive(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    if (wmScaleDebug.gameObject.activeSelf)
+        //        wmScaleDebug.gameObject.SetActive(false);
+        //    else
+        //        wmScaleDebug.gameObject.SetActive(true);
+        //}
 
         if (wmScaleDebug.gameObject.activeSelf)
             wmScaleDebug.text = "wmScale: " + masterScaleSpectrum;

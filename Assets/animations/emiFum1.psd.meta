@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: a6ef9f246b8fa4e13a5a324792623780
-timeCreated: 1531779544
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: emiFum1_0
@@ -66,7 +64,8 @@ TextureImporter:
     21300118: emiFum1_59
     21300120: emiFum1_60
     21300122: emiFum1_61
-  serializedVersion: 4
+  externalObjects: {}
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -106,49 +105,63 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -157,871 +170,1249 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 5760
-        width: 540
-        height: 960
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e4e3b6ee3da7d4300baaeec8632ab732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_1
       rect:
         serializedVersion: 2
-        x: 540
-        y: 5760
-        width: 540
-        height: 960
+        x: 204
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e538f2ecb71514866a5733f2764bb295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_2
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 5760
-        width: 540
-        height: 960
+        x: 408
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4acbba4e4f51e41e081ece0d8dfce81d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_3
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 5760
-        width: 540
-        height: 960
+        x: 612
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 79742dfd611094ea48a38a560034817f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_4
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 5760
-        width: 540
-        height: 960
+        x: 816
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 83f60fe24eb2d471fa3c26abcaf119ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_5
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 5760
-        width: 540
-        height: 960
+        x: 1020
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5d007a6239fc34c42914a3157458e497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_6
       rect:
         serializedVersion: 2
-        x: 3240
-        y: 5760
-        width: 540
-        height: 960
+        x: 1224
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fc7da59876a86468c98d8e93181d809f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_7
       rect:
         serializedVersion: 2
-        x: 3780
-        y: 5760
-        width: 540
-        height: 960
+        x: 1428
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 66963d64d8f874322a3475c77de80cff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_8
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 5760
-        width: 540
-        height: 960
+        x: 1632
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9a616d4a8bc064cd1b483d2de888ae4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_9
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 5760
-        width: 540
-        height: 960
+        x: 1836
+        y: 2184
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8407167cd7080402ebc4bde288b98789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 4800
-        width: 540
-        height: 960
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4e82362f6ffdb49fa85ca87b681a1949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_11
       rect:
         serializedVersion: 2
-        x: 540
-        y: 4800
-        width: 540
-        height: 960
+        x: 204
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f13d275bcd2e74009aa6fc7dd406621d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_12
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 4800
-        width: 540
-        height: 960
+        x: 408
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 389f4e27b4a02442e99c65ebb5ad3577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_13
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 4800
-        width: 540
-        height: 960
+        x: 612
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 75aa434456631492d9ddc03fa85d0388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_14
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 4800
-        width: 540
-        height: 960
+        x: 816
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 873e5ba7072544169acbd395b2ffcc15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_15
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 4800
-        width: 540
-        height: 960
+        x: 1020
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 90ad4fb60c41f4f3993c9d7c1c5bc475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_16
       rect:
         serializedVersion: 2
-        x: 3240
-        y: 4800
-        width: 540
-        height: 960
+        x: 1224
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dab475aa7bfaa49a7ab6f68ef3776ab7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_17
       rect:
         serializedVersion: 2
-        x: 3780
-        y: 4800
-        width: 540
-        height: 960
+        x: 1428
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b9a31faed9d7f400c838d6519b576831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_18
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 4800
-        width: 540
-        height: 960
+        x: 1632
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5c03ac41e29e4546bb88e4fad3d339d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_19
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 4800
-        width: 540
-        height: 960
+        x: 1836
+        y: 1820
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 32f2cb47cfdb042db9462aaa83bd46e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_20
       rect:
         serializedVersion: 2
         x: 0
-        y: 3840
-        width: 540
-        height: 960
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: bc13b1d6ee96c4019a0fea154dc377d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_21
       rect:
         serializedVersion: 2
-        x: 540
-        y: 3840
-        width: 540
-        height: 960
+        x: 204
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 658651bc072e64deaa731ab97092fc3e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_22
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 3840
-        width: 540
-        height: 960
+        x: 408
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f03ffe6c7ab92401a91453af59193e97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_23
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 3840
-        width: 540
-        height: 960
+        x: 612
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a358a87936ceb4c82be18d2b3e0fa309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_24
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 3840
-        width: 540
-        height: 960
+        x: 816
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 739352712034444699b10d4f1b8f0b14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_25
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 3840
-        width: 540
-        height: 960
+        x: 1020
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 96e0d2fae451a4d72955d85c37720816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_26
       rect:
         serializedVersion: 2
-        x: 3240
-        y: 3840
-        width: 540
-        height: 960
+        x: 1224
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8b4ca1898daa54a17b3a2f9e652faaaa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_27
       rect:
         serializedVersion: 2
-        x: 3780
-        y: 3840
-        width: 540
-        height: 960
+        x: 1428
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 88adb93031d474d28a4a3b63fa6f1197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_28
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 3840
-        width: 540
-        height: 960
+        x: 1632
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9ab20661260fa44779740ed80f5c38c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_29
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 3840
-        width: 540
-        height: 960
+        x: 1836
+        y: 1456
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 102885d656869462a8219735acca2912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_30
       rect:
         serializedVersion: 2
         x: 0
-        y: 2880
-        width: 540
-        height: 960
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3d204879ea4474f8fbbcce7ea971fd0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_31
       rect:
         serializedVersion: 2
-        x: 540
-        y: 2880
-        width: 540
-        height: 960
+        x: 204
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6d64392009cb44fc39060051c500a8d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_32
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 2880
-        width: 540
-        height: 960
+        x: 408
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1c83b9b40b46d471687d426e464c0d7e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_33
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 2880
-        width: 540
-        height: 960
+        x: 612
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cbcef3db558124a0398323c0ab5739b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_34
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 2880
-        width: 540
-        height: 960
+        x: 816
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 66f324e8909e7454ab92dbac542c9203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_35
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 2880
-        width: 540
-        height: 960
+        x: 1020
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: efcc6593eff6948df9060cab57479ca6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_36
       rect:
         serializedVersion: 2
-        x: 3240
-        y: 2880
-        width: 540
-        height: 960
+        x: 1224
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 357cd5b30d6c641b099a6e9cbd8a7402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_37
       rect:
         serializedVersion: 2
-        x: 3780
-        y: 2880
-        width: 540
-        height: 960
+        x: 1428
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 13b3c5bd1f84f4ab994c0e26b452ece4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_38
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 2880
-        width: 540
-        height: 960
+        x: 1632
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a66b36f274bf492a8ca4079f439a1a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_39
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 2880
-        width: 540
-        height: 960
+        x: 1836
+        y: 1092
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0f8dd16ec92824ebbad563496e3bbf19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_40
       rect:
         serializedVersion: 2
         x: 0
-        y: 1920
-        width: 540
-        height: 960
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3203920793f145b1a39c32327d0744d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_41
       rect:
         serializedVersion: 2
-        x: 540
-        y: 1920
-        width: 540
-        height: 960
+        x: 204
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4ef0a059c2ff24b04baf3f4ebb55047c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_42
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 1920
-        width: 540
-        height: 960
+        x: 408
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1ac62f568c40c43e3bb94c0c1a2f5481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_43
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 1920
-        width: 540
-        height: 960
+        x: 612
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 93054d51ccc9a423387a30a226739082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_44
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 1920
-        width: 540
-        height: 960
+        x: 816
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 524bb7d45d8134916ac0e39f3326013b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_45
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 1920
-        width: 540
-        height: 960
+        x: 1020
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3e4eb3c1b61384dedb99a8745bbd91b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_46
       rect:
         serializedVersion: 2
-        x: 3240
-        y: 1920
-        width: 540
-        height: 960
+        x: 1224
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ffeb3ae51dd1b49e28fddfb511110895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_47
       rect:
         serializedVersion: 2
-        x: 3780
-        y: 1920
-        width: 540
-        height: 960
+        x: 1428
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c0768a101413b42f6b1780059b99e4d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_48
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 1920
-        width: 540
-        height: 960
+        x: 1632
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fc8a8f72078c24c7baf278516f26b5b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_49
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 1920
-        width: 540
-        height: 960
+        x: 1836
+        y: 728
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 97038fbcf9e034a46abec00a43578bc9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_50
       rect:
         serializedVersion: 2
         x: 0
-        y: 960
-        width: 540
-        height: 960
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f5f0581c08af6492aa9802e709db16f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_51
       rect:
         serializedVersion: 2
-        x: 540
-        y: 960
-        width: 540
-        height: 960
+        x: 204
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 639bf70bf53b940d7a6e75dbd8bf9192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_52
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 960
-        width: 540
-        height: 960
+        x: 408
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8eaddd16c0b5c4a349b8c3e578052fdf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_53
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 960
-        width: 540
-        height: 960
+        x: 612
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e21ea536566774d08969bbc0325149e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_54
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 960
-        width: 540
-        height: 960
+        x: 816
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84fe690c367a546019a653b37676261a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_55
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 960
-        width: 540
-        height: 960
+        x: 1020
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2c1a1c4c2e946449abd1fb44e8afe1fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_56
       rect:
         serializedVersion: 2
-        x: 3240
-        y: 960
-        width: 540
-        height: 960
+        x: 1224
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8545e64a5ed4e4a38a75033e252e6781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_57
       rect:
         serializedVersion: 2
-        x: 3780
-        y: 960
-        width: 540
-        height: 960
+        x: 1428
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 639a9b9383ad54dd298228592d95faf3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_58
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 960
-        width: 540
-        height: 960
+        x: 1632
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fda248591448a4651bab2dbbd88dcd6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_59
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 960
-        width: 540
-        height: 960
+        x: 1836
+        y: 364
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8af0b2ff2f5344f43921aa64a5792e32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_60
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 540
-        height: 960
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3bd33bffda22046529172b2805a12d8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: emiFum1_61
       rect:
         serializedVersion: 2
-        x: 540
+        x: 204
         y: 0
-        width: 540
-        height: 960
+        width: 204.8
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7d7599b0d734b4f75bf701650a444b1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: d976645605b0940c483627d2245a149f
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

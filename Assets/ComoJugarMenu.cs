@@ -55,7 +55,14 @@ public class ComoJugarMenu : MonoBehaviour
         }
 
         if (!primeraVez)
+        {
             jugar.text = "VOLVER";
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                jugarClic();
+            }
+        }
+
     }
 
     public void siguienteClic()

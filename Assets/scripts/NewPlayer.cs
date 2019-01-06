@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NewPlayer : MonoBehaviour
 {
     public ComoJugarMenu comoJugarMenu;
+    public Text clickPaBajar;
     public Transform camHolder;
 
     [HideInInspector]
@@ -77,8 +78,6 @@ public class NewPlayer : MonoBehaviour
 
     bool inArea = false;
 
-    [HideInInspector]
-    public bool dontDeactivate = true;
 
     public float slowDownSpeedLook;
 
@@ -130,10 +129,10 @@ public class NewPlayer : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                clicked = true;
-
-                if (dontDeactivate)
-                    dontDeactivate = false;
+                if (Cursor.lockState != CursorLockMode.Locked)
+                    Cursor.lockState = CursorLockMode.Locked;
+                else
+                    clicked = true;
             }
             else
                 clicked = false;
@@ -146,14 +145,14 @@ public class NewPlayer : MonoBehaviour
 
             mouseSensitivityDebug.text = "mouse sens: " + mouseSensitivity;
 
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                if (mouseSensitivityDebug.gameObject.activeSelf)
-                    mouseSensitivityDebug.gameObject.SetActive(false);
-                else
-                    mouseSensitivityDebug.gameObject.SetActive(true);
+            //if (Input.GetKeyDown(KeyCode.M))
+            //{
+            //    if (mouseSensitivityDebug.gameObject.activeSelf)
+            //        mouseSensitivityDebug.gameObject.SetActive(false);
+            //    else
+            //        mouseSensitivityDebug.gameObject.SetActive(true);
 
-            }
+            //}
 
         }
         else
@@ -216,7 +215,7 @@ public class NewPlayer : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.M))
         {
 
             comoJugarMenu.transform.parent.gameObject.SetActive(true);
@@ -320,17 +319,17 @@ public class NewPlayer : MonoBehaviour
         }
 
 
-        if (!inSong)
-        {
-            overWorldSong.volume = descendLerp;
-            ambientAudio.volume = 1 - descendLerp;
-        }
-        else
-        {
-            if (ambientAudio.volume > 0)
-                ambientAudio.volume -= Time.deltaTime;
-            overWorldSong.volume = 0;
-        }
+        //if (!inSong)
+        //{
+        //    overWorldSong.volume = descendLerp;
+        //    ambientAudio.volume = 1 - descendLerp;
+        //}
+        //else
+        //{
+        //    //if (ambientAudio.volume > 0)
+        //    //    ambientAudio.volume -= Time.deltaTime;
+        //    //overWorldSong.volume = 0;
+        //}
 
 
 
@@ -568,6 +567,8 @@ public class NewPlayer : MonoBehaviour
 
                 destinationPoint = mountainTrigger.position;
 
+                clickPaBajar.text = "CLICK PARA BAJAR A LA MONTAÑA";
+
                 break;
             case Location.CITY:
 
@@ -582,6 +583,8 @@ public class NewPlayer : MonoBehaviour
                 //ambientAudio.Play();
 
                 destinationPoint = muerteSubitaTrigger.position;
+
+                clickPaBajar.text = "CLICK PARA BAJAR A LA TERRAZA";
 
                 break;
 
@@ -599,13 +602,18 @@ public class NewPlayer : MonoBehaviour
 
                 destinationPoint = futuroTrigger.position;
 
+                clickPaBajar.text = "CLICK PARA BAJAR A LA LAGUNA";
+
                 break;
         }
 
         cityLight.intensity = Mathf.Clamp(cityLight.intensity, 0, cityLightIntensity);
         mountainLight.intensity = Mathf.Clamp(mountainLight.intensity, 0, mountainLightIntensity);
 
-
+        if (descendLerp > 0.01)
+            clickPaBajar.color = new Color(1, 1, 1, descendLerp);
+        else
+            clickPaBajar.color = new Color(1, 1, 1, 0);
 
     }
 

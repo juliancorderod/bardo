@@ -51,6 +51,7 @@ public class FuturoManager : MonoBehaviour
     Vector3 partyclesOriginalSize, lightningOriginalSize, lightningOriginalEuler, lightningOriginalPos;
 
 
+
     // Use this for initialization
     void Start()
     {

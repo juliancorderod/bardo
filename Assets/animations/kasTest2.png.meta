@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 72c68574ebed64da88a47a7e5af3cc9c
-timeCreated: 1531292294
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: kasTest2_0
@@ -34,7 +32,8 @@ TextureImporter:
     21300054: kasTest2_27
     21300056: kasTest2_28
     21300058: kasTest2_29
-  serializedVersion: 4
+  externalObjects: {}
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -74,49 +73,63 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,423 +138,529 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
-        width: 750
-        height: 400
+        y: 550
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5125c98b7d1414ef09580da90d32efa7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_1
       rect:
         serializedVersion: 2
-        x: 750
-        y: 2000
-        width: 750
-        height: 400
+        x: 204
+        y: 550
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a68b9b01de03240a3a602b6d4ae5e953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_2
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 2000
-        width: 750
-        height: 400
+        x: 408
+        y: 550
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3d5e62fc7e9484f74bffa74d5f28e24b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_3
       rect:
         serializedVersion: 2
-        x: 2250
-        y: 2000
-        width: 750
-        height: 400
+        x: 612
+        y: 550
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eedc9df111ed54af1be4680cd4dcb454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_4
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 2000
-        width: 750
-        height: 400
+        x: 816
+        y: 550
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b9b9ea8140d96409d9218e45e703cbe6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 1600
-        width: 750
-        height: 400
+        y: 440
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: d3ffb7998b6ba4ed98652c9b22f79bdd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_6
       rect:
         serializedVersion: 2
-        x: 750
-        y: 1600
-        width: 750
-        height: 400
+        x: 204
+        y: 440
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 00580ddff7767472ab4e7abc83744888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_7
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1600
-        width: 750
-        height: 400
+        x: 408
+        y: 440
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 475f32e27d6f44b9fa7f45ebb37f9701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_8
       rect:
         serializedVersion: 2
-        x: 2250
-        y: 1600
-        width: 750
-        height: 400
+        x: 612
+        y: 440
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8cecec526ad8746538e88bbba4940e46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_9
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 1600
-        width: 750
-        height: 400
+        x: 816
+        y: 440
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6675cafd163db494d839d83d486037fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 1200
-        width: 750
-        height: 400
+        y: 330
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ce6e45e4f7b274043a17c528e4268514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_11
       rect:
         serializedVersion: 2
-        x: 750
-        y: 1200
-        width: 750
-        height: 400
+        x: 204
+        y: 330
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ef1acd497a87e4a4eb57e53e2965f1c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_12
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1200
-        width: 750
-        height: 400
+        x: 408
+        y: 330
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c183b49bfdc7640cfae81828849a66ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_13
       rect:
         serializedVersion: 2
-        x: 2250
-        y: 1200
-        width: 750
-        height: 400
+        x: 612
+        y: 330
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8278db72e454d49d5b62e64bb8507c59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_14
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 1200
-        width: 750
-        height: 400
+        x: 816
+        y: 330
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f5e3cbb56a91e4024a69af5568ecc88b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_15
       rect:
         serializedVersion: 2
         x: 0
-        y: 800
-        width: 750
-        height: 400
+        y: 220
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eec3d7bc8b0294b0e8ca6fcecfe55a96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_16
       rect:
         serializedVersion: 2
-        x: 750
-        y: 800
-        width: 750
-        height: 400
+        x: 204
+        y: 220
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fade174aab75e442ebaa1a7c1a7a4593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_17
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 800
-        width: 750
-        height: 400
+        x: 408
+        y: 220
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 698b9e605623244b0b7b721b6f39c740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_18
       rect:
         serializedVersion: 2
-        x: 2250
-        y: 800
-        width: 750
-        height: 400
+        x: 612
+        y: 220
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 93821904936014ed6a82aea98b8ad9d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_19
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 800
-        width: 750
-        height: 400
+        x: 816
+        y: 220
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 1cbffa059a8e846718649c09fa9829e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_20
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
-        width: 750
-        height: 400
+        y: 110
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 89357db29af7648e385a3f2882ba2c93
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_21
       rect:
         serializedVersion: 2
-        x: 750
-        y: 400
-        width: 750
-        height: 400
+        x: 204
+        y: 110
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c80e5fb5a1d934bf79d2b492149f251d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_22
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 400
-        width: 750
-        height: 400
+        x: 408
+        y: 110
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9cc38bb801614467f97e6e48949d9abe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_23
       rect:
         serializedVersion: 2
-        x: 2250
-        y: 400
-        width: 750
-        height: 400
+        x: 612
+        y: 110
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 11edf0bb8b014456ba7fc2d09e9452fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_24
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 400
-        width: 750
-        height: 400
+        x: 816
+        y: 110
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f5a3bb89e27684c058e02368b9a62725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: kasTest2_25
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 750
-        height: 400
+        width: 204.8
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    - serializedVersion: 2
-      name: kasTest2_26
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 750
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: kasTest2_27
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 750
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: kasTest2_28
-      rect:
-        serializedVersion: 2
-        x: 2250
-        y: 0
-        width: 750
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: kasTest2_29
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 750
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      bones: []
+      spriteID: 30b935dab2c264fdba43bf3a7f558ee7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 3a519bf5d9fb54ac8a404699acaf91e0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

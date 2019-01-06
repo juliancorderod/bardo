@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 231e6c02018854f3ea7a753b0098fc81
-timeCreated: 1531616303
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: jBeer1_0
@@ -60,7 +58,8 @@ TextureImporter:
     21300106: jBeer1_53
     21300108: jBeer1_54
     21300110: jBeer1_55
-  serializedVersion: 4
+  externalObjects: {}
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -100,49 +99,63 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -151,647 +164,989 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1620
-        width: 491
-        height: 540
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 047d10b45c32c44b69f152461ab6cee6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_1
       rect:
         serializedVersion: 2
-        x: 491
-        y: 1620
-        width: 491
-        height: 540
+        x: 68
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: b7a4131c4841e4f2f808612970c4fab4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_2
       rect:
         serializedVersion: 2
-        x: 982
-        y: 1620
-        width: 491
-        height: 540
+        x: 136
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 235b35201525d4392998c5e27898e28e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_3
       rect:
         serializedVersion: 2
-        x: 1473
-        y: 1620
-        width: 491
-        height: 540
+        x: 204
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: dac2c0fe05f534b29978507ea8d8c536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_4
       rect:
         serializedVersion: 2
-        x: 1964
-        y: 1620
-        width: 491
-        height: 540
+        x: 272
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 41fda2fc8026143bca0796215e1e019d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_5
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 1620
-        width: 491
-        height: 540
+        x: 340
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 37bbba1ac94f84b3eb9716205ff4f980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_6
       rect:
         serializedVersion: 2
-        x: 2946
-        y: 1620
-        width: 491
-        height: 540
+        x: 408
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fd352035110d04163b9a60d12c15daff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_7
       rect:
         serializedVersion: 2
-        x: 3437
-        y: 1620
-        width: 491
-        height: 540
+        x: 476
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 627512a629e9245d09338781bf8cbf97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_8
       rect:
         serializedVersion: 2
-        x: 3928
-        y: 1620
-        width: 491
-        height: 540
+        x: 544
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: be59f726bcf1e40a98b1b6298262de6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_9
       rect:
         serializedVersion: 2
-        x: 4419
-        y: 1620
-        width: 491
-        height: 540
+        x: 612
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 81e3984f1e3104462b243b1ea516c41f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_10
       rect:
         serializedVersion: 2
-        x: 4910
-        y: 1620
-        width: 491
-        height: 540
+        x: 680
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7a7d65233da354710be50e0f5f75a733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_11
       rect:
         serializedVersion: 2
-        x: 5401
-        y: 1620
-        width: 491
-        height: 540
+        x: 748
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6e9f5111855f24d11aee3ac87e0b5675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_12
       rect:
         serializedVersion: 2
-        x: 5892
-        y: 1620
-        width: 491
-        height: 540
+        x: 816
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5729391ea75e544ec879cad492e6217a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_13
       rect:
         serializedVersion: 2
-        x: 6383
-        y: 1620
-        width: 491
-        height: 540
+        x: 884
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24a4b0cc5784b47d0ae2e6f5939292f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1080
-        width: 491
-        height: 540
+        x: 952
+        y: 225
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 28553fc086d934cdab213374afefda86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_15
       rect:
         serializedVersion: 2
-        x: 491
-        y: 1080
-        width: 491
-        height: 540
+        x: 0
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9ceebba5981134f0db6aee90b99b049b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_16
       rect:
         serializedVersion: 2
-        x: 982
-        y: 1080
-        width: 491
-        height: 540
+        x: 68
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fb5c9fb3a60f2413d8d7e467f0a6f4e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_17
       rect:
         serializedVersion: 2
-        x: 1473
-        y: 1080
-        width: 491
-        height: 540
+        x: 136
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c95a49abab8a746e48b11bad55e5a307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_18
       rect:
         serializedVersion: 2
-        x: 1964
-        y: 1080
-        width: 491
-        height: 540
+        x: 204
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 16ecf9c6d8b454db1b316a74a186c502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_19
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 1080
-        width: 491
-        height: 540
+        x: 272
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a943cd0a64f784eb895fea6cdc784358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_20
       rect:
         serializedVersion: 2
-        x: 2946
-        y: 1080
-        width: 491
-        height: 540
+        x: 340
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 511a4134a08694da6977348521a9ec29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_21
       rect:
         serializedVersion: 2
-        x: 3437
-        y: 1080
-        width: 491
-        height: 540
+        x: 408
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6f4130acbe9d94260afc59c9299e715f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_22
       rect:
         serializedVersion: 2
-        x: 3928
-        y: 1080
-        width: 491
-        height: 540
+        x: 476
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ac9538848a44a4825990efdaf0741a30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_23
       rect:
         serializedVersion: 2
-        x: 4419
-        y: 1080
-        width: 491
-        height: 540
+        x: 544
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: af44565c7c81d4869a282fde71c3f49d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_24
       rect:
         serializedVersion: 2
-        x: 4910
-        y: 1080
-        width: 491
-        height: 540
+        x: 612
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 5866f7bb8f2b740a5a56f38a76428b9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_25
       rect:
         serializedVersion: 2
-        x: 5401
-        y: 1080
-        width: 491
-        height: 540
+        x: 680
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9d3f0436e56b64555ab743367fb88812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_26
       rect:
         serializedVersion: 2
-        x: 5892
-        y: 1080
-        width: 491
-        height: 540
+        x: 748
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 93dda9bb122e24fb58cfee11517f2e5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_27
       rect:
         serializedVersion: 2
-        x: 6383
-        y: 1080
-        width: 491
-        height: 540
+        x: 816
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a95f03834ec5748d1976f6e5cec06e73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 540
-        width: 491
-        height: 540
+        x: 884
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 77c95ddeb8d254636af0b07d568ca975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_29
       rect:
         serializedVersion: 2
-        x: 491
-        y: 540
-        width: 491
-        height: 540
+        x: 952
+        y: 150
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 78ccf8858fd9342619e5972943c2cf72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_30
       rect:
         serializedVersion: 2
-        x: 982
-        y: 540
-        width: 491
-        height: 540
+        x: 0
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cd6970a4ac5ee4a0a971abeece3f3151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_31
       rect:
         serializedVersion: 2
-        x: 1473
-        y: 540
-        width: 491
-        height: 540
+        x: 68
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: fdca14e2c13c340c78ad40a1da8a08b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_32
       rect:
         serializedVersion: 2
-        x: 1964
-        y: 540
-        width: 491
-        height: 540
+        x: 136
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cab68866778bc4dccb1de8dbcd06d44b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_33
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 540
-        width: 491
-        height: 540
+        x: 204
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c830af01b35bf4adebc5763593711223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_34
       rect:
         serializedVersion: 2
-        x: 2946
-        y: 540
-        width: 491
-        height: 540
+        x: 272
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0cda19f0acc554b70bb766379dbe7eae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_35
       rect:
         serializedVersion: 2
-        x: 3437
-        y: 540
-        width: 491
-        height: 540
+        x: 340
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 74017102a87cc4cfba8aa45b0c7bf541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_36
       rect:
         serializedVersion: 2
-        x: 3928
-        y: 540
-        width: 491
-        height: 540
+        x: 408
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 253851be36934497aa21f43872292918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_37
       rect:
         serializedVersion: 2
-        x: 4419
-        y: 540
-        width: 491
-        height: 540
+        x: 476
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 46a6175f0a2e2459ea213b63d4682900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_38
       rect:
         serializedVersion: 2
-        x: 4910
-        y: 540
-        width: 491
-        height: 540
+        x: 544
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4591516e97b4f489b9f0faaa74f335ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_39
       rect:
         serializedVersion: 2
-        x: 5401
-        y: 540
-        width: 491
-        height: 540
+        x: 612
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c747a07ffb0b6492dabca089a10e33c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_40
       rect:
         serializedVersion: 2
-        x: 5892
-        y: 540
-        width: 491
-        height: 540
+        x: 680
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 240c759507a8240b6a69a5b0767f1897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_41
       rect:
         serializedVersion: 2
-        x: 6383
-        y: 540
-        width: 491
-        height: 540
+        x: 748
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2d2f758edc1c4729ba998c4de18256f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_42
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 491
-        height: 540
+        x: 816
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 493799ec3d92042918e39f291982efb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_43
       rect:
         serializedVersion: 2
-        x: 491
-        y: 0
-        width: 491
-        height: 540
+        x: 884
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eb0dcd8a43d9444be90942215b4481f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_44
       rect:
         serializedVersion: 2
-        x: 982
-        y: 0
-        width: 491
-        height: 540
+        x: 952
+        y: 75
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4da605ad67b246e49f37b86c2d29dfc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: jBeer1_45
       rect:
         serializedVersion: 2
-        x: 1473
+        x: 0
         y: 0
-        width: 491
-        height: 540
+        width: 68.26667
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a7f7235869fb7425a8f60bdbb900142a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jBeer1_46
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 68.26667
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa14dc0990fa4540839705533beac7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jBeer1_47
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 68.26667
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef81e01f45be42f090cfef45cdf853d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jBeer1_48
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 68.26667
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5df15eee8d7714bffaa33f00e182b02c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 50a059fd55fab4bfab42015741e34d59
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
