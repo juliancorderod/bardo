@@ -27,8 +27,8 @@ public class WorldManager : MonoBehaviour
         workDirLight.SetActive(false);
         wmScaleDebug.gameObject.SetActive(false);
 
-#if UNITY_WEBGL
-        masterScaleSpectrum = 0.4f;
+#if UNITY_WEBGL && !UNITY_EDITOR
+        masterScaleSpectrum = 0.5f;
 #endif
     }
 

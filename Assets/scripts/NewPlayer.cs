@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class NewPlayer : MonoBehaviour
 {
+    public ComoJugarMenu comoJugarMenu;
     public Transform camHolder;
 
     [HideInInspector]
@@ -113,9 +114,11 @@ public class NewPlayer : MonoBehaviour
 
         mouseSensitivity = 1;
 
-#if UNITY_WEBGL
+#if UNITY_WEBGL && !UNITY_EDITOR
         mouseSensitivity = 0.2f;
 #endif
+
+
     }
 
     void Update()
@@ -213,7 +216,12 @@ public class NewPlayer : MonoBehaviour
         }
 
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
 
+            comoJugarMenu.transform.parent.gameObject.SetActive(true);
+            comoJugarMenu.enabled = true;
+        }
 
 
     }

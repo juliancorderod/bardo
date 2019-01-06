@@ -19,6 +19,6 @@ public class NombreCancion : MonoBehaviour
     void Update()
     {
         if (songSource.clip != null)
-            t.text = songSource.clip.name;
+            t.text = songSource.clip.name.ToUpper();
     }
 }
