@@ -29,7 +29,7 @@ public class WorldManager : MonoBehaviour
         wmScaleDebug.gameObject.SetActive(false);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-        masterScaleSpectrum = 0.45f;
+        masterScaleSpectrum = 0.5f;
 #endif
 
     }

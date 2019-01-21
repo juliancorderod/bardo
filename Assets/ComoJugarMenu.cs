@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ComoJugarMenu : MonoBehaviour
 {
     public GameObject[] slides;
-    public GameObject siguiente, atras;
-    public Image cover;
+    public GameObject siguiente, atras, salir, juegoCanvas;
+    public Image cover, bg;
     public Text jugar;
     public NewPlayer p;
 
@@ -20,13 +20,14 @@ public class ComoJugarMenu : MonoBehaviour
     {
         index = -1;
         siguienteClic();
-
+        salir.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         if (index == 0)
             atras.SetActive(false);
@@ -56,11 +57,17 @@ public class ComoJugarMenu : MonoBehaviour
 
         if (!primeraVez)
         {
+            bg.color = new Color(bg.color.r, bg.color.g, bg.color.b, 0.75f);
             jugar.text = "VOLVER";
+            juegoCanvas.SetActive(false);
             if (Input.GetKeyDown(KeyCode.M))
             {
                 jugarClic();
             }
+
+#if UNITY_STANDALONE
+            salir.SetActive(true);
+#endif
         }
 
     }
@@ -95,7 +102,13 @@ public class ComoJugarMenu : MonoBehaviour
         {
             p.enabled = true;
             transform.parent.gameObject.SetActive(false);
+            juegoCanvas.SetActive(true);
         }
+    }
+
+    public void salirClic()
+    {
+        Application.Quit();
     }
 
     private void OnEnable()

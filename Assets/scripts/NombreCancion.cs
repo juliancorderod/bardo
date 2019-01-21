@@ -10,7 +10,6 @@ public class NombreCancion : MonoBehaviour
 
     public AudioSource songSource;
     Text t;
-    public string mueSub;
 
     // Use this for initialization
     void Start()
@@ -24,5 +23,8 @@ public class NombreCancion : MonoBehaviour
     {
         if (songSource.clip != null)
             t.text = songSource.clip.name.ToUpper();
+
+        if (t.text == "MUERTE SUBITA")
+            t.text = "MUERTE SÚBITA";
     }
 }

@@ -124,15 +124,13 @@ public class NewPlayer : MonoBehaviour
     {
 
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if (!onIOS)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                if (Cursor.lockState != CursorLockMode.Locked)
-                    Cursor.lockState = CursorLockMode.Locked;
-                else
-                    clicked = true;
+                clicked = true;
             }
             else
                 clicked = false;
